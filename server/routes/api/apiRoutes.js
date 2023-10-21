@@ -1,16 +1,8 @@
 const router = require('express').Router();
+const { signup, login } = require('../../controllers/api/apiControllers')
 
-router.get('/', (req, res) => {
-    res.json('Inside api');
-});
+router.post('/signup', signup);
 
-router.post('/', (req, res) => {
-    console.log(req.body);
-    res.json('Inside api');
-});
-
-router.delete('', (req, res) => {
-
-});
+router.post('/login', login);
 
 module.exports = router;
