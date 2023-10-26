@@ -62,6 +62,11 @@ const itemRoutes = {
                 { new: true }
             );
 
+            if (!updatedItem) {
+                res.status(404).json( { message: "Item not found under user!" });
+                return;
+            }
+
             res.json(updatedItem);
         } catch (e) {
             console.log(e);
@@ -75,13 +80,18 @@ const itemRoutes = {
                 return;
             }
 
-            await Item.findOneAndRemove(
+            const deletedItem = await Item.findOneAndRemove(
                 { 
                     _id: req.params.id, 
                     owner: req.session.username
                 },
                 { new: true }
             );
+
+            if (!deletedItem) {
+                res.status(404).json( { message: "Item not found under user!" });
+                return;
+            }
 
             const updatedUser = await User.findOneAndUpdate(
                 { _id: req.session.userId, },
