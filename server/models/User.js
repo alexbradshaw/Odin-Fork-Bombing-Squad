@@ -18,6 +18,12 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    items: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Item',
+      }
+    ]
   },
 );
 
@@ -34,7 +40,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
   let compare = await bcrypt.compare(password, this.password);
   return compare;
 };
-
 
 const User = model('User', userSchema);
 
