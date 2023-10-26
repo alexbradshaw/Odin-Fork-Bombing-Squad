@@ -1,8 +1,9 @@
 const db = require('../config/connection');
 const bcrypt = require('bcrypt');
-const { User } = require('../models');
+const { User, Item } = require('../models');
 
 const userData = require('./userData.json');
+const itemData = require('./itemData.json')
 
 const saltRounds = 10;
 
@@ -38,6 +39,30 @@ db.once('open', async () => {
   await User.insertMany(userData);
 
   console.log('Users seeded!');
+
+  await Item.deleteMany({});
+  await Item.insertMany(itemData);
+
+  console.log('Items seeded!');
+
+  const userIds = await User.find({}, '_id');
+  const itemIds = await Item.find({}, '_id');
+
+  for (let i = 0; i < itemData.length; i++) {
+    await User.findOneAndUpdate (
+      { _id: userIds[Math.floor(i / 2)]._id },
+      { $push: { items: itemIds[i]._id } },
+      { new: true }
+    )
+  }
+
+  const users = await User.find({}).populate('items');
+  
+  console.log("\nFinal Users");
+
+  for (let i = 0; i < users.length; i++) {
+    console.log(users[i]);
+  }
 
   process.exit(0);
 });
