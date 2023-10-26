@@ -3,7 +3,11 @@ const { User } = require('../../models');
 const userRoutes = {
   async getUser(req, res) {
     try {
-        const user = await User.findOne({ _id: req.session.userId }).select('-password').populate('items', '-__v').select('-__v');
+        if (!req.session.userId) {
+          res.status(404).json( { message: "You are not signed in!" });
+          return;
+        }
+        const user = await User.findOne({ _id: req.session.userId }).select('-password -__v').populate('items', '-__v');
 
         console.log(user);
 
