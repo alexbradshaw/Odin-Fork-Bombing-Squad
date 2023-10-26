@@ -1,0 +1,59 @@
+[
+    {
+      "name": "Dog Food",
+      "price": 5,
+      "owner": "alex",
+      "quantity": 1,
+      "image": ""
+    },
+    {
+      "name": "Sammy's House",
+      "price": 5,
+      "owner": "alex",
+      "quantity": 1,
+      "image": ""
+    },
+    {
+      "name": "Skateboard",
+      "price": 50,
+      "owner": "sammy",
+      "quantity": 3,
+      "image": ""
+    },
+    {
+      "name": "CodeHub's Most Precious Gem",
+      "price": 100000,
+      "owner": "sammy",
+      "quantity": 1,
+      "image": ""
+    },
+    {
+      "name": "Sunglasses",
+      "price": 3,
+      "owner": "venn",
+      "quantity": 5,
+      "image": ""
+    },
+    {
+      "name": "Headphones",
+      "price": 70,
+      "owner": "venn",
+      "quantity": 1,
+      "image": ""
+    },
+    {
+      "name": "Power Supply",
+      "price": 120,
+      "owner": "yushus",
+      "quantity": 2,
+      "image": ""
+    },
+    {
+      "name": "Macbook",
+      "price": 1200,
+      "owner": "yushus",
+      "quantity": 2,
+      "image": ""
+    }
+  ]
+  
