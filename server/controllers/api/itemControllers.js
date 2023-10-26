@@ -8,13 +8,16 @@ const itemRoutes = {
             return;
         }
 
-        const newItem = await Item.create(req.body);
+        const newItem = await Item.create({
+            ...req.body, 
+            "owner":req.session.username
+        });
       
         const updatedUser = await User.findOneAndUpdate (
           { _id: req.session.userId },
           { $push: { items: newItem._id} },
           { runValidators: true, new: true }
-        )
+        ).populate('items');
   
         res.json(updatedUser);
     } catch (e) {
@@ -97,7 +100,7 @@ const itemRoutes = {
                 { _id: req.session.userId, },
                 { $pull: { items: req.params.id } },
                 { new: true }
-            );
+            ).populate('items');
 
             res.json(updatedUser);
         } catch (e) {

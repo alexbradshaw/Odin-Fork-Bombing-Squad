@@ -1,0 +1,112 @@
+/* Listings Component */
+
+.listings {
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* ListingHeader Component */
+
+.listingHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.hello {
+    width: 180px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listingButtons {
+    margin-left: auto;
+    margin-right: 20px;
+    width: 150px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* NewItem Component */
+
+.newItem {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.newItemContainer {
+    width: 80%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 20px;
+}
+
+.newItemForm {
+    width: fit-content;
+    height: 50%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.input {
+    width: 100%;
+    display: flex;
+}
+
+.input input {
+    height: 20px;
+    margin-left: 10px;
+}
+
+/* ListingContainer Component */
+
+.listingContainer {
+    width: 80%;
+    height: 700px;
+    border: 3px solid black;
+    overflow-y: scroll;
+    margin: 20px 0 50px;
+    padding: 30px;
+}
+
+    /* ListItem Sub-Component */
+
+    .listItem {
+        width: 100%;
+        height: 90px;
+        border: 2px solid black;
+        border-radius: 20px;
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+
+    }
+
+    .itemTitle {
+        height: 100%;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+    }
+
+    .cost {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: 30px;
+    }
+
+    .delete {
+        margin-right: 20px;
+    }
