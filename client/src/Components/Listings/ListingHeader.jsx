@@ -5,7 +5,7 @@ import IconButton from "./IconButton";
 
 const ListingHeader = ({ clicked, name, formData, func }) => {
 
-    const { setItemsArray, setNewItem, setForm, setError } = func; // extract functions from func object
+    const { setItemsArray, setNewItem, setError } = func; // extract functions from func object
 
     const newItem = () => {
         setNewItem(!clicked);
@@ -13,8 +13,9 @@ const ListingHeader = ({ clicked, name, formData, func }) => {
 
     const submitHandler = async () => {
         try {
-            if (Object.entries(formData).some((el) => el[1] == "" || el[1] == 0)) {
-                setError("A form field is empty!");
+            const formArray = Object.entries(formData) 
+            if (formArray.some((el) => el[1] == "" || el[1] == 0)) {
+                setError("A form field is invalid!");
                 return;
             }
 
@@ -23,12 +24,6 @@ const ListingHeader = ({ clicked, name, formData, func }) => {
             setItemsArray(items); // set Items array
     
             setNewItem(false); // Close form
-            setForm({ // Reset form values
-                name: "",
-                price: 0,
-                quantity: 1,
-                image: ""
-            })
             setError("");
         } catch (e) {
             setError(e.message);
