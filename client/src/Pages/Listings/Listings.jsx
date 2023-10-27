@@ -2,7 +2,7 @@ import './Listings.css'
 
 import { useState, useEffect } from 'react';
 
-import { loginTest } from '../../utils/Listings API Calls';
+import { loginTest } from '../../utils/API';
 
 import ListingHeader from "../../Components/Listings/ListingHeader"
 import NewItem from "../../Components/Listings/NewItem"

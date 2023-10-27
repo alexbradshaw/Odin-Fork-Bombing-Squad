@@ -1,4 +1,4 @@
-import { createNewItem } from "../../utils/Listings API Calls";
+import { createNewItem } from "../../utils/API";
 
 import Confirm from './Confirm';
 import IconButton from "./IconButton";
