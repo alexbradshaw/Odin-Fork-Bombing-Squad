@@ -43,9 +43,20 @@ const Listings = () => {
 
     useEffect(() => fetchUserData, []);
 
+    useEffect(() => {
+        if (!newItem) {
+            setForm({
+                name: "",
+                price: 0,
+                quantity: 0,
+                image: ""
+            })
+        }
+    }, [newItem]);
+
     return (
         <div className='listings'>
-            <ListingHeader name={userData.username} formData={formData} clicked={newItem} func={{ setForm, setNewItem, setItemsArray, setError }} />
+            <ListingHeader name={userData.username} formData={formData} clicked={newItem} func={{ setNewItem, setItemsArray, setError }} />
             {
                 newItem ? 
                 <NewItem formData={formData} setForm={setForm}/>
