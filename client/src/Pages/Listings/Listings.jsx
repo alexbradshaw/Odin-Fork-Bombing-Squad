@@ -13,10 +13,12 @@ const Listings = () => {
 
     const [newItem, setNewItem] = useState(false); // handles if the user clicks the newItem toggle
 
+    const [error, setError] = useState("");
+
     const [formData, setForm] = useState({ // Update form state for newItem
         name: "",
         price: 0,
-        quantity: 1,
+        quantity: 0,
         image: ""
     });
 
@@ -26,27 +28,34 @@ const Listings = () => {
     });
 
     const fetchUserData = async () => { // fetches user data for current logged in user
-        loginTest; // just temporarily log in user
+        try {
+            await loginTest(); // just temporarily log in user
 
-        const response = await fetch("/api/user"); // call user object when page loads
-        const { username, email, items } = await response.json();
+            const response = await fetch("/api/user"); // call user object when page loads
+            const { username, email, items } = await response.json();
 
-        setData({ username, email });
-        setItemsArray(items);
+            setData({ username, email });
+            setItemsArray(items);
+        } catch (e) {
+            setError(e.message);
+        }
     };
 
     useEffect(() => fetchUserData, []);
 
     return (
         <div className='listings'>
-            <ListingHeader name={userData.username} formData={formData} clicked={newItem} func={{ setForm, setNewItem, setItemsArray }} />
+            <ListingHeader name={userData.username} formData={formData} clicked={newItem} func={{ setForm, setNewItem, setItemsArray, setError }} />
             {
                 newItem ? 
                 <NewItem formData={formData} setForm={setForm}/>
                 :  
                 <></>
             }
-            <ListingContainer items={items} setItemsArray={setItemsArray}/>
+            <div style={{"width":"100%", "textAlign":"center", "color":"red"}}>
+                {error}
+            </div>
+            <ListingContainer items={items} setItemsArray={setItemsArray} setError={setError}/>
         </div>
     );
 };
