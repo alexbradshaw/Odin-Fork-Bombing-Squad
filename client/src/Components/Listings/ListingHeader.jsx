@@ -5,24 +5,34 @@ import IconButton from "./IconButton";
 
 const ListingHeader = ({ clicked, name, formData, func }) => {
 
-    const { setItemsArray, setNewItem, setForm } = func; // extract functions from func object
+    const { setItemsArray, setNewItem, setForm, setError } = func; // extract functions from func object
 
     const newItem = () => {
         setNewItem(!clicked);
     }
 
     const submitHandler = async () => {
-        const items = await createNewItem(formData); // get items array
+        try {
+            if (Object.entries(formData).some((el) => el[1] == "" || el[1] == 0)) {
+                setError("A form field is empty!");
+                return;
+            }
 
-        setItemsArray(items); // set Items array
-
-        setNewItem(false); // Close form
-        setForm({ // Reset form values
-            name: "",
-            price: 0,
-            quantity: 1,
-            image: ""
-        })
+            const items = await createNewItem(formData); // get items array
+        
+            setItemsArray(items); // set Items array
+    
+            setNewItem(false); // Close form
+            setForm({ // Reset form values
+                name: "",
+                price: 0,
+                quantity: 1,
+                image: ""
+            })
+            setError("");
+        } catch (e) {
+            setError(e.message);
+        }
     }
 
     return (
