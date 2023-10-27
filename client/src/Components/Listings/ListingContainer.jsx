@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Confirm from './Confirm';
 import IconButton from './IconButton';
 
-const ListingContainer = ({ items, setItemsArray }) => {
+const ListingContainer = ({ items, setItemsArray, setError }) => {
 
     const ListItem = ({ item }) => {
 
@@ -15,6 +15,13 @@ const ListingContainer = ({ items, setItemsArray }) => {
 
         const deleteHandler = async () => {
             const response = await fetch(`/api/item/${item._id}`, { method: "DELETE" }); // call api for current item
+
+            if (!response.ok) {
+                const error = await response.json()
+                setError(error.message);
+                return
+            }
+
             const { items } = await response.json();
             
             setItemsArray(items);
