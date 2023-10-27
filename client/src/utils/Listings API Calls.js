@@ -1,5 +1,5 @@
 
-const errorThrow = async (res) => {
+const errorCheck = async (res) => {
     if (!res.ok) {
         const error = await res.json();
         throw new Error(error.message);
@@ -20,7 +20,7 @@ export const loginTest = async() => {
         }), 
     });
 
-    errorThrow(response);
+    errorCheck(response);
 
     const userData = await response.json();
     return userData;
@@ -40,7 +40,7 @@ export const login = async({ username, email, password }) => {
         }), 
     });
 
-    errorThrow(response);
+    errorCheck(response);
 
     const userData = await response.json();
     return userData;
@@ -59,7 +59,7 @@ export const signup = async({ username, email, password }) => {
         }), 
     });
 
-    errorThrow(response);
+    errorCheck(response);
 
     const userData = await response.json();
     return userData;
@@ -74,7 +74,7 @@ export const createNewItem = async (formData) => {
         body: JSON.stringify(formData),
     });
 
-    errorThrow(response);
+    errorCheck(response);
 
     const { items } = await response.json(); // extract items array
 
@@ -84,7 +84,7 @@ export const createNewItem = async (formData) => {
 export const getAllItems = async () => {
     const response = await fetch("/api/items");
 
-    errorThrow(response);
+    errorCheck(response);
 
     const items = await response.json();
 
@@ -94,7 +94,7 @@ export const getAllItems = async () => {
 export const getItem = async (itemId) => {
     const response = await fetch(`/api/item/${itemId}`); // calls api by item id
     
-    errorThrow(response);
+    errorCheck(response);
     
     const item = await response.json();
 
@@ -110,7 +110,7 @@ export const updateItem = async (itemId, updatedItemBody) => {
         body: JSON.stringify(updatedItemBody),
     });
     
-    errorThrow(response);
+    errorCheck(response);
     
     const updatedItem = await response.json(); // returns updated item
     
@@ -120,7 +120,7 @@ export const updateItem = async (itemId, updatedItemBody) => {
 export const deleteItem = async (itemId) => {
     const response = await fetch(`/api/item/${itemId}`, { method: "DELETE" });
     
-    errorThrow(response);
+    errorCheck(response);
     
     const updatedUser = await response.json();
     
@@ -130,7 +130,7 @@ export const deleteItem = async (itemId) => {
 export const getLoggedInUser = async () => {
     const response = await fetch("/api/user"); // only works if already logged in, I can add a getUserById route if that is desired
     
-    errorThrow(response);
+    errorCheck(response);
     
     const user = await response.json();
 
