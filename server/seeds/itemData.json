@@ -14,6 +14,20 @@
       "image": ""
     },
     {
+      "name": "Colosseum",
+      "price": 1,
+      "owner": "alex",
+      "quantity": 2,
+      "image": ""
+    },
+    {
+      "name": "Swimming Pool",
+      "price": 500,
+      "owner": "alex",
+      "quantity": 2,
+      "image": ""
+    },
+    {
       "name": "Skateboard",
       "price": 50,
       "owner": "sammy",
@@ -23,6 +37,20 @@
     {
       "name": "CodeHub's Most Precious Gem",
       "price": 100000,
+      "owner": "sammy",
+      "quantity": 1,
+      "image": ""
+    },
+    {
+      "name": "Venn's Honda CRV",
+      "price": 500,
+      "owner": "sammy",
+      "quantity": 1,
+      "image": ""
+    },
+    {
+      "name": "Racecar",
+      "price": 79801,
       "owner": "sammy",
       "quantity": 1,
       "image": ""
@@ -42,6 +70,20 @@
       "image": ""
     },
     {
+      "name": "Authentic Civil War Cannon",
+      "price": 103123,
+      "owner": "venn",
+      "quantity": 5,
+      "image": ""
+    },
+    {
+      "name": "iPhone 3gs",
+      "price": 7152,
+      "owner": "venn",
+      "quantity": 1,
+      "image": ""
+    },
+    {
       "name": "Power Supply",
       "price": 120,
       "owner": "yushus",
@@ -53,6 +95,20 @@
       "price": 1200,
       "owner": "yushus",
       "quantity": 2,
+      "image": ""
+    },
+    {
+      "name": "Sammy's Mailbox",
+      "price": 34,
+      "owner": "yushus",
+      "quantity": 1,
+      "image": ""
+    },
+    {
+      "name": "Sammy's Phone",
+      "price": 1,
+      "owner": "yushus",
+      "quantity": 1,
       "image": ""
     }
   ]
