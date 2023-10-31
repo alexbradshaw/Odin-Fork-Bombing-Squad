@@ -1,0 +1,47 @@
+.landing {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.landingHeader {
+    width: 80%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landingContainer {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0px 0px 30px;
+}
+
+.carousel {
+    width: 80%;
+    height: fit-content;
+    border: 1px solid black;
+    color: black;
+    display: flex;
+    overflow-x: scroll;
+}
+
+.landingItem {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 7px 5px 0px;
+}
+
+.itemPicture {
+    width: 225px;
+}
