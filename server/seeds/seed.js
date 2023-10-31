@@ -50,7 +50,7 @@ db.once('open', async () => {
 
   for (let i = 0; i < itemData.length; i++) {
     await User.findOneAndUpdate (
-      { _id: userIds[Math.floor(i / 2)]._id },
+      { _id: userIds[Math.floor(i / 4)]._id },
       { $push: { items: itemIds[i]._id } },
       { new: true }
     )
