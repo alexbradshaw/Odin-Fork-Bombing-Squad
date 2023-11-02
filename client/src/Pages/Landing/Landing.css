@@ -28,10 +28,11 @@
 .carousel {
     width: 80%;
     height: fit-content;
-    border: 1px solid black;
     color: black;
     display: flex;
     overflow-x: scroll;
+    scrollbar-width: thin;
+    padding-bottom: 15px;
 }
 
 .landingItem {
