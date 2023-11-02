@@ -12,22 +12,22 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      match: [/.+@.+\..+/, 'Must use a valid email address'],
+      match: [/.+@.+\..+/, 'Must use a valid email address'], // Regex to validate the entry is a valid email
     },
     password: {
       type: String,
       required: true,
     },
-    items: [
+    items: [ // Array of Item _id's to refer to a user's active listings
       {
-        type: Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId, 
         ref: 'Item',
       }
     ]
   },
 );
 
-userSchema.pre('save', async function (next) {
+userSchema.pre('save', async function (next) { // Method to hash password before saving to db
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -37,7 +37,7 @@ userSchema.pre('save', async function (next) {
 });
 
 userSchema.methods.isCorrectPassword = async function (password) {
-  let compare = await bcrypt.compare(password, this.password);
+  let compare = await bcrypt.compare(password, this.password); // Method to authenticate user
   return compare;
 };
 
