@@ -1,12 +1,14 @@
+require('dotenv').config();
+
 const express = require('express');
+const app = express();
+
 const session = require('express-session');
-const routes = require('./routes');
-const db = require('./config/connection');
+const MongoDBStore = require('connect-mongodb-session')(session);
 const URI = require('./config/URI');
 
-const MongoDBStore = require('connect-mongodb-session')(session);
-
-const app = express();
+const routes = require('./routes');
+const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
 
 const store = new MongoDBStore({
@@ -17,9 +19,6 @@ const store = new MongoDBStore({
 store.on('error', function(error) {
     console.error(error);
 });
-  
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
     secret: process.env.SECRET || "secret",
@@ -30,7 +29,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
-
+  
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
 db.once('open', () => {
