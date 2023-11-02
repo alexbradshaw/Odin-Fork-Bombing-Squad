@@ -3,6 +3,7 @@ import './Landing.css'
 import { useState, useEffect } from 'react';
 
 import { getAllItems } from '../../utils/API';
+import { formatDecimal } from '../../utils/Format';
 
 const LandingItem = ({ item }) => {
     return (
@@ -10,8 +11,16 @@ const LandingItem = ({ item }) => {
             <a href={`/item/${item._id}`}>            
                 <img src={item.image} alt={item.name} className='itemPicture'/>
             </a>
-            <div>
+            <div className='itemName'>
                 {item.name}
+            </div>
+            <div className='priceQuantity'>
+                <div>
+                    <span style={{"color":"green"}}>${formatDecimal(item.price)}</span>
+                </div>
+                <div>
+                    x{item.quantity}
+                </div>
             </div>
         </div>
     );
