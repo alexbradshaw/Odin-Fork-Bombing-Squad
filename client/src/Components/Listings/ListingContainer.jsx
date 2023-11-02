@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { formatDecimal } from '../../utils/Format';
+
 import Confirm from './Confirm';
 import IconButton from './IconButton';
 
@@ -35,7 +37,7 @@ const ListingContainer = ({ items, setItemsArray, setError }) => {
                 </div>
                 <div className='cost'>
                     <span style={{"color": "green"}}>
-                        ${item.price}
+                        ${formatDecimal(item.price)}
                     </span>
                 </div>
                 <div className='delete'>
