@@ -1,5 +1,7 @@
 import './App.css'
 
+import { useState } from 'react';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -13,6 +15,13 @@ import Listings from './Pages/Listings/Listings';
 import Landing from './Pages/Landing/Landing';
 
 function App() {
+
+  const [userData, setData] = useState({
+    "_id":"",
+    "username":"",
+    "email":""
+  });
+
   return (
     <Router>
       <div className='app'>
@@ -21,7 +30,7 @@ function App() {
             <Route path='/' element={<Landing/>}/>
             <Route path='/test' element={<TestPage/>}/>
             <Route path='/test2' element={<TestPage2/>}/>
-            <Route path='/listings' element={<Listings/>}/>
+            <Route path='/listings' element={<Listings setData={setData} username={userData.username}/>}/>
           </Routes>
       </div>
     </Router>
