@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 const { getUser } = require('../../controllers/api/userControllers');
-const { signup, login } = require('../../controllers/api/authControllers');
+const { signup, login, logout } = require('../../controllers/api/authControllers');
 const { 
     createItem, 
     getAllItems, 
@@ -14,6 +14,7 @@ const {
 
 router.post('/signup', signup); // Signup POST route
 router.post('/login', login); // Login POST route
+router.post('/logout', logout); // Logout POST route
 router.get('/user', getUser) // GET* route to get the logged in user
 
 router.post('/item', createItem) // POST* route to create a new item
