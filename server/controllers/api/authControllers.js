@@ -47,6 +47,17 @@ const authRoutes = {
       res.status(400).json(e);
     }
   },
+
+  async logout(req, res) {
+    try {
+      req.session.destroy(() => {
+        res.status(200).json({message: "Successfully logged out."});
+      });
+    } catch (e) {
+      console.log(e);
+      res.status(400).json(e);
+    }
+  },
 }
 
 module.exports = authRoutes;
