@@ -10,6 +10,7 @@ const URI = require('./config/URI'); // URI string to connect to DB, changes bas
 const routes = require('./routes'); // Routes
 const db = require('./config/connection'); // Database connection
 const PORT = process.env.PORT || 3001; // Server port if environment provides (ex. when deployed), otherwise it's 3001
+const path = require('path');
 
 const store = new MongoDBStore({ // Initialize the Mongo store to hold our user sessions
     uri: URI, // Connect based on local or Atlas Cluster (if provided in environment vars)
@@ -33,6 +34,14 @@ app.use(session({
 app.use(express.json()); // Middleware to parse incoming body as JSON, sets up req.body
 app.use(express.urlencoded({ extended: true })); // Good for parsing HTML forms for POST requests
 app.use(routes); // Tell server to use our routes
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/dist'))); // Setting up public folder
+
+    app.get('*', (req, res) => { // Route grabs any requests that aren't handled by API and sends html file
+      res.sendFile(path.join(__dirname, '../client/dist/index.html')); // Sending over final built html file, which should embody our entire webpage
+    });
+  }
 
 db.once('open', () => { // Open database
     app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
