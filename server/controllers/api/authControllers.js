@@ -50,7 +50,10 @@ const authRoutes = {
 
   async logout(req, res) {
     try {
-      req.session.destroy(() => {
+      req.session.destroy((err) => {
+        if (err) {
+          throw err;
+        }
         res.status(200).json({message: "Successfully logged out."});
       });
     } catch (e) {
