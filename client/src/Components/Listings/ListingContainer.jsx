@@ -31,16 +31,20 @@ const ListingContainer = ({ items, setItemsArray, setError }) => {
 
         return (
             <div className='listItem'>
+                <a href={`/item/${item._id}`}>
+                    <img src={`${item.image}`} alt={`${item.name}`} className='listImage'/>
+                </a>
                 <div className='itemTitle'>
-                    <a>{item.name}</a>
-                    <h4 style={{"marginLeft":"6px"}}>x{item.quantity}</h4>
+                    <h4>{item.name}</h4>
                 </div>
                 <div className='cost'>
                     <span style={{"color": "green"}}>
                         ${formatDecimal(item.price)}
                     </span>
+                    <h4>x{item.quantity}</h4>
                 </div>
-                <div className='delete'>
+                <div className='modify'>
+                    <button>Edit</button>
                     { clicked ? 
                     <Confirm check={deleteHandler} no={click}/>
                     :
