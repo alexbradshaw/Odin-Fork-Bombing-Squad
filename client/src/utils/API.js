@@ -52,6 +52,8 @@ export const logout = async() => {
     });
 
     errorCheck(response);
+
+    return response;
 }
 
 export const signup = async({ username, email, password }) => {
