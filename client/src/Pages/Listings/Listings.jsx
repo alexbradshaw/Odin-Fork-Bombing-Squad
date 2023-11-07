@@ -1,6 +1,6 @@
 import './Listings.css'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 import { loginTest } from '../../utils/API';
 
@@ -8,7 +8,11 @@ import ListingHeader from "../../Components/Listings/ListingHeader"
 import NewItem from "../../Components/Listings/NewItem"
 import ListingContainer from "../../Components/Listings/ListingContainer"
 
-const Listings = ({ setData, username }) => {
+import { UserData } from '../../App';
+
+const Listings = () => {
+    const { setData } = useContext(UserData);
+
     const [items, setItemsArray] = useState([]); // Items array to render to ListingContainer
 
     const [newItem, setNewItem] = useState(false); // handles if the user clicks the newItem toggle
@@ -36,7 +40,7 @@ const Listings = ({ setData, username }) => {
         }
     };
 
-    useEffect(() => fetchUserData, []);
+    useEffect(() => { fetchUserData() }, []);
 
     useEffect(() => {
         if (!newItem) {
@@ -51,7 +55,7 @@ const Listings = ({ setData, username }) => {
 
     return (
         <div className='listings'>
-            <ListingHeader name={username} formData={formData} clicked={newItem} func={{ setNewItem, setItemsArray, setError }} />
+            <ListingHeader formData={formData} clicked={newItem} func={{ setNewItem, setItemsArray, setError }} />
             {
                 newItem ? 
                 <NewItem formData={formData} setForm={setForm}/>
