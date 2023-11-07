@@ -3,40 +3,9 @@ import './Landing.css'
 import { useState, useEffect } from 'react';
 
 import { getAllItems } from '../../utils/API';
-import { formatDecimal } from '../../utils/Format';
 
-const LandingItem = ({ item }) => {
-    return (
-        <div className='landingItem'>
-            <a href={`/item/${item._id}`}>            
-                <img src={item.image} alt={item.name} className='itemPicture'/>
-            </a>
-            <div className='itemName'>
-                {item.name}
-            </div>
-            <div className='priceQuantity'>
-                <div>
-                    <span style={{"color":"green"}}>${formatDecimal(item.price)}</span>
-                </div>
-                <div>
-                    x{item.quantity}
-                </div>
-            </div>
-        </div>
-    );
-}
-
-const Carousel = ({ items }) => {
-    return (
-        <div className='carousel'>
-            { 
-                items.map((item) => {
-                    return <LandingItem item={item} key={item.name}/>
-                })
-            }
-        </div>
-    );
-}
+import Carousel from '../../Components/Landing/Carousel';
+import LandingItem from '../../Components/Landing/LandingItem';
 
 const Landing = () => {
     const [items, setItemsArray] = useState([]);
@@ -59,8 +28,20 @@ const Landing = () => {
                 hi
             </div>
             <div className='landingContainer'>
-                <Carousel items={items}/>
-                <Carousel items={items}/>
+                <Carousel>
+                    {
+                        items.map((item) => {
+                            return <LandingItem item={item} key={item.name}/>
+                        })
+                    }
+                </Carousel>
+                <Carousel>
+                    {
+                        items.map((item) => {
+                            return <LandingItem item={item} key={item.name}/>
+                        })
+                    }
+                </Carousel>
             </div>
         </div>
     );
