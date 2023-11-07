@@ -51,7 +51,7 @@ const Landing = () => {
         }
     };
 
-    useEffect(() => fetchItems, []);
+    useEffect(() => { fetchItems() }, []);
 
     return (
         <div className='landing'>
