@@ -5,7 +5,7 @@ const app = express();
 
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
-const URI = require('./config/URI'); // URI string to connect to DB, changes based on local or environment var
+const URI = require('./URI'); // URI string to connect to DB, changes based on local or environment var
 
 const routes = require('./routes'); // Routes
 const db = require('./config/connection'); // Database connection
