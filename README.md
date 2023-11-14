@@ -1,2 +1,2 @@
 # Odin-Fork-Bombing-Squad
-# yushus-Komarlu
+# yushus-Komarl
