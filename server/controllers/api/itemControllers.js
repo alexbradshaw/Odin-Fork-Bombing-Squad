@@ -9,17 +9,17 @@ const itemRoutes = {
         }
 
         const newItem = await Item.create({
-            ...req.body, 
-            "owner":req.session.username
+            ...req.body, // Includes existing items
+            "owner":req.session.username // Pulls in authenticated user for owner
         });
       
         const updatedUser = await User.findOneAndUpdate (
-          { _id: req.session.userId },
-          { $push: { items: newItem._id} },
-          { runValidators: true, new: true }
-        ).populate('items');
+          { _id: req.session.userId }, // Pulls authenticated users id
+          { $push: { items: newItem._id} }, // Pushes new item id to our User's items array
+          { runValidators: true, new: true } 
+        ).populate('items'); // Pulls in items array before returning user (so the page will reflect new item generation)
   
-        res.json(updatedUser);
+        res.json(updatedUser); // Returns user object
     } catch (e) {
         console.log(e);
         res.status(500).json(e)
@@ -27,8 +27,8 @@ const itemRoutes = {
     },
     async getAllItems(req, res) {
         try {
-          const item = await Item.find({}).select('-__v');
-          res.json(item);
+          const item = await Item.find({}).select('-__v'); // Finds all items (ignoring a weird field)
+          res.json(item); // Return items
         } catch (e) {
           console.log(e);
           res.status(500).json(e);
@@ -36,14 +36,14 @@ const itemRoutes = {
     },
     async getItem(req, res) {
         try {
-            const item = await Item.findOne({ _id: req.params.id });
+            const item = await Item.findOne({ _id: req.params.id }); // Finds one item based on req.params variable
 
             if (!item) {
                 res.status(404).json( { message: "Item not found!" });
                 return;
             }
 
-            res.json(item);
+            res.json(item); // Return item
         } catch (e) {
             console.log(e);
             res.status(500).json(e);
@@ -56,13 +56,13 @@ const itemRoutes = {
                 return;
             }
 
-            const updatedItem = await Item.findOneAndUpdate(
+            const updatedItem = await Item.findOneAndUpdate( // Finds item by both id and current auth user to ensure they own the item
                 { 
-                    _id: req.params.id, 
-                    owner: req.session.username
+                    _id: req.params.id, // Pulls id from URL param
+                    owner: req.session.username // Pulls username in based on authed user
                 },
-                { $set: req.body },
-                { new: true }
+                { $set: req.body }, // Set item to request body
+                { new: true } // Returns the updated item, false will return before update
             );
 
             if (!updatedItem) {
@@ -70,7 +70,7 @@ const itemRoutes = {
                 return;
             }
 
-            res.json(updatedItem);
+            res.json(updatedItem); // Return the modified item
         } catch (e) {
             console.log(e);
             res.status(500).json(e);
@@ -83,12 +83,12 @@ const itemRoutes = {
                 return;
             }
 
-            const deletedItem = await Item.findOneAndRemove(
+            const deletedItem = await Item.findOneAndRemove( // Finds item by both id and current auth user to ensure they own the item
                 { 
-                    _id: req.params.id, 
-                    owner: req.session.username
+                    _id: req.params.id, // Pulls id from URL param
+                    owner: req.session.username // Pulls username in based on authed user
                 },
-                { new: true }
+                { new: true } // Return updated item object (should be nothing)
             );
 
             if (!deletedItem) {
@@ -97,12 +97,12 @@ const itemRoutes = {
             }
 
             const updatedUser = await User.findOneAndUpdate(
-                { _id: req.session.userId, },
-                { $pull: { items: req.params.id } },
-                { new: true }
-            ).populate('items');
+                { _id: req.session.userId, }, // Update by current authed user
+                { $pull: { items: req.params.id } }, // Pull item from the array
+                { new: true } // Return updated user object
+            ).populate('items'); // Pull in new items array
 
-            res.json(updatedUser);
+            res.json(updatedUser); // Return user
         } catch (e) {
             console.log(e);
             res.status(500).json(e);

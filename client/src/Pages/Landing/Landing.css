@@ -1,0 +1,64 @@
+.landing {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.landingHeader {
+    width: 80%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landingContainer {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0px 0px 30px;
+}
+
+.carousel {
+    width: 80%;
+    height: fit-content;
+    color: black;
+    display: flex;
+    overflow-x: scroll;
+    scrollbar-width: thin;
+    padding-bottom: 15px;
+}
+
+.landingItem {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 7px 5px 0px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.itemPicture {
+    width: 225px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.itemName {
+    width: 100%;
+    text-align: center;
+}
+
+.priceQuantity {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px;
+}
