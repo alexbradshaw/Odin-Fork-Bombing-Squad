@@ -4,30 +4,8 @@ import { useState, useEffect } from 'react';
 
 import { getAllItems } from '../../utils/API';
 
-const LandingItem = ({ item }) => {
-    return (
-        <div className='landingItem'>
-            <a href={`/item/${item._id}`}>            
-                <img src={item.image} alt={item.name} className='itemPicture'/>
-            </a>
-            <div>
-                {item.name}
-            </div>
-        </div>
-    );
-}
-
-const Carousel = ({ items }) => {
-    return (
-        <div className='carousel'>
-            { 
-                items.map((item) => {
-                    return <LandingItem item={item} key={item.name}/>
-                })
-            }
-        </div>
-    );
-}
+import Carousel from '../../Components/Landing/Carousel';
+import LandingItem from '../../Components/Landing/LandingItem';
 
 const Landing = () => {
     const [items, setItemsArray] = useState([]);
@@ -42,7 +20,7 @@ const Landing = () => {
         }
     };
 
-    useEffect(() => fetchItems, []);
+    useEffect(() => { fetchItems() }, []);
 
     return (
         <div className='landing'>
@@ -50,8 +28,20 @@ const Landing = () => {
                 hi
             </div>
             <div className='landingContainer'>
-                <Carousel items={items}/>
-                <Carousel items={items}/>
+                <Carousel>
+                    {
+                        items.map((item) => {
+                            return <LandingItem item={item} key={item.name}/>
+                        })
+                    }
+                </Carousel>
+                <Carousel>
+                    {
+                        items.map((item) => {
+                            return <LandingItem item={item} key={item.name}/>
+                        })
+                    }
+                </Carousel>
             </div>
         </div>
     );

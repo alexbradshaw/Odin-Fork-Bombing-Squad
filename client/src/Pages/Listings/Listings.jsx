@@ -1,6 +1,6 @@
 import './Listings.css'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 import { loginTest } from '../../utils/API';
 
@@ -8,7 +8,11 @@ import ListingHeader from "../../Components/Listings/ListingHeader"
 import NewItem from "../../Components/Listings/NewItem"
 import ListingContainer from "../../Components/Listings/ListingContainer"
 
+import { UserData } from '../../App';
+
 const Listings = () => {
+    const { setData } = useContext(UserData);
+
     const [items, setItemsArray] = useState([]); // Items array to render to ListingContainer
 
     const [newItem, setNewItem] = useState(false); // handles if the user clicks the newItem toggle
@@ -22,26 +26,21 @@ const Listings = () => {
         image: ""
     });
 
-    const [userData, setData] = useState({
-        "username":"",
-        "email":""
-    });
-
     const fetchUserData = async () => { // fetches user data for current logged in user
         try {
             await loginTest(); // just temporarily log in user
 
             const response = await fetch("/api/user"); // call user object when page loads
-            const { username, email, items } = await response.json();
+            const { _id, username, email, items } = await response.json();
 
-            setData({ username, email });
+            setData({ _id, username, email });
             setItemsArray(items);
         } catch (e) {
             setError(e.message);
         }
     };
 
-    useEffect(() => fetchUserData, []);
+    useEffect(() => { fetchUserData() }, []);
 
     useEffect(() => {
         if (!newItem) {
@@ -56,7 +55,7 @@ const Listings = () => {
 
     return (
         <div className='listings'>
-            <ListingHeader name={userData.username} formData={formData} clicked={newItem} func={{ setNewItem, setItemsArray, setError }} />
+            <ListingHeader formData={formData} clicked={newItem} func={{ setNewItem, setItemsArray, setError }} />
             {
                 newItem ? 
                 <NewItem formData={formData} setForm={setForm}/>

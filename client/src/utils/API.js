@@ -46,6 +46,16 @@ export const login = async({ username, email, password }) => {
     return userData;
 }
 
+export const logout = async() => {
+    const response = await fetch("/api/logout", {
+        method: "POST", 
+    });
+
+    errorCheck(response);
+
+    return response;
+}
+
 export const signup = async({ username, email, password }) => {
     const response = await fetch("/api/signup", {
         method: "POST", 
