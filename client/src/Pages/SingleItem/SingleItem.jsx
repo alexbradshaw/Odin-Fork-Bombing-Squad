@@ -10,7 +10,8 @@ const SingleItem = () => {
             <img src={defaultImage} alt="Default Image" className='default-image' />
             <SellerInfo/>
             
-            <h2> Item Title Here
+            <h2> 
+                Item Title Here
 
             </h2>
 
