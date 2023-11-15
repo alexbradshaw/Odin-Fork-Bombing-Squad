@@ -2,6 +2,7 @@ const { User } = require('../../models');
 
 const authRoutes = {
   async login(req, res) {
+    console.log(req.body)
       const user = await User.findOne({ // Finds user based on username or email
               $or: 
               [
