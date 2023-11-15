@@ -1,36 +1,32 @@
 import './SignIn.css'
 import defaultImage from '../../Images/default_image.png';
 import SellerInfo from '../../Components/SingleItem/SellerInfo';
-import { useState, useEffect} from 'react'; 
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { login } from '../../utils/API';
 
 const Login = () => {
   // State for handling user input
-  const [username, setUsername] = useState('');
+  const [userOrEmail, setuserOrEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // Function to handle form submission
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Add your authentication logic here
-    console.log('Username:', username);
-    console.log('Password:', password);
-    // You can send the data to a server for authentication
-    // or perform any other login-related tasks
+  const submitLogin = (e) => {
+    e.preventDefault(); // prevents page from refreshing
+    login({ userOrEmail, password });
   };
 
   return (
     <div>
       <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={submitLogin}>
         <div>
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="userOrEmail">Username or Email:</label>
           <input
             type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            // have an expression to determine if they are using a userOrEmail
+            // or an email
+            // then, set id to the according one?
+            value={userOrEmail}
+            onChange={(e) => setuserOrEmail(e.target.value)}
             required
           />
         </div>

@@ -11,6 +11,7 @@ import {
 import TestPage from './Pages/TestPage/TestPage';
 import Listings from './Pages/Listings/Listings';
 import Landing from './Pages/Landing/Landing';
+import SignIn from './Pages/SignInPage/SignIn';
 
 const router = createBrowserRouter([
   {

@@ -27,15 +27,15 @@ export const loginTest = async() => {
 }
 
 // Use this if you want to test login
-export const login = async({ username, email, password }) => {
+export const login = async({ userOrEmail, password }) => {
     const response = await fetch("/api/login", {
         method: "POST", 
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            username, // accepts username or
-            email, // email
+            'username': userOrEmail, // accepts username or
+            'email': userOrEmail, // email
             password
         }), 
     });
