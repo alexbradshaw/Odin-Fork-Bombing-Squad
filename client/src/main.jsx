@@ -11,7 +11,8 @@ import {
 import TestPage from './Pages/TestPage/TestPage';
 import Listings from './Pages/Listings/Listings';
 import Landing from './Pages/Landing/Landing';
-import SignIn from './Pages/SignInPage/SignIn';
+import SignIn from './Pages/SignIn/SignIn.jsx';
+import SignUp from './Pages/SignUp/SignUp.jsx';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <SignIn />,
+      },
+      {
+        path: 'signUp',
+        element: <SignUp />,
       }
     ]
   }
