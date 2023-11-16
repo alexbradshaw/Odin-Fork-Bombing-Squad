@@ -24,6 +24,10 @@
     /* justify-content: center; */
 }
 
+#gay {
+    color: black;
+}
+
 .innerDivs {
     background-color: white;
 }
@@ -38,7 +42,7 @@
     float: right;  
     display: flex;
     align-items: center;  
-    height: 90%;
+    height: 465px;
 }
 
 #logo {

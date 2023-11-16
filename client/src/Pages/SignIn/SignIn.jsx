@@ -1,7 +1,5 @@
 import './SignIn.css'
-import defaultImage from '../../Images/default_image.png';
-import SellerInfo from '../../Components/SingleItem/SellerInfo';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { login } from '../../utils/API';
 
 const Login = () => {
@@ -45,6 +43,8 @@ const Login = () => {
             </div>
             <div>
               <button id='signInButton' type="submit">Sign In</button>
+              
+              <p id='gay'>Don't have an account? <a href='/SignUp'>Sign Up</a></p>
             </div>
           </form>
           </div> 
