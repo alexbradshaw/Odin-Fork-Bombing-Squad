@@ -15,36 +15,45 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={submitLogin}>
-        <div>
-          <label htmlFor="userOrEmail">Username or Email:</label>
-          <input
-            type="text"
-            // have an expression to determine if they are using a userOrEmail
-            // or an email
-            // then, set id to the according one?
-            value={userOrEmail}
-            onChange={(e) => setuserOrEmail(e.target.value)}
-            required
-          />
+    <div id='bottomSection'> 
+        <div className='holder'> 
+          <div id='formHolder' className='innerDivs'>
+          <h2 id='test'>Welcome Back</h2>
+          <form onSubmit={submitLogin}>
+            <div>
+              <label htmlFor="userOrEmail">Username or Email:</label>
+              <input
+                className='loginInput'
+                type="text"
+                // have an expression to determine if they are using a userOrEmail
+                // or an email
+                // then, set id to the according one?
+                value={userOrEmail}
+                onChange={(e) => setuserOrEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <label  htmlFor="password">Password:</label>
+              <input
+                type="password"
+                className='loginInput'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <button id='signInButton' type="submit">Sign In</button>
+            </div>
+          </form>
+          </div> 
+          <div id='rightImage' className='innerDivs'>
+            <img src="/full.png" alt="SAVY logo" id='logo' />
+          </div>
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <button type="submit">Login</button>
-        </div>
-      </form>
     </div>
+
   );
 };
 
