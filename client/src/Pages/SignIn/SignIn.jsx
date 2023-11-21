@@ -7,9 +7,12 @@ const Login = () => {
   const [userOrEmail, setuserOrEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const submitLogin = (e) => {
+  const submitLogin = async (e) => {
     e.preventDefault(); // prevents page from refreshing
-    login({ userOrEmail, password });
+    const user = await login({ userOrEmail, password });
+    if (user._id) {
+      location.assign('/')
+    }
   };
 
   return (
