@@ -1,0 +1,41 @@
+.product_box {
+    background-color:#CCCCCC;
+}
+
+#sell_item_page {
+    background-color: #F2F0F0;
+}
+
+#photo_box {
+    background-color: #CCCCCC;
+}
+
+#product_box {
+    background-color: #D4D4D4;
+}
+
+.bottom_btn {
+    background-color: #C1C1C1;
+}
+
+.photo {
+    background-color: #F2F0F0;
+}
+
+#photo_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+#product_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+}
