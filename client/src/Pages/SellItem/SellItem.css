@@ -1,13 +1,39 @@
+.header {
+    display: flex;
+}
+
+.header h2 {
+    margin: auto;
+}
+
+.photo_title {
+    display: flex;
+}
+
+.photo {
+    height: 5rem;
+    width: 5rem;
+}
+
+.photo_title h3 {
+    margin: auto;
+}
+
 .product_box {
     background-color:#CCCCCC;
 }
 
 #sell_item_page {
     background-color: #F2F0F0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 #photo_box {
     background-color: #CCCCCC;
+    display: flex;
+    margin: auto;
 }
 
 #product_box {
@@ -25,7 +51,15 @@
 #photo_grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 25rem;
+}
+
+#grid_item_1 {
+    padding-left: 2rem;
+}
+
+#grid_item_2 {
+    padding-right: 2rem;
 }
 
 #product_grid {
@@ -37,5 +71,14 @@
 #buttons {
     display: flex;
     flex-direction: row;
-    padding: 1rem;
+}
+
+#button_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25rem;
+}
+
+#buttons #button_grid {
+    margin: auto;
 }
