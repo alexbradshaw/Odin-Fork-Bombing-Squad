@@ -18,11 +18,9 @@ const SellItem = () => {
   
     return (
       <div id='sell_item_page'> 
-          <div id='navbar'>
-            <h1>Navbar</h1>
-          </div>
-
-          <h2>Sell Item</h2>
+        <div className='header'>
+            <h2>Sell Item</h2>
+        </div>  
 
           <div id='photo_box'>
             <div id='photo_grid'>
@@ -48,28 +46,30 @@ const SellItem = () => {
           <div id='product_box'>
             <div id='product_grid'>
                 <div className='product_box'>
-                    <h5>title</h5>
+                    <input type='text'></input>
                 </div>
                 <div className='product_box'>
-                    <h5>description</h5>
+                    <input type='text'></input>
                 </div>
                 <div className='product_box'>
-                    <h5>category</h5>
+                    <input type='text'></input>
                 </div>
                 <div className='product_box'>
-                    <h5>model</h5>
+                    <input type='text'></input>
                 </div>
                 <div className='product_box'>
-                    <h5>pricing</h5>
+                    <input type='text'></input>
                 </div>
                 <div className='product_box'>
-                    <h5>address</h5>
+                    <input type='text'></input>
                 </div>
             </div>
           </div>
           <div id='buttons'>
-            <button className='bottom_btn'>Save</button>
-            <button className='bottom_btn'>List</button>
+            <div id='button_grid'>
+                <button className='bottom_btn'>Save</button>
+                <button className='bottom_btn'>List</button>
+            </div>
           </div>
 
       </div>
