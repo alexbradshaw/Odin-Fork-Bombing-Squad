@@ -1,5 +1,3 @@
 # Odin-Fork-Bombing-Squad
+# yushus-Komarlu
 
-testing Update
-
-testing update 2
