@@ -24,9 +24,9 @@ const Landing = () => {
 
     return (
         <div className='landing'>
-            <div className='landingHeader' style={{"color":"black"}}>
-                hi
-            </div>
+            <h1 className='landingHeader' style={{"color":"black"}}>
+                Welcome to Savy!
+            </h1>
             <div className='landingContainer'>
                 <Carousel>
                     {
