@@ -1,6 +1,6 @@
 const serverRoutes = {
   async health(req, res) {
-    res.status(500).json("Server OK");
+    res.status(200).json("Server OK");
   },
 }
 
