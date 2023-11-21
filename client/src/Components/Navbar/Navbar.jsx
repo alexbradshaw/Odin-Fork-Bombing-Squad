@@ -9,6 +9,10 @@ import { logout } from '../../utils/API';
 const Navbar = () => {
     const { userData, setData } = useContext(UserData);
 
+    if (localStorage.getItem("auth") != null) {
+        setData(JSON.parse(localStorage.getItem("auth")))
+    }
+
     const bool = userData._id != '';
 
     const signOut = async () => {
@@ -21,6 +25,7 @@ const Navbar = () => {
                     "email":""
                 })
                 location.assign('/');
+                localStorage.removeItem("auth");
             }
         } catch (e) {
             console.log('Something went wrong with logout!')
