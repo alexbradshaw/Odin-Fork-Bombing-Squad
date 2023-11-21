@@ -45,10 +45,16 @@
     border-radius: 10px;
 }
 
+.landingItem a {
+    height: 250px;
+}
+
 .itemPicture {
     width: 225px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    object-fit: cover;
+    height: 225px;
 }
 
 .itemName {
