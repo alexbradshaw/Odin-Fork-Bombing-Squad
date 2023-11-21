@@ -7,7 +7,7 @@ const userRoutes = {
           res.status(404).json( { message: "You are not signed in!" });
           return;
         }
-        const user = await User.findOne({ _id: req.session.userId }).select('-password -__v').populate('items', '-__v');
+        const user = await User.findOne({ _id: req.session.userId }).select('-password -__v').populate('items', '-__v'); // Finds the current user profile based on whoever is authenticated, returns items array as well
 
         console.log(user);
 
