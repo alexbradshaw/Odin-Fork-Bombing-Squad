@@ -20,6 +20,7 @@ const Navbar = () => {
                     "username":"",
                     "email":""
                 })
+                location.assign('/');
             }
         } catch (e) {
             console.log('Something went wrong with logout!')
