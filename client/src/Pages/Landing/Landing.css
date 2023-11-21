@@ -51,10 +51,10 @@
 
 .itemPicture {
     width: 225px;
+    height: 225px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     object-fit: cover;
-    height: 225px;
 }
 
 .itemName {
