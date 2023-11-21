@@ -2,20 +2,16 @@ import './SignIn.css'
 import React, { useState, useContext } from 'react';
 import { login } from '../../utils/API';
 
-import { UserData } from '../../App';
-
 const Login = () => {
-  const { setData } = useContext(UserData);
   // State for handling user input
   const [userOrEmail, setuserOrEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const submitLogin = async (e) => {
     e.preventDefault(); // prevents page from refreshing
-    const user = await login({ userOrEmail, password });
-    if (user._id) {
-      localStorage.setItem("auth", JSON.stringify(user));
-      location.assign('/')
+    const success = await login({ userOrEmail, password });
+    if (success) {
+      location.assign('/');
     }
   };
 

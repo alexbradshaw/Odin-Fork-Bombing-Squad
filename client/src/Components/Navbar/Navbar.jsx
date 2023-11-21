@@ -1,29 +1,21 @@
-import { useContext } from 'react';
 import './Navbar.css'
 
 import { Icon } from '@iconify/react';
 
-import { UserData } from '../../App';
 import { logout } from '../../utils/API';
 
 const Navbar = () => {
-    const { userData, setData } = useContext(UserData);
+
+    let bool = false;
 
     if (localStorage.getItem("auth") != null) {
-        setData(JSON.parse(localStorage.getItem("auth")))
+        bool = true;
     }
-
-    const bool = userData._id != '';
 
     const signOut = async () => {
         try {
             const resOk = await logout();
             if (resOk) {
-                setData({
-                    "_id":"",
-                    "username":"",
-                    "email":""
-                })
                 location.assign('/');
                 localStorage.removeItem("auth");
             }

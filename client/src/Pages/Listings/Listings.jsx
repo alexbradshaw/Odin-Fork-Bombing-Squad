@@ -2,16 +2,12 @@ import './Listings.css'
 
 import { useState, useEffect, useContext } from 'react';
 
-import { loginTest } from '../../utils/API';
-
 import ListingHeader from "../../Components/Listings/ListingHeader"
 import NewItem from "../../Components/Listings/NewItem"
 import ListingContainer from "../../Components/Listings/ListingContainer"
-
-import { UserData } from '../../App';
+import { getLoggedInUser } from '../../utils/API';
 
 const Listings = () => {
-    const { setData } = useContext(UserData);
 
     const [items, setItemsArray] = useState([]); // Items array to render to ListingContainer
 
@@ -26,14 +22,13 @@ const Listings = () => {
         image: ""
     });
 
+    const [username, setUsername] = useState();
+
     const fetchUserData = async () => { // fetches user data for current logged in user
         try {
-            await loginTest(); // just temporarily log in user
+            const { username, items } = await getLoggedInUser();
 
-            const response = await fetch("/api/user"); // call user object when page loads
-            const { _id, username, email, items } = await response.json();
-
-            setData({ _id, username, email });
+            setUsername(username);
             setItemsArray(items);
         } catch (e) {
             setError(e.message);
@@ -55,7 +50,7 @@ const Listings = () => {
 
     return (
         <div className='listings'>
-            <ListingHeader formData={formData} clicked={newItem} func={{ setNewItem, setItemsArray, setError }} />
+            <ListingHeader username={username} formData={formData} clicked={newItem} func={{ setNewItem, setItemsArray, setError }} />
             {
                 newItem ? 
                 <NewItem formData={formData} setForm={setForm}/>

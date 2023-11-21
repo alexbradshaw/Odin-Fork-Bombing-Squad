@@ -4,6 +4,7 @@ import { formatDecimal } from '../../utils/Format';
 
 import Confirm from './Confirm';
 import IconButton from './IconButton';
+import { deleteItem } from '../../utils/API';
 
 const ListingContainer = ({ items, setItemsArray, setError }) => {
 
@@ -16,17 +17,13 @@ const ListingContainer = ({ items, setItemsArray, setError }) => {
         }
 
         const deleteHandler = async () => {
-            const response = await fetch(`/api/item/${item._id}`, { method: "DELETE" }); // call api for current item
-
-            if (!response.ok) {
-                const error = await response.json()
-                setError(error.message);
-                return
+            try {
+                const items = await deleteItem(item._id);
+                setItemsArray(items);
+            } catch (e) {
+                setError(e.message);
             }
 
-            const { items } = await response.json();
-            
-            setItemsArray(items);
         }
 
         return (
