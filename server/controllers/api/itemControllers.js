@@ -1,9 +1,10 @@
 const { Item, User } = require('../../models');
+const { verifyToken } = require('../../utils/auth');
 
 const itemRoutes = {
   async createItem(req, res) {
     try {
-        if (!req.session.userId) {
+        if (!verifyToken(req)) {
             res.status(401).json({ message: "You are not signed in!"})
             return;
         }
@@ -51,7 +52,7 @@ const itemRoutes = {
     },
     async updateItem(req, res) {
         try {
-            if (!req.session.userId) {
+            if (!verifyToken(req)) {
                 res.status(401).json({ message: "You are not signed in!"})
                 return;
             }
@@ -77,8 +78,9 @@ const itemRoutes = {
         }
     },
     async deleteItem(req, res) {
+        console.log(req.headers.authorization);
         try {
-            if (!req.session.userId) {
+            if (!verifyToken(req)) {
                 res.status(401).json({ message: "You are not signed in!"})
                 return;
             }
