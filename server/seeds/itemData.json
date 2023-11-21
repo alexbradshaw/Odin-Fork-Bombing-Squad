@@ -4,105 +4,105 @@
       "price": 5,
       "owner": "alex",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/dog_food.png"
     },
     {
       "name": "Sammy's House",
       "price": 5,
       "owner": "alex",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/sammys_house.jpg"
     },
     {
       "name": "Colosseum",
       "price": 1,
       "owner": "alex",
       "quantity": 2,
-      "image": "/placeholder.png"
+      "image": "/seeds/colosseum.jpg"
     },
     {
       "name": "Swimming Pool",
       "price": 500,
       "owner": "alex",
       "quantity": 2,
-      "image": "/placeholder.png"
+      "image": "/seeds/pool.jpg"
     },
     {
       "name": "Skateboard",
       "price": 50,
       "owner": "sammy",
       "quantity": 3,
-      "image": "/placeholder.png"
+      "image": "/seeds/skateboard.jpg"
     },
     {
       "name": "CodeHub's Most Precious Gem",
       "price": 100000,
       "owner": "sammy",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/placeholder.png"
     },
     {
       "name": "Venn's Honda CRV",
       "price": 500,
       "owner": "sammy",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/venns_car.jpg"
     },
     {
       "name": "Racecar",
       "price": 79801,
       "owner": "sammy",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/rs7.jpg"
     },
     {
       "name": "Sunglasses",
       "price": 3,
       "owner": "venn",
       "quantity": 5,
-      "image": "/placeholder.png"
+      "image": "/seeds/sunglasses.png"
     },
     {
       "name": "Headphones",
       "price": 70,
       "owner": "venn",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/headphones.jpg"
     },
     {
       "name": "Authentic Civil War Cannon",
       "price": 103123,
       "owner": "venn",
       "quantity": 5,
-      "image": "/placeholder.png"
+      "image": "/seeds/cannon.jpg"
     },
     {
       "name": "iPhone 3gs",
       "price": 7152,
       "owner": "venn",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/iphone.jpg"
     },
     {
       "name": "Power Supply",
       "price": 120,
       "owner": "yushus",
       "quantity": 2,
-      "image": "/placeholder.png"
+      "image": "/seeds/psu.jpg"
     },
     {
       "name": "Macbook",
       "price": 1200,
       "owner": "yushus",
       "quantity": 2,
-      "image": "/placeholder.png"
+      "image": "/seeds/macbook.jpg"
     },
     {
       "name": "Sammy's Mailbox",
       "price": 34,
       "owner": "yushus",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/mailbox.jpg"
     },
     {
       "name": "Sammy's Phone",
