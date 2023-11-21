@@ -1,8 +1,8 @@
 .singleitem { 
-display: flexbox;
+display: flex;
 }
 .singleitem h2 { 
-    /* display: flexbox; */
+    /* display: flex; */
     position: absolute;
     right: 200px; 
     top: 20%;

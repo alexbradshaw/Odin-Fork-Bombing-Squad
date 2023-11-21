@@ -11,7 +11,7 @@ import {
 import TestPage from './Pages/TestPage/TestPage';
 import Listings from './Pages/Listings/Listings';
 import Landing from './Pages/Landing/Landing';
-
+import SingleItem from './Pages/SingleItem/SingleItem'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'item/:itemId',
-        element: <TestPage />,
+        element: <SingleItem />,
       }
     ]
   }

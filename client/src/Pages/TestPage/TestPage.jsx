@@ -3,6 +3,8 @@ import './TestPage.css'
 import { getItem } from '../../utils/API';
 import { useParams } from 'react-router-dom';
 
+// ADD TO SINGLE ITEM PAGE !!!!!!
+
 const TestPage = () => {
     const [itemInfo, setInfo] = useState({
         _id: "",
