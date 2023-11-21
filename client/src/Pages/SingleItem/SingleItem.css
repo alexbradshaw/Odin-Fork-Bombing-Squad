@@ -1,5 +1,6 @@
 .singleitem { 
-display: flex;
+    display: flex;
+    grid-template-columns: 1fr 1fr; 
 }
 .singleitem h2 { 
     /* display: flex; */

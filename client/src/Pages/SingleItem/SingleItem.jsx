@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getItem } from '../../utils/API';
 import ItemDetails from '../../Components/SingleItem/ItemDetails';
+import ItemImage from '../../Components/SingleItem/ItemImage';
 const SingleItem = () => { 
     const [itemInfo, setInfo] = useState({
         _id: "",
@@ -29,10 +30,17 @@ const SingleItem = () => {
     return (
         <div className='singleitem'> 
             
-            <img src={defaultImage} alt="Default Image" className='default-image' />
-            <ItemDetails/>
-            {/* ItemDetails GOES HERE */}
-            <SellerInfo/>
+            {/* <img src={defaultImage} alt="Default Image" className='default-image' /> */}
+            <div className='item-image-column'>
+                <ItemImage/> 
+            </div>
+            <div className='everything-else-column'>
+                <ItemDetails/>
+                {/* AddToCart goes here */}
+                 <SellerInfo/>
+            </div>
+
+            
            
             
         </div>
