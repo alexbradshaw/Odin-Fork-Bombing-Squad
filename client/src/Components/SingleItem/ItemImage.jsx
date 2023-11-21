@@ -5,3 +5,5 @@ const ItemImage = () => {
         <img src={defaultImage} alt="Default Image" className='default-image' />
     );
 };
+
+export default ItemImage;

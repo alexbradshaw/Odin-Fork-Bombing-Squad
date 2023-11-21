@@ -1,6 +1,8 @@
 .singleitem { 
-    display: flex;
+    display: grid;
     grid-template-columns: 1fr 1fr; 
+
+    column-gap: 1em;
 }
 .singleitem h2 { 
     /* display: flex; */
@@ -16,6 +18,24 @@
 .default-image {
     width: 600px;
     margin-left: 100px;
+}
+
+.item-details { 
+    margin-bottom: 245px;
+}
+
+.seller-info { 
+    
+    margin-inline-start: 2px;
+    margin-bottom: -20px;
+}
+
+.item-image-column { 
+
+}
+
+.everything-else-column { 
+    
 }
 
 @media screen and (max-width: 1400px) {

@@ -35,9 +35,10 @@ const SingleItem = () => {
                 <ItemImage/> 
             </div>
             <div className='everything-else-column'>
-                <ItemDetails/>
+
+                <div className='item-details'> <ItemDetails /> </div>
                 {/* AddToCart goes here */}
-                 <SellerInfo/>
+                <div className='seller-info'> <SellerInfo /> </div>
             </div>
 
             
