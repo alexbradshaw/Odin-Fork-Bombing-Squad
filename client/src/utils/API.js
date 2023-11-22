@@ -1,6 +1,12 @@
 
 const errorCheck = async (res) => {
+    console.log('helloll');
     if (!res.ok) {
+        console.log(res.status);
+        if (res.status == 401 || res.status == 404) {
+            localStorage.removeItem('auth');
+            location.assign('/login');
+        }
         const error = await res.json();
         throw new Error(error.message);
     }
