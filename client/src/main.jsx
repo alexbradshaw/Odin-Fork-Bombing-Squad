@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
@@ -8,38 +8,40 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import TestPage from './Pages/TestPage/TestPage';
-import Listings from './Pages/Listings/Listings';
-import Landing from './Pages/Landing/Landing';
-import SingleItem from './Pages/SingleItem/SingleItem'
+import { 
+  Landing, 
+  Listings,
+  SellItem, 
+  SignIn, 
+  SignUp, 
+  SingleItem
+} 
+from './Pages/index.js';
+
+export const RoutesContext = createContext();
+
+const routes = [
+  { index: true, element: <Landing /> },
+  { path: 'listings', element: <Listings /> },
+  { path: 'item/:itemId', element: <SingleItem /> },
+  { path: 'login', element: <SignIn /> },
+  { path: 'signUp', element: <SignUp /> },
+  { path: 'sellItem', element: <SellItem /> },
+]
+
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     errorElement: <h1>Wrong page!</h1>,
-    children: [
-      {
-        index: true,
-        element: <Landing />
-      }, 
-      {
-        path: 'listings',
-        element: <Listings />
-      },      
-      {
-        path: 'test',
-        element: <TestPage />
-      },
-      {
-        path: 'item/:itemId',
-        element: <SingleItem />,
-      }
-    ]
+    children: routes
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RoutesContext.Provider value={{ routes }}>
+      <RouterProvider router={router} />
+    </RoutesContext.Provider>
   </React.StrictMode>,
 )

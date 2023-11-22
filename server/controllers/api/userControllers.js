@@ -1,9 +1,10 @@
 const { User } = require('../../models');
+const { verifyToken } = require('../../utils/auth');
 
 const userRoutes = {
   async getUser(req, res) {
     try {
-        if (!req.session.userId) {
+        if (!verifyToken(req)) {
           res.status(404).json( { message: "You are not signed in!" });
           return;
         }

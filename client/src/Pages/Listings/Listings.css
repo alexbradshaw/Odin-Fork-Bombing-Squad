@@ -38,6 +38,8 @@
     .listImage {
         width: 250px;
         border-radius: 20px;
+        height: 250px;
+        object-fit: cover;
     }
 
     .itemTitle {
