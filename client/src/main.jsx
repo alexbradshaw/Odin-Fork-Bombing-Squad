@@ -10,11 +10,11 @@ import {
 
 import { 
   Landing, 
-  Listings, 
+  Listings,
+  SellItem, 
   SignIn, 
   SignUp, 
-  SellItem, 
-  TestPage 
+  SingleItem
 } 
 from './Pages/index.js';
 
@@ -23,7 +23,7 @@ export const RoutesContext = createContext();
 const routes = [
   { index: true, element: <Landing /> },
   { path: 'listings', element: <Listings /> },
-  { path: 'item/:itemId', element: <TestPage /> },
+  { path: 'item/:itemId', element: <SingleItem /> },
   { path: 'login', element: <SignIn /> },
   { path: 'signUp', element: <SignUp /> },
   { path: 'sellItem', element: <SellItem /> },
