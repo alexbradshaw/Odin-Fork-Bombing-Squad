@@ -41,7 +41,7 @@ const Footer = () => {
                     <img className='footerLogo' src={"/full.png"} />
                 </div>
                 <div className='column' id='foot2'>
-                    <h2>Members</h2>
+                    <h2>Devs</h2>
                     <div className='memberList'>
                         <div>
                             <div>
