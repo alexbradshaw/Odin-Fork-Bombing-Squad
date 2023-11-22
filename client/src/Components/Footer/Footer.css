@@ -17,8 +17,6 @@
 }
 
 .column {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -38,10 +36,23 @@
 
 #foot1 {
     align-items: center;
+    border-right: 1px solid black;
+}
+
+#foot2 {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#foot3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid black;
 }
 
 .footerLogo {
-    height: 119px;
+    width: 100%;
 }
 
 .memberList {
@@ -70,4 +81,24 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100px;
+}
+
+.currentRoutes {
+    width: 100px;
+    height: 80%;
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+.currentRoutes > *:last-child {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.currentRoutes h2 {
+    margin-bottom: 20px;
+}
+
+.currentRoutes a {
+    width: 100%;
 }
