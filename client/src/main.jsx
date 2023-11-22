@@ -8,7 +8,15 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { Landing, Listings, SignIn, SignUp, SellItem, TestPage } from './Pages/index.js';
+import { 
+  Landing, 
+  Listings, 
+  SignIn, 
+  SignUp, 
+  SellItem, 
+  TestPage 
+} 
+from './Pages/index.js';
 
 export const RoutesContext = createContext();
 
