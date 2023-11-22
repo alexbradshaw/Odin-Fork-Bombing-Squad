@@ -21,12 +21,12 @@ from './Pages/index.js';
 export const RoutesContext = createContext();
 
 const routes = [
-  { index: true, element: <Landing /> },
-  { path: 'listings', element: <Listings /> },
+  { index: true, element: <Landing />, name: "Home" },
+  { path: 'listings', element: <Listings />, name: "Profile" },
   { path: 'item/:itemId', element: <SingleItem /> },
-  { path: 'login', element: <SignIn /> },
-  { path: 'signUp', element: <SignUp /> },
-  { path: 'sellItem', element: <SellItem /> },
+  { path: 'login', element: <SignIn />, },
+  { path: 'signUp', element: <SignUp />, name: "Sign Up" },
+  { path: 'sellItem', element: <SellItem />, name: "Sell" },
 ]
 
 const router = createBrowserRouter([

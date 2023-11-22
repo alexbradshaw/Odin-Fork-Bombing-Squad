@@ -63,13 +63,13 @@ const Footer = () => {
                         <div>
                             {
                                 routes.map((route, index) => {
-                                    if (route.path != 'item/:itemId' && route.path != "login") {
+                                    if (route.name) {
                                         let href = route.path;
                                         if (route.index) {
                                             href = '/';
                                         }
                                         return (
-                                            <a href={href} key={"link " + index}>{route.element.type.name}</a>
+                                            <a href={href} key={"link " + index}>{route.name}</a>
                                         );
                                     }
                                 })
