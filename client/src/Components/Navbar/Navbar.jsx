@@ -33,7 +33,7 @@ const Navbar = () => {
             <input type="text" placeholder='Search'/>
             <div className='rightNav'>
                 <a href="/listings">Profile</a>
-                {bool ? <a onClick={signOut} >Log Out</a> : <a href="/login">Log In</a>}
+                {bool ? <a className='logout' onClick={signOut} >Log Out</a> : <a href="/login">Log In</a>}
                 <div><Icon icon="ion:cart-sharp" width={25} color='black'/></div>
             </div>
         </div>
