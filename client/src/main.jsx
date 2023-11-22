@@ -20,15 +20,6 @@ from './Pages/index.js';
 
 export const RoutesContext = createContext();
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    errorElement: <h1>Wrong page!</h1>,
-    children: routes
-  }
-])
-
 const routes = [
   { index: true, element: <Landing /> },
   { path: 'listings', element: <Listings /> },
@@ -37,6 +28,15 @@ const routes = [
   { path: 'signUp', element: <SignUp /> },
   { path: 'sellItem', element: <SellItem /> },
 ]
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <h1>Wrong page!</h1>,
+    children: routes
+  }
+])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
