@@ -1,5 +1,7 @@
 .header {
     display: flex;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .header h2 {
@@ -11,16 +13,33 @@
 }
 
 .photo {
-    height: 5rem;
-    width: 5rem;
+    height: 7rem;
+    width: 15rem;
 }
 
 .photo_title h3 {
     margin: auto;
 }
 
-.product_box {
-    background-color:#CCCCCC;
+#title_2 {
+    padding-right: 2rem;
+}
+/* The contents of the title of the photo itself*/
+
+.product_text{
+    background-color:#D4D4D4;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* padding-top: 0rem; */
+}
+
+.product_text input {
+    margin-top: 0rem;
+    height: 100%;
+    border-radius: 20px;
+    width: 90%;
 }
 
 #sell_item_page {
@@ -29,15 +48,24 @@
     display: flex;
     flex-direction: column;
 }
+/* CSS responsible for styling the id of sell_item_page which is the div id that the entire page is underneath it */
 
 #photo_box {
     background-color: #CCCCCC;
     display: flex;
     margin: auto;
+    border-radius: 20px;
+    border-color: black;
+    border-width: 15px;
 }
 
 #product_box {
     background-color: #D4D4D4;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .bottom_btn {
@@ -46,39 +74,63 @@
 
 .photo {
     background-color: #F2F0F0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    /* padding-top: 2rem; */
+}
+
+.uploadButton {
+    margin-left: 3.5rem;
+    background-color: #D9D9D9;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 20px;
+    /* border-color: black;
+    border-width: 20px;  */
+    /* border black not coming up for some reason */
 }
 
 #photo_grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 25rem;
+    gap: 12rem;
 }
 
 #grid_item_1 {
-    padding-left: 2rem;
+    padding-left: 4rem;
+    padding-bottom: 1rem;
 }
 
 #grid_item_2 {
     padding-right: 2rem;
+    padding-bottom: 1rem;
 }
 
 #product_grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 #buttons {
     display: flex;
     flex-direction: row;
+    margin-top: 1rem;
 }
 
 #button_grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 25rem;
-}
-
-#buttons #button_grid {
+    gap: 17rem;
     margin: auto;
 }
+
+button {
+    width: 10rem;
+}
+
+

@@ -14,6 +14,7 @@ import Landing from './Pages/Landing/Landing';
 import SignIn from './Pages/SignIn/SignIn.jsx';
 import SignUp from './Pages/SignUp/SignUp.jsx';
 import SellItem from './Pages/SellItem/SellItem.jsx';
+import CheckoutPage from './Pages/CheckoutPage/CheckoutPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: 'sellItem',
         element: <SellItem />,
+      },
+      {
+        path: 'checkout',
+        element: <CheckoutPage />,
       }
     ]
   }
