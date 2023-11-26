@@ -31,14 +31,18 @@ const Landing = () => {
                 <Carousel>
                     {
                         items.map((item) => {
-                            return <LandingItem item={item} key={item.name}/>
+                            if (item.categories.includes('tech')) {
+                                return <LandingItem item={item} key={item.name}/>
+                            }
                         })
                     }
                 </Carousel>
                 <Carousel>
                     {
                         items.map((item) => {
-                            return <LandingItem item={item} key={item.name}/>
+                            if (item.categories.includes('big')) {
+                                return <LandingItem item={item} key={item.name}/>
+                            }
                         })
                     }
                 </Carousel>
