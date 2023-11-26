@@ -62,6 +62,9 @@ db.once('open', async () => {
 
   for (let i = 0; i < users.length; i++) {
     console.log(users[i]); // Console log out each user so it doesn't end up as Object Object
+    for (let j = 0; j < users[i].items.length; j++) {
+      console.log(users[i].items[j].categories);
+    }
   }
 
   process.exit(0);
