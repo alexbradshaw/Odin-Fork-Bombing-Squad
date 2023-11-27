@@ -1,10 +1,12 @@
 import './CheckoutPage.css'
 import React, { useState } from 'react';
-import { useState } from 'react';
+import '../../utils/API.js';
+import { getAllItems } from '../../utils/API.js';
+
 
 const CheckoutPage = () => {
     // State for handling user input
-    const [itemArray, setItemArray] = useState([]);
+    //const [itemArray, setItemArray] = useState([]);
     // Array that contains items and their important attributes such as imageURL
     //, their quantity, their price
   
@@ -16,25 +18,22 @@ const CheckoutPage = () => {
 
 {/* div contains the 4 item boxes with left positioning*/}
           <div id='photo_box'>
-            <div id='photo_grid'>
+            <div id='site-grid'>
                 <div id='grid_item_1'>
-                    <div className='photo_title' id='title_1'>
-                        <h3>Photo 1</h3>
-                    </div>
-                    <div className='photo'>
-                        <div className='uploadButton'>
-                            <h5>Upload Image</h5>
+                    {/* the set of images and delete buttons*/}
+                    <div id='item-grid'>
+                        <div id='grid_item_1'>
+                            <h6>left</h6>
+                        </div>
+                        <div id='grid_item_2'>
+                            <h6>right</h6>
                         </div>
                     </div>
                 </div>
                 <div id='grid_item_2'>
-                    <div className='photo_title' id='title_2'>
-                        <h3>Photo 2</h3>
-                    </div>
-                    <div className='photo'>
-                        <div className='uploadButton'>
-                            <h5>Upload Image</h5>
-                        </div>
+                    {/* the div containing the informations about the products and the aggregate total*/}
+                    <div id='checkout-box'> 
+                        <ItemList itemArray={getAllItems}/>
                     </div>
                 </div>
             </div>
@@ -42,37 +41,7 @@ const CheckoutPage = () => {
 
         {/* Div contains the box with each of the product details form the array listed out in the description in the box
         Positioned to the right */}
-          <div id='product_box'>
-            <div id='product_grid'>
-                {/* <div className='' */}
-                <div className='product_text'>
-                    <h6>Title:</h6>
-                    <input type='text'></input>
-                </div>
-                <div className='product_text'>
-                    <h6>Description:</h6>
-                    <input type='text'></input>
-                </div>
-                <div className='product_text'>
-                    <h6>Category:</h6>
-                    <input type='text'></input>
-                </div>
-                <div className='product_text'>
-                    <div>
-                        <h6>Model:</h6>
-                    </div>
-                    <input type='text'></input>
-                </div>
-                <div className='product_text'>
-                    <h6>Pricing: </h6>
-                    <input type='text'></input>
-                </div>
-                <div className='product_text'>
-                    <h6>Address: </h6>
-                    <input type='text'></input>
-                </div>
-            </div>
-          </div>
+    
           <div id='buttons'>
             <div id='button_grid'>
                 <button className='bottom_btn'>Save</button>

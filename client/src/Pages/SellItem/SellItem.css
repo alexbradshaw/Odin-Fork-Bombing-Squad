@@ -59,7 +59,7 @@
     border-width: 15px;
 }
 
-#product_box {
+.product_box {
     background-color: #D4D4D4;
     width: 60%;
     margin: 0 auto;
@@ -93,20 +93,11 @@
     /* border black not coming up for some reason */
 }
 
-#photo_grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12rem;
-}
-
 #grid_item_1 {
-    padding-left: 4rem;
-    padding-bottom: 1rem;
-}
-
-#grid_item_2 {
-    padding-right: 2rem;
-    padding-bottom: 1rem;
+    margin: 0 auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 #product_grid {

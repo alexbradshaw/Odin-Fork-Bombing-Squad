@@ -1,5 +1,77 @@
 .header {
+    display: flex;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+
+.header h2 {
+    margin: auto;
+}
+
+#site-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24rem;
+    margin: auto;
+}
+
+#item-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: auto;
+}
+/* The contents of the title of the photo itself*/
+/* CSS responsible for styling the id of sell_item_page which is the div id that the entire page is underneath it */
+
+#photo_box {
+    background-color: #FFFFFF;
+    display: flex;
+    margin: auto;
+    border-radius: 20px;
+    border-color: black;
+    border-width: 15px;
+}
+
+.bottom_btn {
+    background-color: #C1C1C1;
+}
+
+#grid_item_1 {
+    margin: 0 auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#grid_item_2 {
+    margin: 0 auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#checkout-box {
+    background-color: lightcoral;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+
+#button_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17rem;
+    margin: auto;
+}
+
+button {
+    width: 10rem;
+}
+
 
