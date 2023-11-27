@@ -27,13 +27,14 @@ const routes = [
   { path: 'login', element: <SignIn />, },
   { path: 'signUp', element: <SignUp />, name: "Sign Up" },
   { path: 'sellItem', element: <SellItem />, name: "Sell" },
+  { path: 'sellItem', element: <CheckoutPage />, name: "Checkout" },
 ]
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <h1>Wrong page!</h1>,
+    errorElement: <h1>Wrong page!</h1>
     children: routes
   }
 ])

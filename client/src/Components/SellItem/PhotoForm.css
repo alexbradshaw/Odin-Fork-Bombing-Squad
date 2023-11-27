@@ -1,0 +1,8 @@
+.form {
+    display: flex;
+    background-color: #CCCCCC;
+}
+
+.form-body {
+    flex-direction: row;
+}
