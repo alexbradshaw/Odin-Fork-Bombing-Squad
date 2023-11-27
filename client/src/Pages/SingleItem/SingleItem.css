@@ -1,7 +1,7 @@
 .singleitem { 
     display: grid;
     grid-template-columns: 1fr 1fr; 
-
+    background-color: white;
     column-gap: 1em;
 }
 .singleitem h2 { 
@@ -35,7 +35,7 @@
 }
 
 .everything-else-column { 
-    
+    text-align: left;
 }
 
 @media screen and (max-width: 1400px) {

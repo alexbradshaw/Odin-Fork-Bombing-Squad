@@ -1,21 +1,36 @@
 .item-details-container { 
     grid-template-rows: 1fr 1fr 1fr 1fr;
     column-gap: 3em;
+    text-align: left;
+}
+
+.item-details-container h2, h3, h4 { 
+    color: black;
 }
 
 #item-name { 
-
+    /* right: 10px; */
+    /* right: 10px; */
+    top: 125px;
+    position: absolute;
+    /* height: 10px; */
 }
 
 #item-price { 
-
+    top: 170px;
+    position: absolute;
+    /* height: 100px; */
 }
 
-#item-description { 
-
+#item-description {
+    top: 215px; 
+    position: absolute;
+    /* height: 100px; */
 }
 
 #additional-details { 
-
+    top: 275px;
+    position: absolute;
+    /* height: 100px; */
 }
  
