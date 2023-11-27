@@ -1,25 +1,23 @@
-import { useContext } from 'react';
 import './Navbar.css'
 
 import { Icon } from '@iconify/react';
 
-import { UserData } from '../../App';
 import { logout } from '../../utils/API';
 
 const Navbar = () => {
-    const { userData, setData } = useContext(UserData);
 
-    const bool = userData._id != '';
+    let bool = false;
+
+    if (localStorage.getItem("auth") != null) {
+        bool = true;
+    }
 
     const signOut = async () => {
         try {
             const resOk = await logout();
             if (resOk) {
-                setData({
-                    "_id":"",
-                    "username":"",
-                    "email":""
-                })
+                location.assign('/');
+                localStorage.removeItem("auth");
             }
         } catch (e) {
             console.log('Something went wrong with logout!')
@@ -35,7 +33,7 @@ const Navbar = () => {
             <input type="text" placeholder='Search'/>
             <div className='rightNav'>
                 <a href="/listings">Profile</a>
-                {bool ? <a onClick={signOut} >Log Out</a> : <a href="/login">Log In</a>}
+                {bool ? <a className='logout' onClick={signOut} >Log Out</a> : <a href="/login">Log In</a>}
                 <div><Icon icon="ion:cart-sharp" width={25} color='black'/></div>
             </div>
         </div>

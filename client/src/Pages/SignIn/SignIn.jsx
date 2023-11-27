@@ -1,5 +1,5 @@
 import './SignIn.css'
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { login } from '../../utils/API';
 
 const Login = () => {
@@ -7,9 +7,12 @@ const Login = () => {
   const [userOrEmail, setuserOrEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const submitLogin = (e) => {
+  const submitLogin = async (e) => {
     e.preventDefault(); // prevents page from refreshing
-    login({ userOrEmail, password });
+    const success = await login({ userOrEmail, password });
+    if (success) {
+      location.assign('/');
+    }
   };
 
   return (

@@ -1,14 +1,9 @@
 import { createNewItem } from "../../utils/API";
-import { useContext } from 'react';
 
 import Confirm from './Confirm';
 import IconButton from "./IconButton";
 
-import { UserData } from "../../App";
-
-const ListingHeader = ({ clicked, formData, func }) => {
-
-    const { userData } = useContext(UserData);
+const ListingHeader = ({ username, clicked, formData, func }) => {
 
     const { setItemsArray, setNewItem, setError } = func; // extract functions from func object
 
@@ -38,7 +33,7 @@ const ListingHeader = ({ clicked, formData, func }) => {
     return (
         <div className='listingHeader'>
             <div className='hello'>
-                <h2>Hello {userData.username}!</h2>  
+                <h2>Hello {username}!</h2>  
             </div>
             <div className='listingButtons'>
                 {

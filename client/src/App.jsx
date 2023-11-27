@@ -1,27 +1,17 @@
 import './App.css'
 
-import { createContext, useState } from 'react';
-
 import { Outlet } from "react-router-dom";
 
 import Navbar from './Components/Navbar/Navbar';
-
-export const UserData = createContext();
+import Footer from './Components/Footer/Footer';
 
 function App() {
 
-  const [userData, setData] = useState({
-    "_id":"",
-    "username":"",
-    "email":""
-  });
-
   return (
       <div className='app'>
-        <UserData.Provider value={{ userData, setData }}>
-          <Navbar />
-          <Outlet />
-        </UserData.Provider>
+        <Navbar />
+        <Outlet />
+        <Footer />
       </div>
   )
 }

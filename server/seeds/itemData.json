@@ -4,112 +4,144 @@
       "price": 5,
       "owner": "alex",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/dog_food.png",
+      "description": "Dog food for dog",
+      "categories": ["dry", "small"]
     },
     {
       "name": "Sammy's House",
       "price": 5,
       "owner": "alex",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/sammys_house.jpg",
+      "description": "Sammys house",
+      "categories": ["place", "sammy", "big"]
     },
     {
       "name": "Colosseum",
       "price": 1,
       "owner": "alex",
       "quantity": 2,
-      "image": "/placeholder.png"
+      "image": "/seeds/colosseum.jpg",
+      "description": "Selling the Colosseum, had to steal it so it needs to be sold quick",
+      "categories": ["place", "dry"]
     },
     {
       "name": "Swimming Pool",
       "price": 500,
       "owner": "alex",
       "quantity": 2,
-      "image": "/placeholder.png"
+      "image": "/seeds/pool.jpg",
+      "description": "Full swimming pool just cause",
+      "categories": ["place", "big", "wet"]
     },
     {
       "name": "Skateboard",
       "price": 50,
       "owner": "sammy",
       "quantity": 3,
-      "image": "/placeholder.png"
+      "image": "/seeds/skateboard.jpg",
+      "description": "Cool lil skateboard",
+      "categories": ["accessory", "small"]
     },
     {
       "name": "CodeHub's Most Precious Gem",
       "price": 100000,
       "owner": "sammy",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/placeholder.png",
+      "description": "Secret precious item that you only get to see when it arrives",
+      "categories": ["venn", "big"]
     },
     {
       "name": "Venn's Honda CRV",
       "price": 500,
       "owner": "sammy",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/venns_car.jpg",
+      "description": "Sammy stole venns car and is joyriding it",
+      "categories": ["car", "venn"]
     },
     {
       "name": "Racecar",
       "price": 79801,
       "owner": "sammy",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/rs7.jpg",
+      "description": "Fast racecar vroom",
+      "categories": ["car", "zoom"]
     },
     {
       "name": "Sunglasses",
       "price": 3,
       "owner": "venn",
       "quantity": 5,
-      "image": "/placeholder.png"
+      "image": "/seeds/sunglasses.png",
+      "description": "Cool sunglasses",
+      "categories": ["accessory", "small"]
     },
     {
       "name": "Headphones",
       "price": 70,
       "owner": "venn",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/headphones.jpg",
+      "description": "Venn and Sammy's classic headphones",
+      "categories": ["venn", "sammy"]
     },
     {
       "name": "Authentic Civil War Cannon",
       "price": 103123,
       "owner": "venn",
       "quantity": 5,
-      "image": "/placeholder.png"
+      "image": "/seeds/cannon.jpg",
+      "description": "Big ahh cannon",
+      "categories": ["boom", "big"]
     },
     {
       "name": "iPhone 3gs",
       "price": 7152,
       "owner": "venn",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/iphone.jpg",
+      "description": "Iphone 3gs from the depths of my family's junk drawer",
+      "categories": ["tech", "small", "phone"]
     },
     {
       "name": "Power Supply",
       "price": 120,
       "owner": "yushus",
       "quantity": 2,
-      "image": "/placeholder.png"
+      "image": "/seeds/psu.jpg",
+      "description": "Power supply for pc, 200w bronze",
+      "categories": ["tech", "small"]
     },
     {
       "name": "Macbook",
       "price": 1200,
       "owner": "yushus",
       "quantity": 2,
-      "image": "/placeholder.png"
+      "image": "/seeds/macbook.jpg",
+      "description": "2023 Macbook Pro with the M3 chip",
+      "categories": ["tech", "small"]
     },
     {
       "name": "Sammy's Mailbox",
       "price": 34,
       "owner": "yushus",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/seeds/mailbox.jpg",
+      "description": "Free lil mailbox, I know what I got so don't try to lowball me",
+      "categories": ["sammy", "big"]
     },
     {
       "name": "Sammy's Phone",
       "price": 1,
       "owner": "yushus",
       "quantity": 1,
-      "image": "/placeholder.png"
+      "image": "/placeholder.png",
+      "description": "It was so free so I took it",
+      "categories": ["sammy", "tech", "small", "phone"]
     }
   ]
   

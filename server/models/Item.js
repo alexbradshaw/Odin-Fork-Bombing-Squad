@@ -8,6 +8,11 @@ const itemSchema = new Schema(
       minlength: 1,
       maxlength: 50
     },
+    description: {
+      type: String,
+      required: true,
+      maxlength: 300
+    },
     price: {
       type: Number,
       required: true,
@@ -25,6 +30,9 @@ const itemSchema = new Schema(
     image: {
       type: String,
       default: ""
+    },
+    categories: {
+      type: [String]
     },
     date_created: {
       type: Date,

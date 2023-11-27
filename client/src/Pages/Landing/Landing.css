@@ -9,7 +9,7 @@
 
 .landingHeader {
     width: 80%;
-    height: 150px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,10 +45,16 @@
     border-radius: 10px;
 }
 
+.landingItem a {
+    height: 250px;
+}
+
 .itemPicture {
     width: 225px;
+    height: 225px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    object-fit: cover;
 }
 
 .itemName {

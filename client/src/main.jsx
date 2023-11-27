@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
@@ -8,58 +8,41 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import TestPage from './Pages/TestPage/TestPage';
-import Listings from './Pages/Listings/Listings';
-import Landing from './Pages/Landing/Landing';
-import SignIn from './Pages/SignIn/SignIn.jsx';
-import SignUp from './Pages/SignUp/SignUp.jsx';
-import SellItem from './Pages/SellItem/SellItem.jsx';
-import CheckoutPage from './Pages/CheckoutPage/CheckoutPage.jsx';
+import { 
+  Landing, 
+  Listings,
+  SellItem, 
+  SignIn, 
+  SignUp, 
+  SingleItem
+} 
+from './Pages/index.js';
+
+export const RoutesContext = createContext();
+
+const routes = [
+  { index: true, element: <Landing />, name: "Home" },
+  { path: 'listings', element: <Listings />, name: "Profile" },
+  { path: 'item/:itemId', element: <SingleItem /> },
+  { path: 'login', element: <SignIn />, },
+  { path: 'signUp', element: <SignUp />, name: "Sign Up" },
+  { path: 'sellItem', element: <SellItem />, name: "Sell" },
+  { path: 'sellItem', element: <CheckoutPage />, name: "Checkout" },
+]
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <h1>Wrong page!</h1>,
-    children: [
-      {
-        index: true,
-        element: <Landing />
-      }, 
-      {
-        path: 'listings',
-        element: <Listings />
-      },      
-      {
-        path: 'test',
-        element: <TestPage />
-      },
-      {
-        path: 'item/:itemId',
-        element: <TestPage />,
-      },
-      {
-        path: 'login',
-        element: <SignIn />,
-      },
-      {
-        path: 'signUp',
-        element: <SignUp />,
-      },
-      {
-        path: 'sellItem',
-        element: <SellItem />,
-      },
-      {
-        path: 'checkout',
-        element: <CheckoutPage />,
-      }
-    ]
+    errorElement: <h1>Wrong page!</h1>
+    children: routes
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RoutesContext.Provider value={{ routes }}>
+      <RouterProvider router={router} />
+    </RoutesContext.Provider>
   </React.StrictMode>,
 )

@@ -1,0 +1,21 @@
+.item-details-container { 
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    column-gap: 3em;
+}
+
+#item-name { 
+
+}
+
+#item-price { 
+
+}
+
+#item-description { 
+
+}
+
+#additional-details { 
+
+}
+ 
