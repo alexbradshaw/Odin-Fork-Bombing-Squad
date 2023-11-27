@@ -2,6 +2,7 @@ import './CheckoutPage.css'
 import React, { useState } from 'react';
 import '../../utils/API.js';
 import { getAllItems } from '../../utils/API.js';
+import ItemList from '../../Components/Checkout/ItemList.jsx';
 
 
 const CheckoutPage = () => {
@@ -9,6 +10,8 @@ const CheckoutPage = () => {
     //const [itemArray, setItemArray] = useState([]);
     // Array that contains items and their important attributes such as imageURL
     //, their quantity, their price
+
+    const[totalPrice, setTotalPrice] = useState(0.00);
   
     return (
       <div id='sell_item_page'> 
@@ -33,7 +36,10 @@ const CheckoutPage = () => {
                 <div id='grid_item_2'>
                     {/* the div containing the informations about the products and the aggregate total*/}
                     <div id='checkout-box'> 
-                        <ItemList itemArray={getAllItems}/>
+                        <ItemList itemArray={getAllItems()} price = {totalPrice} handle = {setTotalPrice}/>
+                    </div>
+                    <div>
+                      <h2>Total Price: {totalPrice}</h2>
                     </div>
                 </div>
             </div>
