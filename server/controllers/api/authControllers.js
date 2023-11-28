@@ -11,8 +11,6 @@ const authRoutes = {
                   { email: req.body.email }
               ] 
           }).select('-__v -items'); // Does not include items array
-      
-      console.log(user);
 
       if (!user) {
         return res.status(401).json({ message: "Invalid user" });
@@ -37,8 +35,6 @@ const authRoutes = {
     try {
       const user = await User.create(req.body); // Creates new user based on request body
 
-      console.log(user);
-
       req.session.save(() => {
         req.session.userId = user._id; // Save user _id to session
         req.session.username = user.username; // Save username to session
@@ -51,7 +47,6 @@ const authRoutes = {
       res.status(400).json(e);
     }
   },
-
   async logout(req, res) {
 
     if (!verifyToken(req)) {
@@ -71,6 +66,23 @@ const authRoutes = {
       res.status(400).json(e);
     }
   },
+  async authCheck(req, res) {
+    const verified = verifyToken(req);
+    let status;
+
+    if (verified) {
+      status = 200;
+    } else {
+      status = 401;
+      req.session.destroy((err) => {
+        if (err) {
+          throw err;
+        }
+      });
+    }
+
+    res.status(status).json(verified);
+  }
 }
 
 module.exports = authRoutes;
