@@ -37,7 +37,9 @@ const Navbar = () => {
             <div className='rightNav'>
                 <a href="/listings">Profile</a>
                 {loggedIn ? <a className='logout' onClick={signOut} >Log Out</a> : <a href="/login">Log In</a>}
-                <div><Icon icon="ion:cart-sharp" width={25} color='black'/></div>
+                <a href='/checkout'>
+                    <Icon icon="ion:cart-sharp" width={25} color='black'/>
+                </a>
             </div>
         </div>
     );
