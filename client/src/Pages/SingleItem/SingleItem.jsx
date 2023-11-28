@@ -32,7 +32,7 @@ const SingleItem = () => {
             
             {/* <img src={defaultImage} alt="Default Image" className='default-image' /> */}
             <div className='item-image-column'>
-                <ItemImage/> 
+                <ItemImage itemURL = {itemInfo.image} /> 
             </div>
             <div className='everything-else-column'>
 

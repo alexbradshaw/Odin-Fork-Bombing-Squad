@@ -1,8 +1,9 @@
 import './ItemImage.css'
+
 import defaultImage from '../../Images/default_image.png';
-const ItemImage = () => { 
+const ItemImage = ({itemURL}) => { 
     return ( 
-        <img src={defaultImage} alt="Default Image" className='default-image' />
+        <img src={itemURL} alt="Item Image" className='default-image' />
     );
 };
 
