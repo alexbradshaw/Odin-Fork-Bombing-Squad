@@ -1,5 +1,5 @@
 import './SellItem.css'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PhotoForm from '../../Components/SellItem/PhotoForm.jsx';
 import '../../utils/API.js';
 import { createNewItem } from '../../utils/API.js';
@@ -8,21 +8,43 @@ import { createNewItem } from '../../utils/API.js';
 const SellItem = () => {
     // State for handling user input
     const [name, setName] = useState('');
-    // const [showForm, setShowForm] = useState(false);
+    const [showForm, setShowForm] = useState(false);
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
     const [pricing, setPricing] = useState(0.00);
     const [address, setAddress] = useState('');
     const [quantity, setQuantity] = useState(0);
     const [imageURL, setImageURL] = useState('');
+    const [items, setItemsArray] = useState([]);
+
+    // const createItem = async (formData) => {
+    //     try {
+    //         const items = await createNewItem(formData);
+    //         console.log(items);
+    //     } catch (e) {
+    //         console.error(e);
+    //     }
+    // };
+
+    // const clearForm = (clearFunction) => {
+    //   clearFunction;
+    // }
+
+    const ShowForm = () => {
+      setShowForm(true);
+    }
 
     const submitForm = (event) => {
 
       event.preventDefault();
-      
-      createNewItem(
-        name, description, category, pricing, address, quantity, imageURL
-      );
+
+      console.log(name);
+      console.log(description);
+      console.log(imageURL);
+
+      // createItem(
+      //    name, description, category, pricing, address, quantity, imageURL
+      // );
       // From the parent class of App we are passing the handler thorugh props to add a new user to a list of users
   
       setName("");
@@ -32,13 +54,22 @@ const SellItem = () => {
       setAddress("");
       setQuantity(0);
       setImageURL("");
-      // var form = document.getElementsByClassName("form");
+
+      // const options = {
+      //   url: 'http://localhost:5001/create-new-memory',
+      //   method: 'POST',
+      //   headers: {
+      //     'Accept': 'application/json',
+      //     'Content-Type': 'application/json;charset=UTF-8'
+      //   },
+      //   body: JSON.stringify(thisListGoesToDB)
+      // };
+
+      // clearForm()
       event.target.reset()
       // event.target allows us to isolate the element of the page that is calling this handler that we are in which
       // is the form
-    }
-    //h
-  
+    }  
     // const submitLogin = (e) => {
     //   e.preventDefault(); // prevents page from refreshing
     //   login({ userOrEmail, password });
@@ -48,7 +79,7 @@ const SellItem = () => {
   //Once I have created a new landing object I need to see if I need to call either createNewItem or UpdateItem 
   //so the database changes accordingly with the new Item
     return (
-      <div id='sell_item_page'> 
+      <div id='sell_item_page'>
         <div className='header'>
             <h2>Sell Item</h2>
         </div>  
@@ -65,14 +96,20 @@ const SellItem = () => {
                             {/* add onSubmit property to call uploadImage method*/}
                             {/* <UploadPhoto img = {imageUrl}/> */}
                     </div>
-                    <button className='uploadButton'>Upload Image</button>
+                    <button className='uploadButton' onClick={ShowForm}>Upload Image</button>
                 </div>
           </div>
 
-          <div className='product_box'>
-            <PhotoForm handle = {setImageURL} />
-          </div>
+          {showForm && (
+            <div className='product_box'>
+              <PhotoForm set={setImageURL} setter = {setShowForm} />
+            </div>
+          )}
+          {/* Need to understand this and why it allows for the form not to appear if the upload button is not clicked */}
+          {/* So it's a boolean statement so the stuff in the "{}" will only appear if whatever in it is true. So if showForm is
+          false then it won't show */}
 
+      <form onSubmit={submitForm}>
           <div className='product_box'>
             <div id='product_grid'>
                 {/* <div className='' */}
@@ -106,11 +143,11 @@ const SellItem = () => {
           <div id='buttons'>
             <div id='button_grid'>
                 <button className='bottom_btn'>Save</button>
-                <button className='bottom_btn' onSubmit={submitForm}>List</button>
+                <button className='bottom_btn' type='submit'>List</button>
                 {/* When we click the list button then a landing item object should be created */}
             </div>
           </div>
-
+        </form>
       </div>
     );
   };
