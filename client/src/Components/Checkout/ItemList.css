@@ -6,4 +6,5 @@
 .grid_item {
     margin: 0 auto;
     justify-content: center;
+    padding-right: 3rem;
 }

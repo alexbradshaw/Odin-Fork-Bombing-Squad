@@ -14,20 +14,21 @@ const SellItem = () => {
     const [pricing, setPricing] = useState(0.00);
     const [address, setAddress] = useState('');
     const [quantity, setQuantity] = useState(0);
-    const [imageURL, setImageURL] = useState('');
+    const [image, setImage] = useState('');
     const [items, setItemsArray] = useState([]);
+    // const [errorShow, setErrorShow] = useState(true);
 
-    // const createItem = async (formData) => {
-    //     try {
-    //         const items = await createNewItem(formData);
-    //         console.log(items);
-    //     } catch (e) {
-    //         console.error(e);
-    //     }
-    // };
+    const createItem = async (formData) => {
+        try {
+            const items = await createNewItem(formData);
+            console.log(items);
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
-    // const clearForm = (clearFunction) => {
-    //   clearFunction;
+    // const errorURL = () => {
+    //   setErrorShow(false);
     // }
 
     const ShowForm = () => {
@@ -40,11 +41,14 @@ const SellItem = () => {
 
       console.log(name);
       console.log(description);
-      console.log(imageURL);
+      console.log(image);
+      // console.log(response.body);
 
-      // createItem(
-      //    name, description, category, pricing, address, quantity, imageURL
-      // );
+      createItem(
+         {
+         name, description, category, pricing, address, quantity, image
+         }
+      );
       // From the parent class of App we are passing the handler thorugh props to add a new user to a list of users
   
       setName("");
@@ -53,27 +57,13 @@ const SellItem = () => {
       setPricing(0.00);
       setAddress("");
       setQuantity(0);
-      setImageURL("");
-
-      // const options = {
-      //   url: 'http://localhost:5001/create-new-memory',
-      //   method: 'POST',
-      //   headers: {
-      //     'Accept': 'application/json',
-      //     'Content-Type': 'application/json;charset=UTF-8'
-      //   },
-      //   body: JSON.stringify(thisListGoesToDB)
-      // };
+      setImage("");
 
       // clearForm()
       event.target.reset()
       // event.target allows us to isolate the element of the page that is calling this handler that we are in which
       // is the form
     }  
-    // const submitLogin = (e) => {
-    //   e.preventDefault(); // prevents page from refreshing
-    //   login({ userOrEmail, password });
-    // };
 
   //This method needs to return a landing object that can be posted in the database.
   //Once I have created a new landing object I need to see if I need to call either createNewItem or UpdateItem 
@@ -91,18 +81,21 @@ const SellItem = () => {
                     </div>
                     <div className='photo'>
 
-                        <img src={imageURL}></img>
-                            
-                            {/* add onSubmit property to call uploadImage method*/}
-                            {/* <UploadPhoto img = {imageUrl}/> */}
-                    </div>
+                        <img src={image}></img>
+
+                        {/* {errorShow && (
+                          <div>
+                            <h6>Enter a Valid Image URL</h6>
+                          </div>
+                        )} */}
+                   </div>
                     <button className='uploadButton' onClick={ShowForm}>Upload Image</button>
                 </div>
           </div>
 
           {showForm && (
             <div className='product_box'>
-              <PhotoForm set={setImageURL} setter = {setShowForm} />
+              <PhotoForm set={setImage} setter = {setShowForm} />
             </div>
           )}
           {/* Need to understand this and why it allows for the form not to appear if the upload button is not clicked */}
@@ -142,7 +135,7 @@ const SellItem = () => {
           </div>
           <div id='buttons'>
             <div id='button_grid'>
-                <button className='bottom_btn'>Save</button>
+                <button className='bottom_btn'>Reset</button>
                 <button className='bottom_btn' type='submit'>List</button>
                 {/* When we click the list button then a landing item object should be created */}
             </div>

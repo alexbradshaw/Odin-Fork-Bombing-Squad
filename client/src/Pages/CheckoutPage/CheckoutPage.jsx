@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import '../../utils/API.js';
 import { getAllItems } from '../../utils/API.js';
 import ItemList from '../../Components/Checkout/ItemList.jsx';
+import PhotoList from '../../Components/Checkout/photoList.jsx';
 
 
 const CheckoutPage = () => {
@@ -40,24 +41,30 @@ const CheckoutPage = () => {
                 <div id='grid_item_1'>
                     {/* the set of images and delete buttons*/}
                     <div id='item-grid'>
-                        <div id='grid_item_1'>
+                        {/* <div id='grid_item_1'>
                             <h6>left</h6>
                         </div>
                         <div id='grid_item_2'>
                             <h6>right</h6>
-                        </div>
+                        </div> */}
+                        <h2>right</h2>
+                          {items.map((item) => {
+                                // {setTotalPrice(totalPrice + item)}
+                                <PhotoList itemArray={item} key={item.name}/>
+                          })}
                     </div>
                 </div>
                 <div id='grid_item_2'>
                     {/* the div containing the informations about the products and the aggregate total*/}
                     <div id='checkout-box'>
                           {items.map((item) => {
+                                // {setTotalPrice(totalPrice + item)}
                                 return <ItemList itemArray={item} key={item.name}/>
                           })}
                         {/* price = {totalPrice} handle = {setTotalPrice} */}
                     </div>
                     <div>
-                      <h2>Total Price: 0</h2>
+                      <h2>Total Price: {totalPrice}</h2>
                     </div>
                 </div>
             </div>
