@@ -1,19 +1,17 @@
 import './ErrorPage.css'
 
-
 const ErrorPage = () => {
 
     return (
-      <div className=''>
-        <h1 id=''>
-            Error: 404
-        </h1>
-        <h2 id=''> 
-            Oops! Page was not found :/
-        </h2>
-
-        <div id='cuteGraphic'> 
-    
+      <div className='err'>
+        <div>
+          <h1 id=''>
+              Error
+          </h1>
+          <h2 id=''> 
+              Oops! Something went wrong :/
+          </h2>
+          <button style={{"marginTop": "15px", "width": "220px"}} onClick={()=> location.assign('/')}>Click to Return to Site</button>
         </div>
       </div>
     ); 
