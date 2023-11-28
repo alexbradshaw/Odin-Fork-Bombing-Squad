@@ -2,10 +2,12 @@
     grid-template-rows: 1fr 1fr 1fr 1fr;
     column-gap: 3em;
     text-align: left;
+    justify-content: left;
 }
 
 .item-details-container h2, h3, h4 { 
     color: black;
+    /* text-align: left; */
 }
 
 #item-name { 
@@ -13,6 +15,7 @@
     /* right: 10px; */
     top: 125px;
     position: absolute;
+    /* text-align: left; */
     /* height: 10px; */
 }
 

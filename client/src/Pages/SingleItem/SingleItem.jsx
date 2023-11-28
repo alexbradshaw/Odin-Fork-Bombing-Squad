@@ -15,7 +15,8 @@ const SingleItem = () => {
         name: "",
         owner: "",
         price: 0,
-        quantity: 0
+        quantity: 0,
+        description: "",
     });
 
     const { itemId } = useParams();
@@ -36,7 +37,7 @@ const SingleItem = () => {
             </div>
             <div className='everything-else-column'>
 
-                <div className='item-details'> <ItemDetails /> </div>
+                <div className='item-details'> <ItemDetails itemInfo ={itemInfo}/> </div>
                 {/* AddToCart goes here */}
                 <div className='seller-info'> <SellerInfo /> </div>
             </div>
