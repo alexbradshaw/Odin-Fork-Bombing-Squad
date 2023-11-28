@@ -1,4 +1,7 @@
+import { formatDecimal } from '../../utils/Format';
 import './ItemDetails.css'
+
+formatDecimal
 
 const ItemDetails = ({itemInfo}) => { 
 
@@ -13,7 +16,7 @@ const ItemDetails = ({itemInfo}) => {
             </div>
 
             <div> 
-                <h2 id='item-price'> {itemInfo.price}  </h2> 
+                <h2 id='item-price'> ${formatDecimal(itemInfo.price)}  </h2> 
             </div>
 
             <div> 
