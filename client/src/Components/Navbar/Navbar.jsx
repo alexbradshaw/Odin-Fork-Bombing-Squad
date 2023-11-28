@@ -2,15 +2,18 @@ import './Navbar.css'
 
 import { Icon } from '@iconify/react';
 
-import { logout } from '../../utils/API';
+import { authCheck, logout } from '../../utils/API';
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
 
-    let bool = false;
+    const [loggedIn, setLoggedIn] = useState(false);
 
-    if (localStorage.getItem("auth") != null) {
-        bool = true;
-    }
+    useEffect(() => {
+        if (localStorage.getItem("auth") != null && authCheck()) {
+            setLoggedIn(true);
+        }
+    })
 
     const signOut = async () => {
         try {
@@ -33,7 +36,7 @@ const Navbar = () => {
             <input type="text" placeholder='Search'/>
             <div className='rightNav'>
                 <a href="/listings">Profile</a>
-                {bool ? <a className='logout' onClick={signOut} >Log Out</a> : <a href="/login">Log In</a>}
+                {loggedIn ? <a className='logout' onClick={signOut} >Log Out</a> : <a href="/login">Log In</a>}
                 <div><Icon icon="ion:cart-sharp" width={25} color='black'/></div>
             </div>
         </div>
