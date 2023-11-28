@@ -9,6 +9,10 @@
     flex-wrap: wrap;
 }
 
+.listings button {
+    width: auto;
+}
+
 /* ListingContainer Component */
 
 .listingContainer {
