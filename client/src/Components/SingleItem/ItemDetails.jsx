@@ -2,22 +2,26 @@ import './ItemDetails.css'
 
 const ItemDetails = () => { 
 
+
+    // THIS SHIT IS STILL NOT WORKING 
+
+    // CHECK ALL THE INVOLVED CSS FILES
     return ( 
         <div className='item-details-container'> 
-            <div id='item-name'> 
-                <h2> Item Name </h2>
+            <div> 
+                <h2 id='item-name'> Item Name </h2>
             </div>
 
-            <div id='item-price'> 
-                <h2> Item Price  </h2> 
+            <div> 
+                <h2 id='item-price'> Item Price  </h2> 
             </div>
 
-            <div id='item-description'> 
-                <h2> Item Description </h2>
+            <div> 
+                <h2 id='item-description'> Item Description </h2>
             </div>
 
-            <div id='additional details'>
-                <h2> Additional Details </h2> 
+            <div>
+                <h2 id='additional-details'> Additional Details </h2> 
             </div>
 
           
