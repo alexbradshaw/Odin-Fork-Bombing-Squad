@@ -15,7 +15,8 @@ import {
   SignIn, 
   SignUp, 
   SingleItem,
-  CheckoutPage
+  CheckoutPage,
+  ErrorPage
 } 
 from './Pages/index.js';
 
@@ -25,17 +26,17 @@ const routes = [
   { index: true, element: <Landing />, name: "Home" },
   { path: 'listings', element: <Listings />, name: "Profile" },
   { path: 'item/:itemId', element: <SingleItem /> },
-  { path: 'login', element: <SignIn />, },
+  { path: 'login', element: <SignIn /> },
   { path: 'signUp', element: <SignUp />, name: "Sign Up" },
   { path: 'sellItem', element: <SellItem />, name: "Sell" },
-  { path: 'checkout', element: <CheckoutPage />, name: "Checkout" },
+  { path: 'checkout', element: <CheckoutPage /> },
 ]
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <h1>Wrong page!</h1>,
+    errorElement: <ErrorPage />,
     children: routes
   }
 ])
