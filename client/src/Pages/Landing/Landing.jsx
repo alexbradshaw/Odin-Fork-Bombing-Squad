@@ -35,6 +35,8 @@ const Landing = () => {
                                 return <LandingItem item={item} key={item.name}/>
                             }
                         })
+                        // Basically once items stores the array of items it returns as many Landing items to the screen
+                        //as there are elements in the item array
                     }
                 </Carousel>
                 <Carousel>

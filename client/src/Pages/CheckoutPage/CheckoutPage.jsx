@@ -1,5 +1,5 @@
 import './CheckoutPage.css'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../utils/API.js';
 import { getAllItems } from '../../utils/API.js';
 import ItemList from '../../Components/Checkout/ItemList.jsx';
@@ -12,6 +12,21 @@ const CheckoutPage = () => {
     //, their quantity, their price
 
     const[totalPrice, setTotalPrice] = useState(0.00);
+    const [items, setItemsArray] = useState([]);
+
+    const fetchItems = async () => {
+        try {
+            const items = await getAllItems();
+            console.log(items);
+            setItemsArray(items);
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    useEffect(() => { fetchItems() }, []);
+    // Because MongoDB is an external system and manages itself independently of React. useEffects allows React to
+    // sync up with MONGODB. This will run every time the page rerenders
   
     return (
       <div id='sell_item_page'> 
@@ -35,11 +50,14 @@ const CheckoutPage = () => {
                 </div>
                 <div id='grid_item_2'>
                     {/* the div containing the informations about the products and the aggregate total*/}
-                    <div id='checkout-box'> 
-                        <ItemList itemArray={getAllItems()} price = {totalPrice} handle = {setTotalPrice}/>
+                    <div id='checkout-box'>
+                          {items.map((item) => {
+                                return <ItemList itemArray={item} key={item.name}/>
+                          })}
+                        {/* price = {totalPrice} handle = {setTotalPrice} */}
                     </div>
                     <div>
-                      <h2>Total Price: {totalPrice}</h2>
+                      <h2>Total Price: 0</h2>
                     </div>
                 </div>
             </div>
