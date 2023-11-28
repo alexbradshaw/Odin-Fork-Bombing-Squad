@@ -14,6 +14,21 @@ const retrieveAuthToken = () => {
     return localStorage.getItem('auth');
 }
 
+export const authCheck = async () => {
+    const response = await fetch("/api/auth", {
+        method: "POST", 
+        headers: {
+          'Authorization' : retrieveAuthToken(),
+        },
+    });
+
+    errorCheck(response);
+
+    const status = await response.json();
+
+    return status;
+}
+
 // Use this if you want to test an API route that requires auth
 export const loginTest = async() => {
     const response = await fetch("/api/login", {
