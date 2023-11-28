@@ -1,6 +1,6 @@
 import './ItemDetails.css'
 
-const ItemDetails = () => { 
+const ItemDetails = ({itemInfo}) => { 
 
 
     // THIS SHIT IS STILL NOT WORKING 
@@ -9,15 +9,15 @@ const ItemDetails = () => {
     return ( 
         <div className='item-details-container'> 
             <div> 
-                <h2 id='item-name'> Item Name </h2>
+                <h2 id='item-name'> {itemInfo.name} </h2>
             </div>
 
             <div> 
-                <h2 id='item-price'> Item Price  </h2> 
+                <h2 id='item-price'> {itemInfo.price}  </h2> 
             </div>
 
             <div> 
-                <h2 id='item-description'> Item Description </h2>
+                <h2 id='item-description'> {itemInfo.description} </h2>
             </div>
 
             <div>

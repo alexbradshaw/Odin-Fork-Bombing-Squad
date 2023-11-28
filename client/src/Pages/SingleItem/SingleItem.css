@@ -14,7 +14,8 @@
     font-size: 3em;
     text-wrap: wrap;
     margin-left: 50px;
-    float: right;
+    float: left;
+    
     /* margin-right: 100px; */
 }
 .default-image {
@@ -24,10 +25,14 @@
 
 .item-details { 
     margin-bottom: 245px;
+    text-align: left;
+    height: 100px;
 }
 
 .seller-info { 
-    
+    display: flex; 
+    justify-content: center;
+    align-items: center;
     margin-inline-start: 2px;
     margin-bottom: -20px;
 }
@@ -38,6 +43,10 @@
 
 .everything-else-column { 
     text-align: left;
+    display: grid; 
+    grid-template-rows: 2fr 1fr;
+    /* justify-content: left; */
+    /* float: left; */
 }
 
 @media screen and (max-width: 1400px) {
