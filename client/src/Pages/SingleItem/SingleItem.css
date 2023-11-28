@@ -4,17 +4,11 @@
     background-color: white;
     column-gap: 1em;
     width: 100vw; 
-
+    height: 700px;
 }
 .singleitem h2 { 
     /* display: flex; */
-    position: absolute;
-    right: 200px; 
-    top: 20%;
-    font-size: 3em;
-    text-wrap: wrap;
-    margin-left: 50px;
-    float: left;
+
     
     /* margin-right: 100px; */
 }
@@ -24,41 +18,34 @@
 }
 
 .item-details { 
-    margin-bottom: 245px;
-    text-align: left;
-    height: 100px;
+    display: flex;
+    align-items: center;
 }
 
 .seller-info { 
     display: flex; 
-    justify-content: center;
-    align-items: center;
-    margin-inline-start: 2px;
-    margin-bottom: -20px;
 }
 
 .item-image-column { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.item-details-container {
+    color: black;
 }
 
 .everything-else-column { 
     text-align: left;
     display: grid; 
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 1.5fr 1fr;
     /* justify-content: left; */
     /* float: left; */
 }
 
 @media screen and (max-width: 1400px) {
-    .singleitem h2 {
-      font-size: 2em; 
-      text-wrap: wrap;
-      text-align: right;
-      margin-right: -185px;
-      word-wrap: break-word; 
-      white-space: wrap; 
-      overflow-wrap: break-word;
-    }
+
 
     .default-image { 
         width: 20em;
