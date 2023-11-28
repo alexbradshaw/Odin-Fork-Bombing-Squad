@@ -15,7 +15,7 @@ const ItemList = ({ itemArray }) => {
             </div>
 
             <div className='grid_item'>
-                {itemArray.pricing}
+                {itemArray.price}
             </div>
 
             <div className='grid_item'>
