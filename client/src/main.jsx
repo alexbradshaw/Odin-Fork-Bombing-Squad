@@ -16,7 +16,8 @@ import {
   SignUp, 
   SingleItem,
   CheckoutPage,
-  ErrorPage
+  ErrorPage,
+  PurchasePage
 } 
 from './Pages/index.js';
 
