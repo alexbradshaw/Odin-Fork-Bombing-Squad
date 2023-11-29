@@ -24,44 +24,68 @@ const CheckoutPage = () => {
             console.error(e);
         }
     };
+    // Because it takes time for React to get all the items by calling getAllItems it has to be in an async function
+    //After we want to store it in a state variable array
 
     useEffect(() => { fetchItems() }, []);
     // Because MongoDB is an external system and manages itself independently of React. useEffects allows React to
     // sync up with MONGODB. This will run every time the page rerenders
-  
+    
+    const renderCartItems = () => {
+      return items.map((item) => {
+        return (
+          <div>
+              <PhotoList itemArray={item} />
+            {/* talk to team about there being no imgs in db */}
+          </div>
+        )
+        // [<div>item1</div>, <div>item2</div>]
+        // ^ gets returned on line 33 (html) and what jsx expects when returning a list of things
+        // the outer return returns the resulting array of div tags that the inner return produces
+      });
+    }
+
+    const renderCartRight = () => {
+      return items.map((item) => {
+        // setTotalPrice(item.price + totalPrice);
+        return (
+          <div>
+            <ItemList itemArray={item}/>
+          </div>
+        )
+      })
+    }
+
     return (
       <div id='sell_item_page'> 
         <div className='header'>
             <h2>Checkout</h2>
         </div>  
 
+        <div id='checkout_grid'>
+
 {/* div contains the 4 item boxes with left positioning*/}
-          <div id='photo_box'>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
+          <div id='photo_box_test'>
+            {renderCartItems()}
           </div>
+
+          <div id='yo'>
+            <div id='item-box'>
+              {renderCartRight()}
+            </div>
+            <div id='price_box'>
+              <h6>Total Price: {totalPrice}</h6>
+            </div>
+          </div>
+
+        </div>
 
         {/* Div contains the box with each of the product details form the array listed out in the description in the box
         Positioned to the right */}
     
           <div id='buttons'>
             <div id='button_grid'>
-                <button className='bottom_btn'>Save</button>
-                <button className='bottom_btn'>List</button>
+                <button className='bottom_btn'>Purchase</button>
             </div>
           </div>
 

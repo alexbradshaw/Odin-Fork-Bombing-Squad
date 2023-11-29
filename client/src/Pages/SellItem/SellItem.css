@@ -62,6 +62,7 @@
 }
 
 .product_box {
+    border-radius: 20px;
     background-color: #D4D4D4;
     width: 60%;
     margin: 0 auto;
@@ -117,15 +118,9 @@
     margin-top: 1rem;
 }
 
-#button_grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 17rem;
-    margin: auto;
-}
-
 button {
     width: 10rem;
+    margin-left: 7rem;
 }
 
 

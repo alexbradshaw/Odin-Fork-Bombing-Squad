@@ -1,1 +1,14 @@
- 
+ img {
+    width: 200px;
+    height: 200px;
+ }
+
+ #parent_div {
+    position: relative;
+ }
+
+ /* #delete_btn {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+ } */
