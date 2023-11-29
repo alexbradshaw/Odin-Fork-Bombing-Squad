@@ -18,7 +18,7 @@ const PhotoForm = ({ set, setter }) => {
         <div className='photoForm'>
             <form onSubmit={handleButtonClick}>
                 <div className='form-body'>
-                    <h5>Image URL: </h5>
+                    <h4>Image URL: </h4>
                     <input type='text' id='image_input' onChange={(e) => setInputValue(e.target.value)}></input>
                     <button type='submit'>Save URL</button>
                 </div>

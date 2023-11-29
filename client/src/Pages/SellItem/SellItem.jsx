@@ -21,6 +21,7 @@ const SellItem = () => {
     const createItem = async (formData) => {
         try {
             const items = await createNewItem(formData);
+            console.log("formData", formData);        
             console.log(items);
         } catch (e) {
             console.error(e);
@@ -85,7 +86,7 @@ const SellItem = () => {
 
                         {/* {errorShow && (
                           <div>
-                            <h6>Enter a Valid Image URL</h6>
+                            <h5>Enter a Valid Image URL</h5>
                           </div>
                         )} */}
                    </div>
@@ -107,38 +108,35 @@ const SellItem = () => {
             <div id='product_grid'>
                 {/* <div className='' */}
                 <div className='product_text'>
-                    <h6>Name:</h6>
+                    <h5>Name:</h5>
                     <input type='text' onChange={(e) => setName(e.target.value)}></input>
                     {/* Every time the text field for Title changes then so does the state value*/}
                 </div>
                 <div className='product_text'>
-                    <h6>Description:</h6>
+                    <h5>Description:</h5>
                     <input type='text' onChange={(e) => setDescription(e.target.value)}></input>
                 </div>
                 <div className='product_text'>
-                    <h6>Category:</h6>
+                    <h5>Category:</h5>
                     <input type='text' onChange={(e) => setCategory(e.target.value)}></input>
                 </div>
                 <div className='product_text'>
-                    <h6>Pricing: </h6>
+                    <h5>Pricing: </h5>
                     <input type='text' onChange={(e) => setPricing(e.target.value)}></input>
                 </div>
                 <div className='product_text'>
-                    <h6>Address: </h6>
+                    <h5>Address: </h5>
                     <input type='text' onChange={(e) => setAddress(e.target.value)}></input>
                 </div>
                 <div className='product_text'>
-                    <h6>Quantity: </h6>
+                    <h5>Quantity: </h5>
                     <input type='text' onChange={(e) => setQuantity(e.target.value)}></input>
                 </div>
             </div>
           </div>
           <div id='buttons'>
-            <div id='button_grid'>
-                <button className='bottom_btn'>Reset</button>
                 <button className='bottom_btn' type='submit'>List</button>
                 {/* When we click the list button then a landing item object should be created */}
-            </div>
           </div>
         </form>
       </div>

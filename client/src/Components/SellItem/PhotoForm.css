@@ -1,8 +1,16 @@
 .photoForm {
-    display: flex;
-    background-color: #CCCCCC;
+    background-color: #D4D4D4;
+    margin-top: 0.5rem;
 }
 
 .form-body {
+    background-color: #D4D4D4;
+    margin-top: 0.5rem;
+    display: flex;
     flex-direction: row;
+    margin-bottom: 0.5rem;
+}
+
+.form-body > * {
+    margin: 0 auto;
 }

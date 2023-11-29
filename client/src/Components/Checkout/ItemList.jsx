@@ -9,16 +9,16 @@ const ItemList = ({ itemArray }) => {
     // }
 
     return (
-        <div id='item_grid'>
-            <div className='grid_item'>
+        <div id='item'>
+            <div className='item_flex_box'>
                 {itemArray.name}
             </div>
 
-            <div className='grid_item'>
+            <div className='item_flex_box'>
                 {itemArray.price}
             </div>
 
-            <div className='grid_item'>
+            <div className='item_flex_box'>
                 x{itemArray.quantity}
             </div>
         </div>

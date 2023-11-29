@@ -7,6 +7,7 @@ const errorCheck = async (res) => {
         }
         const error = await res.json();
         throw new Error(error.message);
+        // make sure to await errorCheck because it's async
     }
 }
 
@@ -22,7 +23,7 @@ export const authCheck = async () => {
         },
     });
 
-    errorCheck(response);
+    await errorCheck(response);
 
     const status = await response.json();
 
@@ -43,7 +44,7 @@ export const loginTest = async() => {
         }), 
     });
 
-    errorCheck(response);
+    await errorCheck(response);
 
     const { token } = await response.json();
 
@@ -83,7 +84,7 @@ export const logout = async() => {
         }
     });
 
-    errorCheck(response);
+    await errorCheck(response);
 
     return response;
 }
@@ -101,7 +102,7 @@ export const signup = async({ username, email, password }) => {
         }), 
     });
 
-    errorCheck(response);
+    await errorCheck(response);
 
     const { user, token } = await response.json();
 
@@ -111,26 +112,52 @@ export const signup = async({ username, email, password }) => {
 }
 
 export const createNewItem = async (formData) => {
-    const response = await fetch("/api/item", {
-        method: "POST", 
-        headers: {
-          "Content-Type": "application/json",
-          'Authorization' : retrieveAuthToken(),
-        },
-        body: JSON.stringify(formData),
-    });
+    try {
+        console.log("formData", formData);
+        const response = await fetch("/api/item", {
+            method: "POST", 
+            headers: {
+              "Content-Type": "application/json",
+              'Authorization' : retrieveAuthToken(),
+            //   you need to be logged in to create a new Item
+            },
+            body: JSON.stringify(formData),
+        });
+    
+        console.log("response", response);
+        
+        await errorCheck(response);
+        // error check is async so we need an await or else there is no promise
 
-    errorCheck(response);
+        const { items } = await response.json(); // extract items array
+        console.log("items", items);
+        return items;
+        // return items;
+    }
+    catch (error) {
+        console.log("error creating new item", error);
+        const emptyData = {
+            name: "",
+            description: "", 
+            category: "", 
+            pricing: 0.00, 
+            address: "", 
+            quantity: 0, 
+            image: ""
 
-    const { items } = await response.json(); // extract items array
+        }
+        return [emptyData];
+    }
 
-    return items;
 }
+
+// the issue: errorCheck consuming await res.json() which consumes body of json but we didn't await it.
+// The body was already used and couldn't be used again in errorCheck.
 
 export const getAllItems = async () => {
     const response = await fetch("/api/items");
 
-    errorCheck(response);
+    await errorCheck(response);
 
     const items = await response.json();
 
@@ -140,7 +167,7 @@ export const getAllItems = async () => {
 export const getItem = async (itemId) => {
     const response = await fetch(`/api/item/${itemId}`); // calls api by item id
     
-    errorCheck(response);
+    await errorCheck(response);
     
     const item = await response.json();
 
@@ -159,7 +186,7 @@ export const updateItem = async (itemId, updatedItemBody) => {
         body: JSON.stringify(updatedItemBody),
     });
     
-    errorCheck(response);
+    await errorCheck(response);
     
     const updatedItem = await response.json(); // returns updated item
     
@@ -174,7 +201,7 @@ export const deleteItem = async (itemId) => {
         }
     });
     
-    errorCheck(response);
+    await errorCheck(response);
     
     const { items } = await response.json();
     
@@ -188,7 +215,7 @@ export const getLoggedInUser = async () => {
         }
     }); // only works if already logged in, I can add a getUserById route if that is desired
     
-    errorCheck(response);
+    await errorCheck(response);
     
     const user = await response.json();
 

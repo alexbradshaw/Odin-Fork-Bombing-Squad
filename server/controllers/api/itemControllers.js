@@ -5,6 +5,7 @@ const itemRoutes = {
   async createItem(req, res) {
     try {
         if (!verifyToken(req)) {
+            console.log("You are not signed in!");
             res.status(401).json({ message: "You are not signed in!"})
             return;
         }
@@ -22,8 +23,11 @@ const itemRoutes = {
   
         res.json(updatedUser); // Returns user object
     } catch (e) {
-        console.log(e);
-        res.status(500).json(e)
+        console.log("error-creating-item", e);
+        res.status(500).json({
+            success: false,
+            error_msg: "unable to create item"
+        })
     }
     },
     async getAllItems(req, res) {
