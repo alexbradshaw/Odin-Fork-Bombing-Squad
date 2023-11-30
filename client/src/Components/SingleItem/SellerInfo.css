@@ -1,17 +1,15 @@
 .seller-info-bar { 
-    
     display: flex;
     height: 200px;
-    width: 650px; 
-    /* align-items: right; */
+    width: 750px; 
     justify-content: flex-start;
-    /* color: grey; */
     float: right;
     border: 5px;
-    background-color: rgb(66, 185, 232);
-    /* margin-left: 500px; */ 
-    /* right: 100px;  */
+    background-color: aliceblue;
     border-radius: 15px;
+    padding: 10px; 
+    border-style: solid;
+    border-color: black;
 }
 
 .profile-picture { 
@@ -21,6 +19,9 @@
     margin-top: 50px;
     margin-bottom: 25px;
     margin-left: 10px;
+    border-style: solid; 
+    border-width: 5px;
+    border-color: black;
 }
 
 .seller-info-heading { 
@@ -28,10 +29,12 @@
     font-size: 25px;
     margin-top: 10px;
     margin-left: 45px;
+    color: black;
 
 }
 
 .seller-name { 
     font-size: 50px;
     margin-left: 30px;
+    color: black;
 }
