@@ -39,14 +39,19 @@
 .everything-else-column { 
     text-align: left;
     display: grid; 
-    grid-template-rows: 1.5fr 1fr;
+    grid-template-rows: 1.5fr .5fr 1fr;
+    row-gap: 1em;
+    
     /* justify-content: left; */
     /* float: left; */
 }
+.add-to-cart { 
+    /* display: flex; */
+    /* align-content: left; */
+    
+}
 
 @media screen and (max-width: 1400px) {
-
-
     .default-image { 
         width: 20em;
     }

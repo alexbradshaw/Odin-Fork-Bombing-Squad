@@ -1,6 +1,6 @@
 import './SellerInfo.css'
 import profilePic from '../../Images/profile_pic.jpg';
-const SellerInfo = () => { 
+const SellerInfo = (sellerImg) => { 
     return ( 
         <div className='seller-info-bar'>
             <h3 className='seller-info-heading'> Seller Info </h3>
