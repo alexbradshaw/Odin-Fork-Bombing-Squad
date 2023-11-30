@@ -1,7 +1,6 @@
 .singleitem { 
     display: grid;
     grid-template-columns: 1fr 1fr; 
-    background-color: white;
     column-gap: 1em;
     width: 100vw; 
     height: 800px;
