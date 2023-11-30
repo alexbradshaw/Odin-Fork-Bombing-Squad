@@ -6,7 +6,7 @@ import Confirm from './Confirm';
 import IconButton from './IconButton';
 import { deleteItem } from '../../utils/API';
 
-const ListingContainer = ({ items, setItemsArray, setError }) => {
+const ListingContainer = ({ items, setItemsArray }) => {
 
     const ListItem = ({ item }) => {
 
@@ -21,7 +21,7 @@ const ListingContainer = ({ items, setItemsArray, setError }) => {
                 const items = await deleteItem(item._id);
                 setItemsArray(items);
             } catch (e) {
-                setError(e.message);
+                console.log(e);
             }
 
         }
