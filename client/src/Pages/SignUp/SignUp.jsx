@@ -6,6 +6,7 @@ const SignUp = () => {
   // State for handling user input
   const [userOrEmail, setuserOrEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const submitLogin = (e) => {
     e.preventDefault(); // prevents page from refreshing
@@ -58,9 +59,9 @@ const SignUp = () => {
               <label  htmlFor="password">Confirm Password:</label>
               <input
                 type="password"
-                className='loginInput'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                className='loginInputConfirm'
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 required
                 // TODO: CHANGE THE OnChange function
               />

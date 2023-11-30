@@ -81,6 +81,17 @@ label {
     /* color:aqua; */
 }
 
+.loginInputConfirm {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    margin-top: 0px;
+    box-sizing: border-box;
+    background-color: aliceblue;
+    border-radius: 10px;
+    color: black;
+    /* color:aqua; */
+}
 /* Button styling */
 /* button {
     margin-top: 10px;
