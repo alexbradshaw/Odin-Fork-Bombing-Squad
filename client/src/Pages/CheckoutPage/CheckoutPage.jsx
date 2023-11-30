@@ -24,6 +24,7 @@ const CheckoutPage = () => {
             console.error(e);
         }
     };
+    
     // Because it takes time for React to get all the items by calling getAllItems it has to be in an async function
     //After we want to store it in a state variable array
 
@@ -45,6 +46,12 @@ const CheckoutPage = () => {
         // the outer return returns the resulting array of div tags that the inner return produces
       });
     }
+
+    useEffect(() => {
+      // Calculate total price when items change
+      const newTotalPrice = items.reduce((prev, curr) => prev + curr, 0);
+      setTotalPrice(newTotalPrice);
+    }, [items]);
 
     const renderCartRight = () => {
       return items.map((item) => {
@@ -75,7 +82,7 @@ const CheckoutPage = () => {
               {renderCartRight()}
             </div>
             <div id='price_box'>
-              <h6>hi</h6>
+              <h6>Total Price: {totalPrice}</h6>
             </div>
           </div>
 
