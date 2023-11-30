@@ -38,7 +38,7 @@ const CheckoutPage = () => {
               <PhotoList itemArray={item} />
             {/* talk to team about there being no imgs in db */}
           </div>
-        )
+        );
         // [<div>item1</div>, <div>item2</div>]
         // ^ gets returned on line 33 (html) and what jsx expects when returning a list of things
         // the outer return returns the resulting array of div tags that the inner return produces
