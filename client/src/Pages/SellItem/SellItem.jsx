@@ -47,7 +47,7 @@ const SellItem = () => {
 
       createItem(
          {
-         name, description, category, pricing, address, quantity, image
+         name, description, pricing, quantity, image
          }
       );
       // From the parent class of App we are passing the handler thorugh props to add a new user to a list of users
@@ -117,16 +117,8 @@ const SellItem = () => {
                     <input type='text' onChange={(e) => setDescription(e.target.value)}></input>
                 </div>
                 <div className='product_text'>
-                    <h5 id='input_text'>Category:</h5>
-                    <input type='text' onChange={(e) => setCategory(e.target.value)}></input>
-                </div>
-                <div className='product_text'>
                     <h5 id='input_text'>Pricing: </h5>
                     <input type='text' onChange={(e) => setPricing(e.target.value)}></input>
-                </div>
-                <div className='product_text'>
-                    <h5 id='input_text'>Address: </h5>
-                    <input type='text' onChange={(e) => setAddress(e.target.value)}></input>
                 </div>
                 <div className='product_text'>
                     <h5 id='input_text'>Quantity: </h5>
