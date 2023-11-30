@@ -14,7 +14,7 @@ const SignUp = () => {
     e.preventDefault(); // prevents page from refreshing
     login({ username, email, password });
   };
-
+ 
   return (
     <div id='bottomSection2'> 
         <div className='holder2'> 
