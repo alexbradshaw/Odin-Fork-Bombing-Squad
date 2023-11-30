@@ -1,9 +1,10 @@
 #item {
     display: flex;
-    flex-direction: row;
+    width: auto;
 }
 
 .item_flex_box{
     margin: 0 auto;
     display: flex;
+    flex-direction: row;
 }

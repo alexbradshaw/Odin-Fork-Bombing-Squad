@@ -34,7 +34,7 @@ const CheckoutPage = () => {
     const renderCartItems = () => {
       return items.map((item) => {
         return (
-          <div>
+          <div id='icon_box'>
               <PhotoList itemArray={item} />
             {/* talk to team about there being no imgs in db */}
           </div>
@@ -49,7 +49,7 @@ const CheckoutPage = () => {
       return items.map((item) => {
         // setTotalPrice(item.price + totalPrice);
         return (
-          <div>
+          <div id='cart_row_box'>
             <ItemList itemArray={item}/>
           </div>
         )
@@ -74,7 +74,7 @@ const CheckoutPage = () => {
               {renderCartRight()}
             </div>
             <div id='price_box'>
-              <h6>Total Price: {totalPrice}</h6>
+              <h6>hi</h6>
             </div>
           </div>
 
