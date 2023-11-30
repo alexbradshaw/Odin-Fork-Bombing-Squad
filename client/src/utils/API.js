@@ -197,6 +197,16 @@ export const getLoggedInUser = async () => {
     return user;
 }
 
+export const getUserByUsername = async (username) => {
+    const response = await fetch(`/api/user/${username}`);
+    
+    await errorCheck(response);
+    
+    const user = await response.json();
+
+    return user;
+}
+
 export const getCart = async () => {
     const response = await fetch("/api/user/cart", {
         headers: {
