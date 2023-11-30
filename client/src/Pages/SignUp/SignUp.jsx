@@ -12,7 +12,7 @@ const SignUp = () => {
 
   const submitLogin = (e) => {
     e.preventDefault(); // prevents page from refreshing
-    login({ username, email, password });
+    signup({ username, email, password });
   };
  
   return (
@@ -65,7 +65,6 @@ const SignUp = () => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
-                // TODO: CHANGE THE OnChange function
               />
             </div>
             <div>
