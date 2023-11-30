@@ -2,7 +2,7 @@ import './SingleItem.css'
 import defaultImage from '../../Images/default_image.png';
 import SellerInfo from '../../Components/SingleItem/SellerInfo';
 import { useState, useEffect } from 'react'; 
-
+import AddToCart from '../../Components/SingleItem/AddToCart';
 import { useParams } from 'react-router-dom';
 import { getItem } from '../../utils/API';
 import ItemDetails from '../../Components/SingleItem/ItemDetails';
@@ -38,8 +38,9 @@ const SingleItem = () => {
             <div className='everything-else-column'>
 
                 <div className='item-details'> <ItemDetails itemInfo ={itemInfo}/> </div>
-                {/* AddToCart goes here */}
+                {/* <div className='add-to-cart'> <AddToCart /> </div> */}
                 <div className='seller-info'> <SellerInfo /> </div>
+
             </div>
 
             

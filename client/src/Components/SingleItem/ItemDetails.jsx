@@ -24,8 +24,10 @@ const ItemDetails = ({itemInfo}) => {
             </div>
 
             <div>
-                <h2 id='additional-details'> Additional Details </h2> 
+                <h5 id='additional-details'> Additional Details </h5> 
             </div>
+
+            <button className='cart-button'> Add to Cart </button>
 
           
         </div>
