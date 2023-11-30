@@ -108,28 +108,28 @@ const SellItem = () => {
             <div id='product_grid'>
                 {/* <div className='' */}
                 <div className='product_text'>
-                    <h5>Name:</h5>
+                    <h5 id='input_text'>Name:</h5>
                     <input type='text' onChange={(e) => setName(e.target.value)}></input>
                     {/* Every time the text field for Title changes then so does the state value*/}
                 </div>
                 <div className='product_text'>
-                    <h5>Description:</h5>
+                    <h5 id='input_text'>Description:</h5>
                     <input type='text' onChange={(e) => setDescription(e.target.value)}></input>
                 </div>
                 <div className='product_text'>
-                    <h5>Category:</h5>
+                    <h5 id='input_text'>Category:</h5>
                     <input type='text' onChange={(e) => setCategory(e.target.value)}></input>
                 </div>
                 <div className='product_text'>
-                    <h5>Pricing: </h5>
+                    <h5 id='input_text'>Pricing: </h5>
                     <input type='text' onChange={(e) => setPricing(e.target.value)}></input>
                 </div>
                 <div className='product_text'>
-                    <h5>Address: </h5>
+                    <h5 id='input_text'>Address: </h5>
                     <input type='text' onChange={(e) => setAddress(e.target.value)}></input>
                 </div>
                 <div className='product_text'>
-                    <h5>Quantity: </h5>
+                    <h5 id='input_text'>Quantity: </h5>
                     <input type='text' onChange={(e) => setQuantity(e.target.value)}></input>
                 </div>
             </div>
