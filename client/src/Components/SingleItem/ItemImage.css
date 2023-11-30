@@ -1,11 +1,7 @@
 .default-image { 
-    margin-inline-start: 35px;
-    margin-top: 15px;
-    border-radius: 20px 20px 20px 20px ;
+    border-radius: 20px;
     width: 30em;
-    padding: 10px;
     border-width: 5px;
     border-color: black;
     border-style: solid;
-    margin-bottom: 250px;
 }
