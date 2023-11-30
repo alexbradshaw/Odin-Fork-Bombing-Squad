@@ -1,7 +1,7 @@
 
 const errorCheck = async (res) => {
     if (!res.ok) {
-        if (res.status == 400 || res.status == 401 || res.status == 404) {
+        if ([400, 401, 404].includes(res.status)) {
             localStorage.removeItem('auth');
             location.assign('/login');
         }
@@ -28,29 +28,6 @@ export const authCheck = async () => {
     const status = await response.json();
 
     return status;
-}
-
-// Use this if you want to test an API route that requires auth
-export const loginTest = async() => {
-    const response = await fetch("/api/login", {
-        method: "POST", 
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            username: "alex", 
-            email: "alex@gmail.com", 
-            password: "abradshaw"
-        }), 
-    });
-
-    await errorCheck(response);
-
-    const { token } = await response.json();
-
-    localStorage.setItem('auth', token);
-    
-    return user;
 }
 
 // Use this if you want to test login
