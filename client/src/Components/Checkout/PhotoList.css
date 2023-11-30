@@ -1,10 +1,15 @@
- img {
-    width: 10px;
-    height: 10px;
+ .photo_img_list {
+    align-content: center;
+    margin: 0 auto;
+    /* align content is for multiple rows of elements vs align items is for one row of elements */
+    width: 105px;
+    height: 105px;
+    margin-top: 3.5rem;
  }
 
- #parent_div {
+ .parent_div {
     position: relative;
+    display: flex;
  }
 
  /* #delete_btn {

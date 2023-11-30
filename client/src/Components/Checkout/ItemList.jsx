@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import "../../utils/Format";
+import { formatDecimal } from '../../utils/Format';
 
 const ItemList = ({ itemArray }) => {
 
@@ -11,15 +13,15 @@ const ItemList = ({ itemArray }) => {
     return (
         <div id='item'>
             <div className='item_flex_box'>
-                {itemArray.name}
+                Name: {itemArray.name}
             </div>
 
             <div className='item_flex_box'>
-                {itemArray.price}
+                Price: ${formatDecimal(itemArray.price)}
             </div>
 
             <div className='item_flex_box'>
-                x{itemArray.quantity}
+                Quantity: x{itemArray.quantity}
             </div>
         </div>
     );
