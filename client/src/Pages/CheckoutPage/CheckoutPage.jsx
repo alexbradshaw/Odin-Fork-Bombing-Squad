@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import '../../utils/API.js';
 import { getAllItems } from '../../utils/API.js';
 import ItemList from '../../Components/Checkout/ItemList.jsx';
-import PhotoList from '../../Components/Checkout/photoList.jsx';
+import PhotoList from '../../Components/Checkout/PhotoList.jsx';
 
 
 const CheckoutPage = () => {
@@ -85,7 +85,7 @@ const CheckoutPage = () => {
     
           <div id='buttons'>
             <div id='button_grid'>
-                <button className='bottom_btn'>Purchase</button>
+                 <a href="/purchase"><button className='bottom_btn'>Purchase</button></a>
             </div>
           </div>
 

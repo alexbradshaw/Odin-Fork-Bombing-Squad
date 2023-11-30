@@ -16,7 +16,8 @@ import {
   SignUp, 
   SingleItem,
   CheckoutPage,
-  ErrorPage
+  ErrorPage,
+  PurchasePage
 } 
 from './Pages/index.js';
 
@@ -30,6 +31,7 @@ const routes = [
   { path: 'signUp', element: <SignUp />, name: "Sign Up" },
   { path: 'sellItem', element: <SellItem />, name: "Sell" },
   { path: 'checkout', element: <CheckoutPage /> },
+  { path: 'purchase', element: <PurchasePage /> },
 ]
 
 const router = createBrowserRouter([
