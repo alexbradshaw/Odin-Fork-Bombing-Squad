@@ -33,8 +33,8 @@ const Navbar = () => {
             <a href='/'>
                 <img src="/transparent.png" alt="SAVY logo" className='navImage'/>
             </a>
-            <input type="text" placeholder='Search'/>
             <div className='rightNav'>
+                <a href="/sellItem">Sell</a>
                 <a href="/listings">Profile</a>
                 {loggedIn ? <a className='logout' onClick={signOut} >Log Out</a> : <a href="/login">Log In</a>}
                 <a href='/checkout'>
