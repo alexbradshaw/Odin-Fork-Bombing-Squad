@@ -9,7 +9,7 @@ const {
     deleteItem
 } = require('../../controllers/api/itemControllers');
 const { health } = require('../../controllers/api/serverController')
-const { getUser } = require('../../controllers/api/userControllers');
+const { getUser, getCart, addToCart } = require('../../controllers/api/userControllers');
 
 //! * Means that it's an auth protected route 
 
@@ -18,6 +18,9 @@ router.post('/login', login); // Login POST route
 router.post('/logout', logout); // Logout POST route
 router.get('/user', getUser) // GET* route to get the logged in user
 router.post('/auth', authCheck) // POST route to verify an auth token
+
+router.get('/user/cart', getCart) // GET* route to get current users cart
+router.post('/user/cart/:id', addToCart) // POST* route to add to current users cart
 
 router.post('/item', createItem) // POST* route to create a new item
 router.get('/items', getAllItems); // GET route that returns all items in the database
