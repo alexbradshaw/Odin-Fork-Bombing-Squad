@@ -248,3 +248,18 @@ export const addToCart = async (itemId) => {
 
     return cart;
 }
+
+export const purchase = async () => {
+    const response = await fetch(`/api/user/cart`, {
+        method:"PUT",
+        headers: {
+            'Authorization' : retrieveAuthToken(),
+        }
+    }); 
+    
+    await errorCheck(response);
+    
+    const empty = await response.json();
+
+    return empty;
+}
