@@ -16,6 +16,16 @@ const userRoutes = {
         res.status(500).json(e);
     }
   },
+  async getUserByName(req, res) {
+    try {
+        const user = await User.findOne({ username: req.params.username }).select('-password -__v'); // Finds the current user profile based on whoever is authenticated, returns items array as well
+
+        res.json(user);
+    } catch (e) {
+        console.log(e);
+        res.status(500).json(e);
+    }
+  },
   async addToCart(req, res) {
     try {
         if (!verifyToken(req)) {
