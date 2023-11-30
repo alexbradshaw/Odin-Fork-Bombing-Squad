@@ -1,7 +1,7 @@
 import './CheckoutPage.css'
 import React, { useState, useEffect } from 'react';
 import '../../utils/API.js';
-import { getCart } from '../../utils/API.js';
+import { getCart, purchase } from '../../utils/API.js';
 import ItemList from '../../Components/Checkout/ItemList.jsx';
 import PhotoList from '../../Components/Checkout/PhotoList.jsx';
 
@@ -24,6 +24,11 @@ const CheckoutPage = () => {
             console.error(e);
         }
     };
+
+    const submitPurchase = async() => {
+      await purchase();
+      location.assign('/');
+    }
     
     // Because it takes time for React to get all the items by calling getAllItems it has to be in an async function
     //After we want to store it in a state variable array
@@ -93,7 +98,7 @@ const CheckoutPage = () => {
     
           <div id='purchaseButton'>
             <div id='button_grid'>
-                 <a href="/purchase"><button className='bottom_btn'>Purchase</button></a>
+                 <button onClick={submitPurchase} className='bottom_btn'>Purchase</button>
             </div>
           </div>
 
