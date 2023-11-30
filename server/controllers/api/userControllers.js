@@ -50,7 +50,25 @@ const userRoutes = {
         res.status(500).json(e)
     }
   },
+  async purchase(req, res) {
+    try {
+        if (!verifyToken(req)) {
+            console.log("You are not signed in!");
+            res.status(401).json({ message: "You are not signed in!"})
+            return;
+        }
+    
+        await User.findOneAndUpdate (
+          { _id: req.session.userId }, // Pulls authenticated users id
+          { $set: { cart: [] } }, // deletes everything
+          { runValidators: true, new: true } 
+          ); 
 
+        res.json(true); // return true
+    } catch (e) {
+        res.status(500).json(e)
+    }
+  },
 }
 
 module.exports = userRoutes;
