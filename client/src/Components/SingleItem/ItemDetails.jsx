@@ -5,10 +5,11 @@ formatDecimal
 
 const ItemDetails = ({itemInfo}) => { 
 
+    const cartButtonHandler = () => { 
+        console.log('hi'); 
 
-    // THIS SHIT IS STILL NOT WORKING 
+    }; 
 
-    // CHECK ALL THE INVOLVED CSS FILES
     return ( 
         <div className='item-details-container'> 
             <div> 
@@ -27,7 +28,7 @@ const ItemDetails = ({itemInfo}) => {
                 <h5 id='additional-details'> Additional Details </h5> 
             </div>
 
-            <button className='cart-button'> Add to Cart </button>
+            <button onClick={cartButtonHandler} className='cart-button'> Add to Cart </button>
 
           
         </div>
