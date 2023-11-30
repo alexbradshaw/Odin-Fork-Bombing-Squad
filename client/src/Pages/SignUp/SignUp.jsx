@@ -6,6 +6,7 @@ const SignUp = () => {
   // State for handling user input
   const [userOrEmail, setuserOrEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailAddress, setEmailAddress] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const submitLogin = (e) => {
@@ -40,8 +41,8 @@ const SignUp = () => {
                 // have an expression to determine if they are using a userOrEmail
                 // or an email
                 // then, set id to the according one?
-                value={userOrEmail}
-                onChange={(e) => setuserOrEmail(e.target.value)}
+                value={emailAddress}
+                onChange={(e) => setEmailAddress(e.target.value)}
                 required
               />
             </div>
