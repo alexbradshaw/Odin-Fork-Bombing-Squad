@@ -134,4 +134,18 @@ button {
     margin: 0 auto;
 }
 
+.icon_box {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    line-height: 0;
+}
+
+.icon_box > * {
+    align-content: center;
+}
+
+.item_name {
+    margin-bottom: 4rem;
+}
 

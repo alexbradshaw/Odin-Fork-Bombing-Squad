@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import '../../utils/API.js';
 import { getAllItems } from '../../utils/API.js';
 import ItemList from '../../Components/Checkout/ItemList.jsx';
-import PhotoList from '../../Components/Checkout/photoList.jsx';
+import PhotoList from '../../Components/Checkout/PhotoList.jsx';
 
 
 const CheckoutPage = () => {
@@ -34,9 +34,10 @@ const CheckoutPage = () => {
     const renderCartItems = () => {
       return items.map((item) => {
         return (
-          <div id='icon_box'>
+          <div className='icon_box'>
               <PhotoList itemArray={item} />
             {/* talk to team about there being no imgs in db */}
+            <h6 className='item_name'>{item.name}</h6>
           </div>
         );
         // [<div>item1</div>, <div>item2</div>]
