@@ -1,6 +1,5 @@
 /* SignIn.css */
 #bottomSection {
-    background-color: rgb(255, 255, 255);
     width: 100%;
     display: flex;
     height: 669px;
@@ -16,20 +15,6 @@
     border-right: solid black;
     border-width: 3px;
     padding: 5% 10% 12.5%;
-    /* border-bottom: solid black;
-    border-top: solid black; */
-    
-
-    /* padding-top: 50%; */
-    /* justify-content: center; */
-}
-
-#alreadyHaveAnAccount {
-    color: black;
-}
-
-.innerDivs {
-    background-color: white;
 }
 
 .holder {
@@ -54,25 +39,15 @@
 #test {
     text-align: center;
     margin-bottom: 35px;
-    color: black;
 }
 
 /* Input styling */
 label {
     display: block;
     margin-bottom: 2px;
-    color: black;
     font-weight: 400;
     font-size: larger;
 }
-
-/* input {
-    width: 100%;
-    padding: 08px;
-    margin-bottom: 16px;
-    margin-top: 0px;
-    box-sizing: border-box;
-} */
 
 .loginInput {
     width: 100%;
@@ -82,25 +57,8 @@ label {
     box-sizing: border-box;
     background-color: aliceblue;
     border-radius: 10px;
-    color: black;
-    /* color:aqua; */
 }
-
-/* Button styling */
-/* button {
-    margin-top: 10px;
-    width: 100%;
-    background-color: #c7c5c5;
-    color: #000000;
-    padding: 10px;
-    border-radius: 10px;
-    border: 3px black;
-} */
 
 #signInButton {
     margin-top: 10px;
 }
-
-/* button:hover {
-    back
-} */
