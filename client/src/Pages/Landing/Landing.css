@@ -1,9 +1,15 @@
 .landing {
     width: 100%;
-    background-color: white;
+    height: 1200px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.landing > * {
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -13,6 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
 }
 
 .landingContainer {
@@ -26,9 +33,8 @@
 }
 
 .carousel {
-    width: 80%;
+    width: 60%;
     height: fit-content;
-    color: black;
     display: flex;
     overflow-x: scroll;
     scrollbar-width: thin;

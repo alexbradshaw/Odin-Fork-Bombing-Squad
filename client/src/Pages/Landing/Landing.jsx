@@ -24,30 +24,32 @@ const Landing = () => {
 
     return (
         <div className='landing'>
-            <h1 className='landingHeader' style={{"color":"black"}}>
-                Welcome to Savy!
-            </h1>
-            <div className='landingContainer'>
-                <Carousel>
-                    {
-                        items.map((item) => {
-                            if (item.categories.includes('tech')) {
-                                return <LandingItem item={item} key={item.name}/>
-                            }
-                        })
-                        // Basically once items stores the array of items it returns as many Landing items to the screen
-                        //as there are elements in the item array
-                    }
-                </Carousel>
-                <Carousel>
-                    {
-                        items.map((item) => {
-                            if (item.categories.includes('big')) {
-                                return <LandingItem item={item} key={item.name}/>
-                            }
-                        })
-                    }
-                </Carousel>
+            <div>
+                <h1 className='landingHeader' style={{"color":"black"}}>
+                    Welcome to Savy!
+                </h1>
+                <div className='landingContainer'>
+                    <Carousel>
+                        {
+                            items.map((item) => {
+                                if (item.categories.includes('tech')) {
+                                    return <LandingItem item={item} key={item.name}/>
+                                }
+                            })
+                            // Basically once items stores the array of items it returns as many Landing items to the screen
+                            //as there are elements in the item array
+                        }
+                    </Carousel>
+                    <Carousel>
+                        {
+                            items.map((item) => {
+                                if (item.categories.includes('big')) {
+                                    return <LandingItem item={item} key={item.name}/>
+                                }
+                            })
+                        }
+                    </Carousel>
+                </div>
             </div>
         </div>
     );
