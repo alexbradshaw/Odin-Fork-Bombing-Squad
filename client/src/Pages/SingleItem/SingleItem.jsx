@@ -1,7 +1,7 @@
 import './SingleItem.css'
 import SellerInfo from '../../Components/SingleItem/SellerInfo';
 import { useState, useEffect } from 'react'; 
-
+// import seller
 import { useParams } from 'react-router-dom';
 import { getCart, getItem } from '../../utils/API';
 import ItemDetails from '../../Components/SingleItem/ItemDetails';
@@ -19,6 +19,11 @@ const SingleItem = () => {
         price: 0,
         quantity: 0,
         description: "",
+    });
+
+    const [sellerInfo, setSeller] = useState({ 
+        username: "", 
+        profilePic: "",
     });
 
     const [inCart, setInCart] = useState(false);
