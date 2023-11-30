@@ -1,7 +1,7 @@
 
 const errorCheck = async (res) => {
     if (!res.ok) {
-        if (res.status == 401 || res.status == 404) {
+        if (res.status == 400 || res.status == 401 || res.status == 404) {
             localStorage.removeItem('auth');
             location.assign('/login');
         }
