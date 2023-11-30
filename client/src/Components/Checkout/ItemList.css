@@ -1,7 +1,12 @@
-#item {
+.item {
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    height: 100px;
 }
 
-.item_flex_box{
-    margin: 0 auto;
+.item > *:first-child {
+    width: 100%;
 }
