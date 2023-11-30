@@ -1,7 +1,7 @@
 import './CheckoutPage.css'
 import React, { useState, useEffect } from 'react';
 import '../../utils/API.js';
-import { getAllItems } from '../../utils/API.js';
+import { getCart } from '../../utils/API.js';
 import ItemList from '../../Components/Checkout/ItemList.jsx';
 import PhotoList from '../../Components/Checkout/PhotoList.jsx';
 
@@ -17,7 +17,7 @@ const CheckoutPage = () => {
 
     const fetchItems = async () => {
         try {
-            const items = await getAllItems();
+            const items = await getCart();
             console.log(items);
             setItemsArray(items);
         } catch (e) {
