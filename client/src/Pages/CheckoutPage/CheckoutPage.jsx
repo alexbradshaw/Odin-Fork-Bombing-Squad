@@ -84,7 +84,7 @@ const CheckoutPage = () => {
         {/* Div contains the box with each of the product details form the array listed out in the description in the box
         Positioned to the right */}
     
-          <div id='buttons'>
+          <div id='purchaseButton'>
             <div id='button_grid'>
                 <button className='bottom_btn'>Purchase</button>
             </div>

@@ -18,18 +18,15 @@
     justify-items: center;
 
     display: grid;
-    /* grid-template-columns: repeat(2, 1fr); */
-    grid-template-columns: repeat(auto-fit, 11rem);
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
     width: 100%;
     /* When I fill up my columns then I get a new row */
     /* Fixes issues */
     overflow: scroll;
     /* if elements are not present on the screen then scroll to access the rest of them */
-    height: 20rem;
-    width: 24rem;
-    margin-left: 11rem;
-    margin-top: 0.5rem;
+    height: 700px;
+    width: 500px;
     padding-top: 0.75rem;
     padding-bottom: 1.2rem;
     padding-left: 1rem;
@@ -39,9 +36,12 @@
 }
 
 #checkout_grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 5rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#checkout_grid > * {
+    overflow-x: hidden;
 }
 
 #photo_box_test > * {
@@ -64,21 +64,21 @@
     background-color: #FDFDFD;
     margin: auto;
     overflow: scroll;
-    height: 20rem;
-    width: 20rem;
+    height: 95%;
+    width: 90%;
     border-radius: 20px;
     border-color: black;
     border-width: 0.2rem;
     border-style: solid;
+    overflow-x: hidden;
 }
 
 #yo {
     background-color: #EAEAEA;
-    height: 21rem;
-    width: 22rem;
+    height: 700px;
+    width: 500px;
     padding-top: 1rem;
     padding-bottom: 0.5rem;
-    margin-left: 3rem;
     border-radius: 20px;
     border-color: black;
     border-width: 0.2rem;
@@ -88,6 +88,10 @@
 #cart_row_box {
     display: flex;
     flex-direction: row;
+}
+
+#cart_row_box > * {
+    width: 400px;
 }
 
 #price_box {
@@ -107,7 +111,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: calc(100% - 2px);
     border: 1px solid black;
 }
 /* The contents of the title of the photo itself*/
@@ -117,11 +121,10 @@
     background-color: #C1C1C1;
 }
 
-#buttons {
+#purchaseButton {
     display: flex;
     flex-direction: row;
-    margin-top: 1rem;
-    margin-right: 6rem;
+    margin: 3em 0;
 }
 
 #button_grid {
