@@ -1,14 +1,14 @@
 import './SellerInfo.css'
 import profilePic from '../../Images/profile_pic.jpg';
-import { getLoggedInUser } from '../../utils/API';
+import { getLoggedInUser, getUserByUsername } from '../../utils/API';
 import { useEffect, useState } from 'react';
-const SellerInfo = () => { 
+const SellerInfo = ({owner}) => { 
     const fetchUserData = async () => { // fetches user data for current logged in user
         try {
-            const { username, profilePic } = await getLoggedInUser();
+            const { username, profilePic } = await getUserByUsername(owner);
 
             setSeller({username, profilePic})
-            
+
         } catch (e) {
             console.log(e);
         }

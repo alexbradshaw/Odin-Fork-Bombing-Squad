@@ -21,10 +21,7 @@ const SingleItem = () => {
         description: "",
     });
 
-    const [sellerInfo, setSeller] = useState({ 
-        username: "", 
-        profilePic: "",
-    });
+    
 
     const [inCart, setInCart] = useState(false);
 
@@ -67,7 +64,7 @@ const SingleItem = () => {
                 <div className='item-details'> 
                     <ItemDetails itemInfo ={itemInfo} addHandler={addHandler} inCart={inCart}/> 
                 </div>
-                <div className='seller-info'> <SellerInfo /> </div>
+                <div className='seller-info'> <SellerInfo owner={itemInfo.owner}/> </div>
             </div>
         </div>
     );
