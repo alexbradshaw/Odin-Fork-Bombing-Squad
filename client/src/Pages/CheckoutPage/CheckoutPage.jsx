@@ -49,7 +49,7 @@ const CheckoutPage = () => {
 
     useEffect(() => {
       // Calculate total price when items change
-      const newTotalPrice = items.reduce((prev, curr) => prev + curr, 0);
+      const newTotalPrice = items.reduce((prev, curr) => prev + curr.price, 0);
       setTotalPrice(newTotalPrice);
     }, [items]);
 

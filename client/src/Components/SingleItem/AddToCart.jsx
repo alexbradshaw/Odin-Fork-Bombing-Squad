@@ -1,6 +1,6 @@
-const AddToCart = () => { 
+const AddToCart = ({ addHandler }) => { 
     return (
-    <button className="cart-button"> Add to cart </button>
+        <button className="cart-button" onClick={addHandler}> Add to cart </button>
     );
 };
 

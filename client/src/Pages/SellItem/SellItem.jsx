@@ -47,7 +47,7 @@ const SellItem = () => {
 
       createItem(
          {
-         name, description, pricing, quantity, image
+         name, description, price: pricing, quantity, image
          }
       );
       // From the parent class of App we are passing the handler thorugh props to add a new user to a list of users

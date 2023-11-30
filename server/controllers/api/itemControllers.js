@@ -3,32 +3,32 @@ const { verifyToken } = require('../../utils/auth');
 
 const itemRoutes = {
   async createItem(req, res) {
-    try {
-        if (!verifyToken(req)) {
-            console.log("You are not signed in!");
-            res.status(401).json({ message: "You are not signed in!"})
-            return;
-        }
+        try {
+            if (!verifyToken(req)) {
+                console.log("You are not signed in!");
+                res.status(401).json({ message: "You are not signed in!"})
+                return;
+            }
 
-        const newItem = await Item.create({
-            ...req.body, // Includes existing items
-            "owner":req.session.username // Pulls in authenticated user for owner
-        });
-      
-        const updatedUser = await User.findOneAndUpdate (
-          { _id: req.session.userId }, // Pulls authenticated users id
-          { $push: { items: newItem._id} }, // Pushes new item id to our User's items array
-          { runValidators: true, new: true } 
-        ).populate('items'); // Pulls in items array before returning user (so the page will reflect new item generation)
-  
-        res.json(updatedUser); // Returns user object
-    } catch (e) {
-        console.log("error-creating-item", e);
-        res.status(500).json({
-            success: false,
-            error_msg: "unable to create item"
-        })
-    }
+            const newItem = await Item.create({
+                ...req.body, // Includes existing items
+                "owner":req.session.username // Pulls in authenticated user for owner
+            });
+        
+            const updatedUser = await User.findOneAndUpdate (
+            { _id: req.session.userId }, // Pulls authenticated users id
+            { $push: { items: newItem._id} }, // Pushes new item id to our User's items array
+            { runValidators: true, new: true } 
+            ).populate('items'); // Pulls in items array before returning user (so the page will reflect new item generation)
+    
+            res.json(updatedUser); // Returns user object
+        } catch (e) {
+            console.log("error-creating-item", e);
+            res.status(500).json({
+                success: false,
+                error_msg: "unable to create item"
+            })
+        }
     },
     async getAllItems(req, res) {
         try {

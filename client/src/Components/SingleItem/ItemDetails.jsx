@@ -1,14 +1,9 @@
 import { formatDecimal } from '../../utils/Format';
 import './ItemDetails.css'
 
-formatDecimal
+import AddToCart from '../../Components/SingleItem/AddToCart';
 
-const ItemDetails = ({itemInfo}) => { 
-
-    const cartButtonHandler = () => { 
-        console.log('hi'); 
-
-    }; 
+const ItemDetails = ({ itemInfo, addHandler, inCart }) => { 
 
     return ( 
         <div className='item-details-container'> 
@@ -28,7 +23,14 @@ const ItemDetails = ({itemInfo}) => {
                 <h5 id='additional-details'> Additional Details </h5> 
             </div>
 
-            <button onClick={cartButtonHandler} className='cart-button'> Add to Cart </button>
+            <div className='add-to-cart'> 
+                {
+                inCart ? 
+                <button disabled={true} style={{"width":"200px"}}>In cart</button> 
+                : 
+                <AddToCart addHandler={addHandler}/> 
+                }
+            </div>
 
           
         </div>

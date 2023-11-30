@@ -9,14 +9,10 @@
 }
 
 #photo_box_test {
-    background-color: #FFFFFF;
     border-radius: 20px;
     border-color: black;
     border-width: 2rem;
-    background-color: #E7E5E5;
-
     justify-items: center;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
@@ -53,7 +49,6 @@
     border-color: black;
     border-width: 0.2rem;
     border-style: solid;
-    background-color: #FCFCFC;
     border-radius: 20px;
     /* Have the width being decreased to 35% of original is necessary to make the overloading possible */
 }
@@ -61,7 +56,6 @@
 #item-box {
     display: grid;
     grid-template-columns: 1fr;
-    background-color: #FDFDFD;
     margin: auto;
     overflow: scroll;
     height: 95%;
@@ -74,7 +68,6 @@
 }
 
 #yo {
-    background-color: #EAEAEA;
     height: 700px;
     width: 500px;
     padding-top: 1rem;

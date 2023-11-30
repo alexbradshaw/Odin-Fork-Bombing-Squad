@@ -28,9 +28,9 @@ const routes = [
   { path: 'listings', element: <Listings />, name: "Profile" },
   { path: 'item/:itemId', element: <SingleItem /> },
   { path: 'login', element: <SignIn /> },
-  { path: 'signUp', element: <SignUp />, name: "Sign Up" },
+  { path: 'signUp', element: <SignUp /> },
   { path: 'sellItem', element: <SellItem />, name: "Sell" },
-  { path: 'checkout', element: <CheckoutPage /> },
+  { path: 'checkout', element: <CheckoutPage />, name: "Checkout" },
   { path: 'purchase', element: <PurchasePage /> },
 ]
 

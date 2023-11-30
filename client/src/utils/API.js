@@ -151,8 +151,6 @@ export const createNewItem = async (formData) => {
 
 }
 
-// the issue: errorCheck consuming await res.json() which consumes body of json but we didn't await it.
-// The body was already used and couldn't be used again in errorCheck.
 
 export const getAllItems = async () => {
     const response = await fetch("/api/items");
@@ -220,4 +218,33 @@ export const getLoggedInUser = async () => {
     const user = await response.json();
 
     return user;
+}
+
+export const getCart = async () => {
+    const response = await fetch("/api/user/cart", {
+        headers: {
+            'Authorization' : retrieveAuthToken(),
+        }
+    });
+    
+    await errorCheck(response);
+    
+    const cart = await response.json();
+
+    return cart;
+}
+
+export const addToCart = async (itemId) => {
+    const response = await fetch(`/api/user/cart/${itemId}`, {
+        method:"POST",
+        headers: {
+            'Authorization' : retrieveAuthToken(),
+        }
+    }); 
+    
+    await errorCheck(response);
+    
+    const cart = await response.json();
+
+    return cart;
 }
