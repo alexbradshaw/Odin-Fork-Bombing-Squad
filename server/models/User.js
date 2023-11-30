@@ -23,7 +23,13 @@ const userSchema = new Schema(
         type: Schema.Types.ObjectId, 
         ref: 'Item',
       }
-    ]
+    ],
+    cart: [ // Array of Item _id's to refer to a user's cart
+    {
+      type: Schema.Types.ObjectId, 
+      ref: 'Item',
+    }
+  ]
   },
 );
 
