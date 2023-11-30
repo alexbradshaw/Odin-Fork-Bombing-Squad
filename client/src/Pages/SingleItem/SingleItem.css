@@ -4,7 +4,7 @@
     background-color: white;
     column-gap: 1em;
     width: 100vw; 
-    height: 700px;
+    height: 800px;
 }
 .singleitem h2 { 
     /* display: flex; */
@@ -12,7 +12,8 @@
     
     /* margin-right: 100px; */
 }
-.default-image {
+
+.image {
     width: 600px;
     margin-left: 100px;
 }
@@ -30,6 +31,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .item-details-container {
