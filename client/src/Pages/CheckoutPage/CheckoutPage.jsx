@@ -86,7 +86,7 @@ const CheckoutPage = () => {
     
           <div id='purchaseButton'>
             <div id='button_grid'>
-                <button className='bottom_btn'>Purchase</button>
+                 <a href="/purchase"><button className='bottom_btn'>Purchase</button></a>
             </div>
           </div>
 
