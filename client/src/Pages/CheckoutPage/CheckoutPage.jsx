@@ -93,7 +93,7 @@ const CheckoutPage = () => {
     
           <div id='purchaseButton'>
             <div id='button_grid'>
-                 <a href="/purchase"><button className='bottom_btn'>Purchase</button></a>
+                 <a href='/purchase'><button onClick={submitPurchase} className='bottom_btn'>Purchase</button></a>
             </div>
           </div>
 
