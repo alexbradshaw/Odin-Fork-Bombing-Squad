@@ -49,7 +49,7 @@
       "price": 100000,
       "owner": "sammy",
       "quantity": 1,
-      "image": "/placeholder.png",
+      "image": "/seeds/venn.png",
       "description": "Secret precious item that you only get to see when it arrives",
       "categories": ["venn", "big"]
     },
