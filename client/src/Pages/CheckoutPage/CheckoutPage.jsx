@@ -38,18 +38,22 @@ const CheckoutPage = () => {
     // sync up with MONGODB. This will run every time the page rerenders
     
     const renderCartItems = () => {
-      return items.map((item) => {
-        return (
-          <div className='icon_box'>
-              <PhotoList itemArray={item} />
-            {/* talk to team about there being no imgs in db */}
-            <h6 className='item_name'>{item.name}</h6>
-          </div>
-        );
-        // [<div>item1</div>, <div>item2</div>]
-        // ^ gets returned on line 33 (html) and what jsx expects when returning a list of things
-        // the outer return returns the resulting array of div tags that the inner return produces
-      });
+      if (items.length == 0) {
+        return;
+      } else {
+        return items.map((item) => {
+          return (
+            <div className='icon_box'>
+                <PhotoList itemArray={item} />
+              {/* talk to team about there being no imgs in db */}
+              <h6 className='item_name'>{item.name}</h6>
+            </div>
+          );
+          // [<div>item1</div>, <div>item2</div>]
+          // ^ gets returned on line 33 (html) and what jsx expects when returning a list of things
+          // the outer return returns the resulting array of div tags that the inner return produces
+        });
+      }
     }
 
     useEffect(() => {
@@ -59,14 +63,18 @@ const CheckoutPage = () => {
     }, [items]);
 
     const renderCartRight = () => {
-      return items.map((item) => {
-        // setTotalPrice(item.price + totalPrice);
-        return (
-          <div id='cart_row_box'>
-            <ItemList itemArray={item}/>
-          </div>
-        )
-      })
+      if (items.length == 0) {
+        return;
+      } else {
+        return items.map((item) => {
+          // setTotalPrice(item.price + totalPrice);
+          return (
+            <div id='cart_row_box'>
+              <ItemList itemArray={item}/>
+            </div>
+          )
+        })
+      }
     }
 
     return (
