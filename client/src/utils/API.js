@@ -44,7 +44,7 @@ export const login = async({ userOrEmail, password }) => {
         }), 
     });
 
-    errorCheck(response);
+    await errorCheck(response);
 
     const { token } = await response.json();
 
@@ -100,14 +100,11 @@ export const createNewItem = async (formData) => {
             },
             body: JSON.stringify(formData),
         });
-    
-        console.log("response", response);
         
-        await errorCheck(response);
-        // error check is async so we need an await or else there is no promise
+        await errorCheck(response); // error check is async so we need an await or else there is no promise
 
         const { items } = await response.json(); // extract items array
-        console.log("items", items);
+
         return items;
         // return items;
     }
@@ -198,8 +195,12 @@ export const getLoggedInUser = async () => {
 }
 
 export const getUserByUsername = async (username) => {
-    const response = await fetch(`/api/user/${username}`);
+    if (!username) {
+        return;
+    }
     
+    const response = await fetch(`/api/user/${username}`);
+
     await errorCheck(response);
     
     const user = await response.json();
@@ -238,7 +239,7 @@ export const addToCart = async (itemId) => {
 
 export const purchase = async () => {
     const response = await fetch(`/api/user/cart`, {
-        method:"PUT",
+        method:"POST",
         headers: {
             'Authorization' : retrieveAuthToken(),
         }
