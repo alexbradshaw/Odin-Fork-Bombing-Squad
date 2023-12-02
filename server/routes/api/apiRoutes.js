@@ -13,16 +13,16 @@ const { getUser, getCart, addToCart, purchase, getUserByName } = require('../../
 
 //! * Means that it's an auth protected route 
 
-router.post('/signup', signup); // Signup POST route
-router.post('/login', login); // Login POST route
-router.post('/logout', logout); // Logout POST route
-router.get('/user', getUser) // GET* route to get the logged in user
-router.get('/user/:username', getUserByName) // GET* route to get the logged in user
-router.post('/auth', authCheck) // POST route to verify an auth token
-
 router.get('/user/cart', getCart) // GET* route to get current users cart
 router.post('/user/cart/:id', addToCart) // POST* route to add to current users cart
-router.put('/user/cart', purchase) // PUT* route to tell server we purchase
+router.post('/user/cart', purchase) // PUT* route to tell server we purchase
+
+router.post('/signup', signup); // Signup POST route
+router.post('/login', login); // Login POST route
+router.post('/logout', logout); // Logout POST* route
+router.get('/user/:username', getUserByName) // GET route to get a user
+router.get('/user', getUser) // GET* route to get the logged in user
+router.post('/auth', authCheck) // POST route to verify an auth token
 
 router.post('/item', createItem) // POST* route to create a new item
 router.get('/items', getAllItems); // GET route that returns all items in the database
