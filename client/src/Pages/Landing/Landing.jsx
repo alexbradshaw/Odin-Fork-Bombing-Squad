@@ -32,7 +32,7 @@ const Landing = () => {
                     <Carousel>
                         {
                             items.map((item) => {
-                                if (item.categories.includes('tech')) {
+                                if (!item.categories.includes('big')) {
                                     return <LandingItem item={item} key={item.name}/>
                                 }
                             })
