@@ -1,9 +1,9 @@
 import './SellerInfo.css'
-import profilePic from '../../Images/profile_pic.jpg';
-import { getLoggedInUser, getUserByUsername } from '../../utils/API';
+import { getUserByUsername } from '../../utils/API';
 import { useEffect, useState } from 'react';
+
 const SellerInfo = ({owner}) => { 
-    const fetchUserData = async () => { // fetches user data for current logged in user
+    const fetchUserData = async () => { 
         try {
             const { username, profilePic } = await getUserByUsername(owner);
 
@@ -14,7 +14,7 @@ const SellerInfo = ({owner}) => {
         }
     };
 
-    useEffect(() => { fetchUserData() }, []);
+    useEffect(() => { fetchUserData() }, [owner]);
 
     const [sellerInfo, setSeller] = useState({ 
         username: "", 
