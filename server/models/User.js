@@ -21,6 +21,7 @@ const userSchema = new Schema(
     profilePic: { 
       type: String,
       required: false,
+      default: "/placeholder.png"
     },
     items: [ // Array of Item _id's to refer to a user's active listings
       {
