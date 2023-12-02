@@ -31,20 +31,22 @@ const SingleItem = () => {
         const item = await getItem(itemId);
         setInfo(item);
 
-        const cart = await getCart();
+        if (localStorage.getItem('auth') != null) {
+            const cart = await getCart();
 
-        let inCart = false;
-
-        for (let i = 0; i < cart.length; i++) {
-            if (cart[i]._id == item._id) {
-                inCart = true;
-                break;
+            let inCart = false;
+    
+            for (let i = 0; i < cart.length; i++) {
+                if (cart[i]._id == item._id) {
+                    inCart = true;
+                    break;
+                }
             }
-        }
-
-        if (inCart) {
-            setInCart(true);
-        }
+    
+            if (inCart) {
+                setInCart(true);
+            }
+        } 
     }
 
     useEffect(() => {functionCall()}, [])
