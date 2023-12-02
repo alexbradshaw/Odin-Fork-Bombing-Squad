@@ -28,6 +28,10 @@ const SellItem = () => {
         }
     };
 
+    if (localStorage.getItem('auth') == null) {
+      location.assign('/login')
+    }
+
     // const errorURL = () => {
     //   setErrorShow(false);
     // }
@@ -39,10 +43,6 @@ const SellItem = () => {
     const submitForm = (event) => {
 
       event.preventDefault();
-
-      console.log(name);
-      console.log(description);
-      console.log(image);
       // console.log(response.body);
 
       createItem(
