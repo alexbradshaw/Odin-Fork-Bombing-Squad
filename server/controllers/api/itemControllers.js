@@ -3,31 +3,30 @@ const { verifyToken } = require('../../utils/auth');
 
 const itemRoutes = {
   async createItem(req, res) {
-        try {
-            if (!verifyToken(req)) {
-                console.log("You are not signed in!");
-                res.status(401).json({ message: "You are not signed in!"})
-                return;
-            }
-
-            const newItem = await Item.create({
-                ...req.body, // Includes existing items
-                "owner":req.session.username // Pulls in authenticated user for owner
-            });
+        if (!verifyToken(req)) {
+            res.status(401).json({ message: "You are not signed in!"})
+            return;
+        } else {
+            try {
+                const newItem = await Item.create({
+                    ...req.body, // Includes existing items
+                    "owner":req.session.username // Pulls in authenticated user for owner
+                });
+            
+                const updatedUser = await User.findOneAndUpdate (
+                { _id: req.session.userId }, // Pulls authenticated users id
+                { $push: { items: newItem._id} }, // Pushes new item id to our User's items array
+                { runValidators: true, new: true } 
+                ).populate('items'); // Pulls in items array before returning user (so the page will reflect new item generation)
         
-            const updatedUser = await User.findOneAndUpdate (
-            { _id: req.session.userId }, // Pulls authenticated users id
-            { $push: { items: newItem._id} }, // Pushes new item id to our User's items array
-            { runValidators: true, new: true } 
-            ).populate('items'); // Pulls in items array before returning user (so the page will reflect new item generation)
-    
-            res.json(updatedUser); // Returns user object
-        } catch (e) {
-            console.log("error-creating-item", e);
-            res.status(500).json({
-                success: false,
-                error_msg: "unable to create item"
-            })
+                res.json(updatedUser); // Returns user object
+            } catch (e) {
+                console.error(e);
+                res.status(500).json({
+                    success: false,
+                    error_msg: "unable to create item"
+                })
+            }
         }
     },
     async getAllItems(req, res) {
@@ -35,7 +34,7 @@ const itemRoutes = {
           const item = await Item.find({}).select('-__v'); // Finds all items (ignoring a weird field)
           res.json(item); // Return items
         } catch (e) {
-          console.log(e);
+          console.error(e);
           res.status(500).json(e);
         }
     },
@@ -44,45 +43,44 @@ const itemRoutes = {
             const item = await Item.findOne({ _id: req.params.id }); // Finds one item based on req.params variable
 
             if (!item) {
-                res.status(404).json( { message: "Item not found!" });
+                res.status(404).json({ message: "Item not found!" });
                 return;
             }
 
             res.json(item); // Return item
         } catch (e) {
-            console.log(e);
+            console.error(e);
             res.status(500).json(e);
         }
     },
     async updateItem(req, res) {
-        try {
-            if (!verifyToken(req)) {
-                res.status(401).json({ message: "You are not signed in!"})
-                return;
+        if (!verifyToken(req)) {
+            res.status(401).json({ message: "You are not signed in!"})
+            return;
+        } else {
+            try {
+                const updatedItem = await Item.findOneAndUpdate( // Finds item by both id and current auth user to ensure they own the item
+                    { 
+                        _id: req.params.id, // Pulls id from URL param
+                        owner: req.session.username // Pulls username in based on authed user
+                    },
+                    { $set: req.body }, // Set item to request body
+                    { new: true } // Returns the updated item, false will return before update
+                );
+    
+                if (!updatedItem) {
+                    res.status(404).json({ message: "Item not found under user!" });
+                    return;
+                }
+
+                res.json(true); // Return status
+            } catch (e) {
+                console.error(e);
+                res.status(500).json(e);
             }
-
-            const updatedItem = await Item.findOneAndUpdate( // Finds item by both id and current auth user to ensure they own the item
-                { 
-                    _id: req.params.id, // Pulls id from URL param
-                    owner: req.session.username // Pulls username in based on authed user
-                },
-                { $set: req.body }, // Set item to request body
-                { new: true } // Returns the updated item, false will return before update
-            );
-
-            if (!updatedItem) {
-                res.status(404).json( { message: "Item not found under user!" });
-                return;
-            }
-
-            res.json(updatedItem); // Return the modified item
-        } catch (e) {
-            console.log(e);
-            res.status(500).json(e);
         }
     },
     async deleteItem(req, res) {
-        console.log(req.headers.authorization);
         try {
             if (!verifyToken(req)) {
                 res.status(401).json({ message: "You are not signed in!"})
@@ -110,7 +108,7 @@ const itemRoutes = {
 
             res.json(updatedUser); // Return user
         } catch (e) {
-            console.log(e);
+            console.error(e);
             res.status(500).json(e);
         }
     },

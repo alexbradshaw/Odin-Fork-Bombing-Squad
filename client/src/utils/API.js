@@ -1,7 +1,7 @@
 
 const errorCheck = async (res) => {
     if (!res.ok) {
-        if (res.status == 400 || res.status == 401 || res.status == 404) {
+        if ([400, 401, 404].includes(res.status)) {
             localStorage.removeItem('auth');
             location.assign('/login');
         }
@@ -30,29 +30,6 @@ export const authCheck = async () => {
     return status;
 }
 
-// Use this if you want to test an API route that requires auth
-export const loginTest = async() => {
-    const response = await fetch("/api/login", {
-        method: "POST", 
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            username: "alex", 
-            email: "alex@gmail.com", 
-            password: "abradshaw"
-        }), 
-    });
-
-    await errorCheck(response);
-
-    const { token } = await response.json();
-
-    localStorage.setItem('auth', token);
-    
-    return user;
-}
-
 // Use this if you want to test login
 export const login = async({ userOrEmail, password }) => {
     const response = await fetch("/api/login", {
@@ -67,7 +44,7 @@ export const login = async({ userOrEmail, password }) => {
         }), 
     });
 
-    errorCheck(response);
+    await errorCheck(response);
 
     const { token } = await response.json();
 
@@ -108,7 +85,7 @@ export const signup = async({ username, email, password }) => {
 
     localStorage.setItem('auth', token);
 
-    return user;
+    return true;
 }
 
 export const createNewItem = async (formData) => {
@@ -123,14 +100,11 @@ export const createNewItem = async (formData) => {
             },
             body: JSON.stringify(formData),
         });
-    
-        console.log("response", response);
         
-        await errorCheck(response);
-        // error check is async so we need an await or else there is no promise
+        await errorCheck(response); // error check is async so we need an await or else there is no promise
 
         const { items } = await response.json(); // extract items array
-        console.log("items", items);
+
         return items;
         // return items;
     }
@@ -177,9 +151,7 @@ export const updateItem = async (itemId, updatedItemBody) => {
         method: "PUT", 
         headers: {
             'Authorization' : retrieveAuthToken(),
-        },
-        headers: {
-          "Content-Type": "application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify(updatedItemBody),
     });
@@ -220,6 +192,20 @@ export const getLoggedInUser = async () => {
     return user;
 }
 
+export const getUserByUsername = async (username) => {
+    if (!username) {
+        return;
+    }
+    
+    const response = await fetch(`/api/user/${username}`);
+
+    await errorCheck(response);
+    
+    const user = await response.json();
+
+    return user;
+}
+
 export const getCart = async () => {
     const response = await fetch("/api/user/cart", {
         headers: {
@@ -247,4 +233,19 @@ export const addToCart = async (itemId) => {
     const cart = await response.json();
 
     return cart;
+}
+
+export const purchase = async () => {
+    const response = await fetch(`/api/user/cart`, {
+        method:"POST",
+        headers: {
+            'Authorization' : retrieveAuthToken(),
+        }
+    }); 
+    
+    await errorCheck(response);
+    
+    const empty = await response.json();
+
+    return empty;
 }
