@@ -15,8 +15,7 @@ const verifyToken = (req) => {
     }
 
     try {
-        const { data } = jwt.verify(token, secret, { maxAge: expiration });
-        console.log(data);
+        jwt.verify(token, secret, { maxAge: expiration });
     } catch (e) {
         return false;
     }
