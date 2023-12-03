@@ -72,8 +72,8 @@ const itemRoutes = {
                     res.status(404).json({ message: "Item not found under user!" });
                     return;
                 }
-    
-                res.json(updatedItem); // Return the modified item
+
+                res.json(true); // Return status
             } catch (e) {
                 console.error(e);
                 res.status(500).json(e);
