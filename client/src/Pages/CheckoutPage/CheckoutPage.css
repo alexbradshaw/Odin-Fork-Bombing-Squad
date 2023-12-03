@@ -8,6 +8,19 @@
     margin: auto;
 }
 
+#delete_icon {
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border-radius: 0px 16px 0px 0px;
+}
+
+#total_price {
+    color: black;
+}
+
 #photo_box_test {
     border-radius: 20px;
     border-color: black;
@@ -17,6 +30,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     width: 100%;
+    line-height: 0rem;
     /* When I fill up my columns then I get a new row */
     /* Fixes issues */
     overflow: scroll;
@@ -95,10 +109,6 @@
     margin: 0 auto;
 }
 
-#price_box > h6 {
-    color: white;
-}
-
 #item-box > * {
     height: 150px;
     display: flex;
@@ -135,6 +145,7 @@ button {
     display: flex;
     flex-direction: column;
     line-height: 0;
+    position: relative;
 }
 
 .icon_box > * {

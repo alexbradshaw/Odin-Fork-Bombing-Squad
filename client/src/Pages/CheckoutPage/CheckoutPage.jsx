@@ -4,6 +4,7 @@ import '../../utils/API.js';
 import { getCart } from '../../utils/API.js';
 import ItemList from '../../Components/Checkout/ItemList.jsx';
 import PhotoList from '../../Components/Checkout/PhotoList.jsx';
+import { formatDecimal } from '../../utils/Format.js';
 
 
 const CheckoutPage = () => {
@@ -24,6 +25,15 @@ const CheckoutPage = () => {
             console.error(e);
         }
     };
+
+    // const deleteItem = async () => {
+    //   try {
+    //       //delete method
+    //   }
+    //   catch (e) {
+    //     console.log(e);
+    //   }
+    // }
     
     // Because it takes time for React to get all the items by calling getAllItems it has to be in an async function
     //After we want to store it in a state variable array
@@ -36,6 +46,8 @@ const CheckoutPage = () => {
       return items.map((item) => {
         return (
           <div className='icon_box'>
+            <img id = 'delete_icon' src='https://static.vecteezy.com/system/resources/previews/016/964/102/original/eps10-white-garbage-or-trash-can-solid-icon-or-logo-isolated-on-black-background-delete-or-rubbish-basket-symbol-in-a-simple-flat-trendy-modern-style-for-your-website-design-and-mobile-app-vector.jpg'></img>
+            {/* insert delete icon in the top right corner of each icon box */}
               <PhotoList itemArray={item} />
             {/* talk to team about there being no imgs in db */}
             <h6 className='item_name'>{item.name}</h6>
@@ -52,6 +64,9 @@ const CheckoutPage = () => {
       const newTotalPrice = items.reduce((prev, curr) => prev + curr.price, 0);
       setTotalPrice(newTotalPrice);
     }, [items]);
+    // Everytime the page refreshes, the totalPrice is recomputed by calling the reduce method. This method
+    // goes element by element but is able to keep an ongoing sum of the price by computing the higher price form combining
+    // the previous value of sum to the current sum
 
     const renderCartRight = () => {
       return items.map((item) => {
@@ -82,7 +97,7 @@ const CheckoutPage = () => {
               {renderCartRight()}
             </div>
             <div id='price_box'>
-              <h6>Total Price: {totalPrice}</h6>
+              <h6 id='total_price'>Total Price: ${formatDecimal(totalPrice)}</h6>
             </div>
           </div>
 
@@ -93,7 +108,7 @@ const CheckoutPage = () => {
     
           <div id='purchaseButton'>
             <div id='button_grid'>
-                 <a href='/purchase'><button onClick={submitPurchase} className='bottom_btn'>Purchase</button></a>
+                 <a href='/purchase'><button className='bottom_btn'>Purchase</button></a>
             </div>
           </div>
 
