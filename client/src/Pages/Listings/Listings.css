@@ -71,6 +71,35 @@
         margin: 0;
     }
 
+    .editContainer {
+        height: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .editContainer input {
+        text-align: center;
+    }
+
+    .headerEdit {
+        display: flex;
+        justify-content: center;
+        height: fit-content;
+    }
+
+    .bottomEdit {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+    .bottomEdit > input {
+        width: 80px;
+        height: fit-content;
+    }
+
     .modify {
         display: flex;
         justify-content: space-evenly;
