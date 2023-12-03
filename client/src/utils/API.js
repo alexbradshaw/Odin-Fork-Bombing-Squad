@@ -151,9 +151,7 @@ export const updateItem = async (itemId, updatedItemBody) => {
         method: "PUT", 
         headers: {
             'Authorization' : retrieveAuthToken(),
-        },
-        headers: {
-          "Content-Type": "application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify(updatedItemBody),
     });
