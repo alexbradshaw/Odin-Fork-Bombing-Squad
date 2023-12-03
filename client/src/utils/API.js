@@ -85,7 +85,7 @@ export const signup = async({ username, email, password }) => {
 
     localStorage.setItem('auth', token);
 
-    return user;
+    return true;
 }
 
 export const createNewItem = async (formData) => {
