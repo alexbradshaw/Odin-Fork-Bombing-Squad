@@ -75,6 +75,7 @@ label {
     box-sizing: border-box;
     background-color: aliceblue;
     border-radius: 10px;
+    color: black;
 }
 
 /* Button styling */
