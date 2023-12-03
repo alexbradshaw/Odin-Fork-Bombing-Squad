@@ -14,13 +14,12 @@ const SignUp = () => {
     e.preventDefault(); // prevents page from refreshing
     if (password != confirmPassword) {
       alert("Confirmed Password does not match Password");
-      location.assign('/SignUp');
     } else {
+      const success = await signup({ username, email, password });
       if (success) {
         location.assign('/');
       }
     }
-    const success = await signup({ username, email, password });
 
   };
  
