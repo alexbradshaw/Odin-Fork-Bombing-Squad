@@ -10,9 +10,17 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const submitLogin = (e) => {
+  const submitLogin = async (e) => {
     e.preventDefault(); // prevents page from refreshing
-    signup({ username, email, password });
+    if (password != confirmPassword) {
+      alert("Confirmed Password does not match Password");
+    } else {
+      const success = await signup({ username, email, password });
+      if (success) {
+        location.assign('/');
+      }
+    }
+
   };
  
   return (
