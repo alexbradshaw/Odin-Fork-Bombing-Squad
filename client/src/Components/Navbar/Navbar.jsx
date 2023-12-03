@@ -12,6 +12,8 @@ const Navbar = () => {
     useEffect(() => {
         if (localStorage.getItem("auth") != null && authCheck()) {
             setLoggedIn(true);
+        } else {
+            setLoggedIn(false);
         }
     })
 

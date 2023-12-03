@@ -21,10 +21,6 @@ const ItemList = ({ itemArray }) => {
             <div className='item_flex_box'>
                 Price: ${formatDecimal(itemArray.price)}
             </div>
-
-            <div className='item_flex_box'>
-                Quantity: x{itemArray.quantity}
-            </div>
         </div>
     );
 };   

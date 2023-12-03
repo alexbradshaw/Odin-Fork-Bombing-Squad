@@ -1,7 +1,7 @@
 import './CheckoutPage.css'
 import React, { useState, useEffect } from 'react';
 import '../../utils/API.js';
-import { getCart } from '../../utils/API.js';
+import { getCart, purchase } from '../../utils/API.js';
 import ItemList from '../../Components/Checkout/ItemList.jsx';
 import PhotoList from '../../Components/Checkout/PhotoList.jsx';
 
@@ -24,6 +24,11 @@ const CheckoutPage = () => {
             console.error(e);
         }
     };
+
+    const submitPurchase = async() => {
+      await purchase();
+      location.assign('/');
+    }
     
     // Because it takes time for React to get all the items by calling getAllItems it has to be in an async function
     //After we want to store it in a state variable array
@@ -33,18 +38,22 @@ const CheckoutPage = () => {
     // sync up with MONGODB. This will run every time the page rerenders
     
     const renderCartItems = () => {
-      return items.map((item) => {
-        return (
-          <div className='icon_box'>
-              <PhotoList itemArray={item} />
-            {/* talk to team about there being no imgs in db */}
-            <h6 className='item_name'>{item.name}</h6>
-          </div>
-        );
-        // [<div>item1</div>, <div>item2</div>]
-        // ^ gets returned on line 33 (html) and what jsx expects when returning a list of things
-        // the outer return returns the resulting array of div tags that the inner return produces
-      });
+      if (items.length == 0) {
+        return;
+      } else {
+        return items.map((item) => {
+          return (
+            <div className='icon_box'>
+                <PhotoList itemArray={item} />
+              {/* talk to team about there being no imgs in db */}
+              <h6 className='item_name'>{item.name}</h6>
+            </div>
+          );
+          // [<div>item1</div>, <div>item2</div>]
+          // ^ gets returned on line 33 (html) and what jsx expects when returning a list of things
+          // the outer return returns the resulting array of div tags that the inner return produces
+        });
+      }
     }
 
     useEffect(() => {
@@ -54,14 +63,18 @@ const CheckoutPage = () => {
     }, [items]);
 
     const renderCartRight = () => {
-      return items.map((item) => {
-        // setTotalPrice(item.price + totalPrice);
-        return (
-          <div id='cart_row_box'>
-            <ItemList itemArray={item}/>
-          </div>
-        )
-      })
+      if (items.length == 0) {
+        return;
+      } else {
+        return items.map((item) => {
+          // setTotalPrice(item.price + totalPrice);
+          return (
+            <div id='cart_row_box'>
+              <ItemList itemArray={item}/>
+            </div>
+          )
+        })
+      }
     }
 
     return (

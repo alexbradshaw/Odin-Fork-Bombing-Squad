@@ -3,7 +3,6 @@ const { generateToken, verifyToken } = require('../../utils/auth');
 
 const authRoutes = {
   async login(req, res) {
-    console.log(req.body)
       const user = await User.findOne({ // Finds user based on username or email
               $or: 
               [
@@ -22,13 +21,19 @@ const authRoutes = {
         return res.status(401).json({ message: 'Incorrect password!' });
       }
 
-      req.session.save(() => {
-        req.session.userId = user._id; // Save user _id to session
-        req.session.username = user.username; // Save username to session
-        req.session.jwt = generateToken(user);
- 
-        res.json({ user, token: req.session.jwt }); // Return user
-      })
+      try {
+        req.session.save(() => {
+          req.session.userId = user._id; // Save user _id to session
+          req.session.username = user.username; // Save username to session
+          req.session.jwt = generateToken(user);
+  
+          res.json({ user, token: req.session.jwt }); // Return user
+        })
+      }
+      catch (e) {
+          console.error(e);
+          res.status(400).json(e);
+      }
     },
 
   async signup(req, res) {
@@ -42,28 +47,29 @@ const authRoutes = {
 
         res.json({ user, token: req.session.jwt }); // Return user
       })
-    } catch (e) {
-      console.log(e);
+    } 
+    catch (e) {
+      console.error(e);
       res.status(400).json(e);
     }
   },
   async logout(req, res) {
 
     if (!verifyToken(req)) {
-      res.status(401).json({ message: "You are not signed in!"})
-      return;
-    }
-
-    try {
-      req.session.destroy((err) => {
-        if (err) {
-          throw err;
+        res.status(401).json({ message: "You are not signed in!"})
+        return;
+    } else {
+        try {
+          req.session.destroy((err) => {
+            if (err) {
+              throw err;
+            }
+            res.status(200).json({message: "Successfully errorged out."});
+          });
+        } catch (e) {
+          console.error(e);
+          res.status(400).json(e);
         }
-        res.status(200).json({message: "Successfully logged out."});
-      });
-    } catch (e) {
-      console.log(e);
-      res.status(400).json(e);
     }
   },
   async authCheck(req, res) {

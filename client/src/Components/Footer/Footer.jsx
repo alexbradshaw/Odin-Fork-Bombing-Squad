@@ -5,7 +5,7 @@ import { RoutesContext } from '../../main';
 const Footer = () => {
 
     const { routes } = useContext(RoutesContext);
-    console.log(routes);
+
     return (
         <div className='footer'>
             <div>

@@ -1,7 +1,7 @@
 import './SingleItem.css'
 import SellerInfo from '../../Components/SingleItem/SellerInfo';
 import { useState, useEffect } from 'react'; 
-
+// import seller
 import { useParams } from 'react-router-dom';
 import { getCart, getItem } from '../../utils/API';
 import ItemDetails from '../../Components/SingleItem/ItemDetails';
@@ -21,6 +21,8 @@ const SingleItem = () => {
         description: "",
     });
 
+    
+
     const [inCart, setInCart] = useState(false);
 
     const { itemId } = useParams();
@@ -29,20 +31,22 @@ const SingleItem = () => {
         const item = await getItem(itemId);
         setInfo(item);
 
-        const cart = await getCart();
+        if (localStorage.getItem('auth') != null) {
+            const cart = await getCart();
 
-        let inCart = false;
-
-        for (let i = 0; i < cart.length; i++) {
-            if (cart[i]._id == item._id) {
-                inCart = true;
-                break;
+            let inCart = false;
+    
+            for (let i = 0; i < cart.length; i++) {
+                if (cart[i]._id == item._id) {
+                    inCart = true;
+                    break;
+                }
             }
-        }
-
-        if (inCart) {
-            setInCart(true);
-        }
+    
+            if (inCart) {
+                setInCart(true);
+            }
+        } 
     }
 
     useEffect(() => {functionCall()}, [])
@@ -62,7 +66,7 @@ const SingleItem = () => {
                 <div className='item-details'> 
                     <ItemDetails itemInfo ={itemInfo} addHandler={addHandler} inCart={inCart}/> 
                 </div>
-                <div className='seller-info'> <SellerInfo /> </div>
+                <div className='seller-info'> <SellerInfo owner={itemInfo.owner}/> </div>
             </div>
         </div>
     );

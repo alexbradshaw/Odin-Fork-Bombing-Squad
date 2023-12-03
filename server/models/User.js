@@ -18,6 +18,11 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    profilePic: { 
+      type: String,
+      required: false,
+      default: "/placeholder.png"
+    },
     items: [ // Array of Item _id's to refer to a user's active listings
       {
         type: Schema.Types.ObjectId, 
