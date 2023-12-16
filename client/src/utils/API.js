@@ -81,7 +81,7 @@ export const signup = async({ username, email, password }) => {
 
     await errorCheck(response);
 
-    const { user, token } = await response.json();
+    const { token } = await response.json();
 
     localStorage.setItem('auth', token);
 
@@ -89,40 +89,20 @@ export const signup = async({ username, email, password }) => {
 }
 
 export const createNewItem = async (formData) => {
-    try {
-        console.log("formData", formData);
         const response = await fetch("/api/item", {
             method: "POST", 
             headers: {
               "Content-Type": "application/json",
               'Authorization' : retrieveAuthToken(),
-            //   you need to be logged in to create a new Item
             },
             body: JSON.stringify(formData),
         });
         
-        await errorCheck(response); // error check is async so we need an await or else there is no promise
+        await errorCheck(response);
 
         const { items } = await response.json(); // extract items array
 
         return items;
-        // return items;
-    }
-    catch (error) {
-        console.log("error creating new item", error);
-        const emptyData = {
-            name: "",
-            description: "", 
-            category: "", 
-            pricing: 0.00, 
-            address: "", 
-            quantity: 0, 
-            image: ""
-
-        }
-        return [emptyData];
-    }
-
 }
 
 
