@@ -1,5 +1,6 @@
-import { formatDecimal } from '../../utils/Format';
 import './ItemDetails.css'
+
+import { formatDecimal } from '../../utils/Format';
 
 import AddToCart from '../../Components/SingleItem/AddToCart';
 

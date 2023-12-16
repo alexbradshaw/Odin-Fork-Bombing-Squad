@@ -1,5 +1,8 @@
 import './SignIn.css'
-import React, { useState, useContext } from 'react';
+
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { login } from '../../utils/API';
 
 const Login = () => {
@@ -47,7 +50,7 @@ const Login = () => {
             <div>
               <button id='signInButton' type="submit">Sign In</button>
               
-              <p id='alreadyHaveAnAccount'>Don't have an account? <a href='/SignUp'>Sign Up</a></p>
+              <p id='alreadyHaveAnAccount'>Don't have an account? <Link to='/SignUp'>Sign Up</Link></p>
             </div>
           </form>
           </div> 

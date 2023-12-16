@@ -1,17 +1,8 @@
-import React, { useState } from 'react';
-import "../../utils/Format";
-import { formatDecimal } from '../../utils/Format';
-
 import './ItemList.css'
 
+import { formatDecimal } from '../../utils/Format';
+
 const ItemList = ({ itemArray }) => {
-
-    // { itemArray, price, handle }
-
-    // const totalPricing = (newPricing) => {
-    //     handle(price + newPricing);
-    // }
-
     return (
         <div className='item'>
             <div className='item_flex_box'>

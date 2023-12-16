@@ -1,7 +1,8 @@
 import './ErrorPage.css'
 
-const ErrorPage = () => {
+import { Link } from 'react-router-dom';
 
+const ErrorPage = () => {
     return (
       <div className='err'>
         <div>
@@ -11,11 +12,12 @@ const ErrorPage = () => {
           <h2 id=''> 
               Oops! Something went wrong :/
           </h2>
-          <button style={{"marginTop": "15px", "width": "220px"}} onClick={()=> location.assign('/')}>Click to Return to Site</button>
+          <Link to='/'>
+            <button style={{"marginTop": "15px", "width": "220px"}} >Click to Return to Site</button>
+          </Link>
         </div>
       </div>
     ); 
-
 };
 
 export default ErrorPage; 

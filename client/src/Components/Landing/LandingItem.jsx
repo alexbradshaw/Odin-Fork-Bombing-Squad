@@ -1,11 +1,13 @@
 import { formatDecimal } from '../../utils/Format';
 
+import { Link } from 'react-router-dom';
+
 const LandingItem = ({ item }) => {
     return (
         <div className='landingItem'>
-            <a href={`/item/${item._id}`}>            
+            <Link to={`/item/${item._id}`}>            
                 <img src={item.image} alt={item.name} className='itemPicture'/>
-            </a>
+            </Link>
             <div className='itemName'>
                 {item.name}
             </div>

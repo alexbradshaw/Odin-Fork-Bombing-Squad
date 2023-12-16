@@ -1,4 +1,4 @@
-const Carousel = ({ children, items }) => {
+const Carousel = ({ children }) => {
     return (
         <div className='carousel'>
             { children }

@@ -1,5 +1,8 @@
 import './Footer.css'
+
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+
 import { RoutesContext } from '../../main';
 
 const Footer = () => {
@@ -27,7 +30,7 @@ const Footer = () => {
                                             href = '/';
                                         }
                                         return (
-                                            <a href={href} key={"link " + index}>{route.name}</a>
+                                            <Link to={href} key={"link " + index}>{route.name}</Link>
                                         );
                                     }
                                 })

@@ -1,7 +1,4 @@
-import { createNewItem } from "../../utils/API";
-
-import Confirm from './Confirm';
-import IconButton from "./IconButton";
+import { Link } from 'react-router-dom';
 
 const ListingHeader = ({ username }) => {
 
@@ -11,9 +8,11 @@ const ListingHeader = ({ username }) => {
                 <h2>Hello {username}!</h2>  
             </div>
             <div className='listingButtons'>
-                <button onClick={() => location.assign('/sellItem')}>
-                    Sell Item
-                </button>
+                <Link to="/sellItem">
+                    <button>
+                        Sell Item
+                    </button>
+                </Link>
             </div>
         </div>
       );

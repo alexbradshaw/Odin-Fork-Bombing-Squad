@@ -1,13 +1,13 @@
 import './SingleItem.css'
-import SellerInfo from '../../Components/SingleItem/SellerInfo';
+
 import { useState, useEffect } from 'react'; 
-// import seller
 import { useParams } from 'react-router-dom';
-import { getCart, getItem } from '../../utils/API';
+
+import { addToCart, getCart, getItem } from '../../utils/API';
+
 import ItemDetails from '../../Components/SingleItem/ItemDetails';
 import ItemImage from '../../Components/SingleItem/ItemImage';
-import { addToCart } from './../../utils/API';
-
+import SellerInfo from '../../Components/SingleItem/SellerInfo';
 
 const SingleItem = () => { 
     const [itemInfo, setInfo] = useState({
@@ -20,8 +20,6 @@ const SingleItem = () => {
         quantity: 0,
         description: "",
     });
-
-    
 
     const [inCart, setInCart] = useState(false);
 
@@ -49,7 +47,7 @@ const SingleItem = () => {
         } 
     }
 
-    useEffect(() => {functionCall()}, [])
+    useEffect(() => { functionCall() }, [])
 
     const addHandler = async () => {
         const addedItem = await addToCart(itemId);
@@ -58,7 +56,6 @@ const SingleItem = () => {
 
     return (
         <div className='singleitem'> 
-            {/* <img src={defaultImage} alt="Default Image" className='default-image' /> */}
             <div className='item-image-column'>
                 <ItemImage itemURL = {itemInfo.image} /> 
             </div>

@@ -1,28 +1,23 @@
 import './SellItem.css'
-import React, { useState, useEffect } from 'react';
-import PhotoForm from '../../Components/SellItem/PhotoForm.jsx';
-import '../../utils/API.js';
-import { createNewItem } from '../../utils/API.js';
 
+import { useState } from 'react';
+
+import PhotoForm from '../../Components/SellItem/PhotoForm.jsx';
+
+import { createNewItem } from '../../utils/API.js';
 
 const SellItem = () => {
     // State for handling user input
     const [name, setName] = useState('');
-    const [showForm, setShowForm] = useState(false);
     const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
     const [pricing, setPricing] = useState(0.00);
-    const [address, setAddress] = useState('');
     const [quantity, setQuantity] = useState(0);
     const [image, setImage] = useState('');
-    const [items, setItemsArray] = useState([]);
-    // const [errorShow, setErrorShow] = useState(true);
+    const [showForm, setShowForm] = useState(false);
 
     const createItem = async (formData) => {
         try {
-            const items = await createNewItem(formData);
-            console.log("formData", formData);        
-            console.log(items);
+            await createNewItem(formData);
         } catch (e) {
             console.error(e);
         }
@@ -32,36 +27,32 @@ const SellItem = () => {
       location.assign('/login')
     }
 
-    // const errorURL = () => {
-    //   setErrorShow(false);
-    // }
-
     const ShowForm = () => {
       setShowForm(true);
     }
 
-    const submitForm = (event) => {
+    const submitForm = async (event) => {
 
       event.preventDefault();
-      // console.log(response.body);
 
-      createItem(
-         {
-         name, description, price: pricing, quantity, image
-         }
-      );
+      await createItem({
+              name, 
+              description, 
+              price: pricing, 
+              quantity, 
+              image
+           });
       // From the parent class of App we are passing the handler thorugh props to add a new user to a list of users
   
       setName("");
       setDescription("");
-      setCategory("");
       setPricing(0.00);
-      setAddress("");
       setQuantity(0);
       setImage("");
 
-      // clearForm()
       event.target.reset()
+
+      location.assign('/listings')
       // event.target allows us to isolate the element of the page that is calling this handler that we are in which
       // is the form
     }  
@@ -76,22 +67,15 @@ const SellItem = () => {
         </div>  
 
           <div id='photo_box'>
-                <div id='grid_item_1'>
-                    <div className='photo_title' id='title_1'>
-                        <h3>Photo</h3>
-                    </div>
-                    <div className='photo'>
-
-                        <img src={image}></img>
-
-                        {/* {errorShow && (
-                          <div>
-                            <h5>Enter a Valid Image URL</h5>
-                          </div>
-                        )} */}
-                   </div>
-                    <button className='uploadButton' onClick={ShowForm}>Upload Image</button>
-                </div>
+              <div id='grid_item_1'>
+                  <div className='photo_title' id='title_1'>
+                      <h3>Photo</h3>
+                  </div>
+                  <div className='photo'>
+                      <img src={image}></img>
+                  </div>
+                  <button className='uploadButton' onClick={ShowForm}>Upload Image</button>
+              </div>
           </div>
 
           {showForm && (
@@ -106,7 +90,6 @@ const SellItem = () => {
       <form onSubmit={submitForm}>
           <div className='product_box'>
             <div id='product_grid'>
-                {/* <div className='' */}
                 <div className='product_text'>
                     <h5 id='input_text'>Name:</h5>
                     <input type='text' onChange={(e) => setName(e.target.value)}></input>

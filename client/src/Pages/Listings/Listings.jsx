@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 
 import ListingHeader from "../../Components/Listings/ListingHeader"
 import ListingContainer from "../../Components/Listings/ListingContainer"
+
 import { getLoggedInUser } from '../../utils/API';
 
 const Listings = () => {

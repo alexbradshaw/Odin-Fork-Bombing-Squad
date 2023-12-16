@@ -1,9 +1,10 @@
 import './Navbar.css'
 
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 
 import { authCheck, logout } from '../../utils/API';
-import { useEffect, useState } from 'react';
 
 const Navbar = () => {
 
@@ -32,16 +33,16 @@ const Navbar = () => {
 
     return (
         <div className='nav'>
-            <a href='/'>
+            <Link to='/'>
                 <img src="/transparent.png" alt="SAVY logo" className='navImage'/>
-            </a>
+            </Link>
             <div className='rightNav'>
-                <a href="/sellItem">Sell</a>
-                <a href="/listings">Profile</a>
-                {loggedIn ? <a className='logout' onClick={signOut} >Log Out</a> : <a href="/login">Log In</a>}
-                <a href='/checkout'>
+                <Link to="/sellItem">Sell</Link>
+                <Link to="/listings">Profile</Link>
+                {loggedIn ? <Link className='logout' onClick={signOut} >Log Out</Link> : <Link to="/login">Log In</Link>}
+                <Link to='/checkout'>
                     <Icon icon="ion:cart-sharp" width={25} color='black'/>
-                </a>
+                </Link>
             </div>
         </div>
     );

@@ -1,6 +1,8 @@
 import './SignUp.css'
-import React, { useState } from 'react';
-import { login } from '../../utils/API';
+
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { signup } from '../../utils/API';
 
 const SignUp = () => {
@@ -78,7 +80,7 @@ const SignUp = () => {
             <div>
               <button id='signUpButton' type="submit">Sign Up</button>
 
-              <p id='alreadyHaveAnAccount'>Already have an account? <a href='/Login'>Sign In</a></p>
+              <p id='alreadyHaveAnAccount'>Already have an account? <Link to='/Login'>Sign In</Link></p>
             </div>
           </form>
           </div> 

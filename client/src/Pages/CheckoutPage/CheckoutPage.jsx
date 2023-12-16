@@ -1,18 +1,15 @@
 import './CheckoutPage.css'
-import React, { useState, useEffect } from 'react';
-import '../../utils/API.js';
-import { getCart, purchase } from '../../utils/API.js';
+
+import { useState, useEffect } from 'react';
+
 import ItemList from '../../Components/Checkout/ItemList.jsx';
 import PhotoList from '../../Components/Checkout/PhotoList.jsx';
+
+import { getCart, purchase } from '../../utils/API.js';
 import { formatDecimal } from '../../utils/Format.js';
 
 
 const CheckoutPage = () => {
-    // State for handling user input
-    //const [itemArray, setItemArray] = useState([]);
-    // Array that contains items and their important attributes such as imageURL
-    //, their quantity, their price
-
     const[totalPrice, setTotalPrice] = useState(0.00);
     const [items, setItemsArray] = useState([]);
 
@@ -98,14 +95,11 @@ const CheckoutPage = () => {
         <div className='header'>
             <h2>Checkout</h2>
         </div>  
-
-        <div id='checkout_grid'>
-
 {/* div contains the 4 item boxes with left positioning*/}
+        <div id='checkout_grid'>
           <div id='photo_box_test'>
             {renderCartItems()}
           </div>
-
           <div id='yo'>
             <div id='item-box'>
               {renderCartRight()}
@@ -114,7 +108,6 @@ const CheckoutPage = () => {
               <h6 id='total_price'>Total Price: ${formatDecimal(totalPrice)}</h6>
             </div>
           </div>
-
         </div>
 
         {/* Div contains the box with each of the product details form the array listed out in the description in the box
@@ -122,7 +115,7 @@ const CheckoutPage = () => {
     
           <div id='purchaseButton'>
             <div id='button_grid'>
-                 <button onClick={submitPurchase} className='bottom_btn'>Purchase</button>
+              <button onClick={submitPurchase} className='bottom_btn'>Purchase</button>
             </div>
           </div>
 

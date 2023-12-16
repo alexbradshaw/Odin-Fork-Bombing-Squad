@@ -5,6 +5,7 @@ import { formatDecimal } from '../../utils/Format';
 import Confirm from './Confirm';
 import IconButton from './IconButton';
 import { updateItem, deleteItem } from '../../utils/API';
+import { Link } from 'react-router-dom';
 
 const ListingContainer = ({ items, setItemsArray }) => {
 
@@ -55,9 +56,9 @@ const ListingContainer = ({ items, setItemsArray }) => {
 
         return (
             <div className='listItem'>
-                <a href={`/item/${item._id}`}>
+                <Link to={`/item/${item._id}`}>
                     <img src={`${item.image}`} alt={`${item.name}`} className='listImage'/>
-                </a>
+                </Link>
                 {
                     edit ?
                     <div className='editContainer'>

@@ -1,13 +1,15 @@
 import './SellerInfo.css'
-import { getUserByUsername } from '../../utils/API';
+
 import { useEffect, useState } from 'react';
+
+import { getUserByUsername } from '../../utils/API';
 
 const SellerInfo = ({owner}) => { 
     const fetchUserData = async () => { 
         try {
             const { username, profilePic } = await getUserByUsername(owner);
 
-            setSeller({username, profilePic})
+            setSeller({ username, profilePic })
 
         } catch (e) {
             console.log(e);

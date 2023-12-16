@@ -1,5 +1,7 @@
 import './PurchasePage.css'
 
+import { Link } from 'react-router-dom';
+
 const PurchasePage = () => {
 
     return (
@@ -11,7 +13,9 @@ const PurchasePage = () => {
           <h2 id=''> 
               Thank you for Purchasing from Us!
           </h2>
-          <button style={{"marginTop": "15px", "width": "220px"}} onClick={()=> location.assign('/')}>Click to Return to Site</button>
+          <Link to='/'>
+            <button style={{"marginTop": "15px", "width": "220px"}} >Click to Return to Site</button>
+          </Link>
         </div>
       </div>
     ); 

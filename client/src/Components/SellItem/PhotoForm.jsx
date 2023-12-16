@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
 import './PhotoForm.css';
+
+import { useState } from 'react';
 
 const PhotoForm = ({ set, setter }) => {
 
@@ -11,7 +12,6 @@ const PhotoForm = ({ set, setter }) => {
         event.target.reset();
         // handle(clearPhoto);  
         //   Need function that resets the contents of this form 
-
     }
 
     return (
