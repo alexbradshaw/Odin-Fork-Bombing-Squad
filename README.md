@@ -3,6 +3,7 @@
 
 ## Table of Contents
 - [Description](#description)
+- [Constraints](#constraints)
 - [Installation](#installation)
 - [Main Pages](#main-pages)
 - [License](#license)
@@ -21,6 +22,23 @@ What problem does it solve?
 
 What did you learn?
 - React Router Dom, Mongoose, Express, React, CSS
+
+## Constraints
+
+### Frontend
+- Single Page Application Design
+- Needs to use React.js
+- Clientside Routing (React-Router-Dom)
+
+### Authentication
+- Passwords must not be in plain text (bcrypt)
+- Protected routes
+- Establish authentication sessions
+
+### Backend
+- Uses MongoDB to persist data
+- Implements Express.js to set up endpoints for Mongoose.js CRUD Operations
+- Appropriate Error Messages
 
 ## Installation
 npm install <br>
@@ -43,8 +61,10 @@ after install, npm start will run the application
 Contact a member of the SAVY team.
 
 ## Questions
-### Github Profiles
-[Alex](https://github.com/alexbradshaw) <br>
-[Sammy](https://github.com/sam8beard) <br>
-[Venn](https://github.com/vennreddy490) <br>
-[Yushus](https://github.com/ykomarlu) <br>
+
+| Developer | Github                                    | Email                                        |
+| --------- | ----------------------------------------- | -------------------------------------------- |
+| Alex      | [Github](https://github.com/alexbradshaw) | [Email](mailto:alexanderbradshaw5@gmail.com) |
+| Sammy     | [Github](https://github.com/sam8beard)    | [Email](mailto:sammybeard2002@gmail.com)     |
+| Venn      | [Github](https://github.com/vennreddy490) | [Email](mailto:vennreddy490@gmail.com)       |
+| Yushus    | [Github](https://github.com/ykomarlu)     | [Email](mailto:yushusgk@gmail.com)           |
